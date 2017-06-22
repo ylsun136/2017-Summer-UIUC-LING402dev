@@ -1,0 +1,66 @@
+[Title Screen: Command Line Basics: Redirecting standard output]
+
+Let's take a look at command line basics: redirecting standard output.
+
+By default, the standard output of a program such as ls
+
+[Type ls -l /usr/bin ENTER]
+
+displays on the screen.
+
+The standard output can be redirected to a file using a redirection operator, the 'greater than' sign on the keyboard,
+[Type ls -l /usr/bin >]
+
+followed by the name of the file.
+
+[Continue to type ls-output.txt ENTER]
+
+Here, we created a long listing of the /usr/bin directory and sent the results to the file ls-output.txt, and the results do not display on the screen.
+
+Let's examine the redirected output file with ls.
+
+[Type ls -l ls-output.txt ENTER]
+
+See from the long listing that this file has just been created, and it has content, as its length is larger than zero.
+
+Let's examine file ls-output.txt's content with less.
+
+[Type less ls-output.txt ENTER]
+
+See that the file ls-output.txt does indeed contain the output from the ls -l command.
+
+[Exit less]
+
+The redirection operator
+
+[Type >]
+
+always overwrites the destination file from the beginning.
+
+Let's try redirecting the output of a different command to the same file.
+
+[Delete >. Type ls > ls-output.txt ENTER]
+
+Let's examine the file ls-output.txt's content with less.
+
+[Type less ls-output.txt ENTER]
+
+See that the file ls-output.txt now only contains the output of the ls command, not the output of the ls -l command.
+
+[Exit less]
+
+To append redirected output to a file instead of overwriting the file, we use a different redirection operator, double 'greater than' signs.
+
+[Type >>]
+
+Let's append the output of a ls-l command to the ls-output.txt file.
+
+[Delete >>. Type ls -l /usr/bin >> ls-output.txt ENTER]
+
+Let's examine the file ls-output.txt's content with less.
+
+[Type less ls-output.txt ENTER]
+
+See that the file ls-output.txt now contains the output of the ls command, followed by the output of the ls -l command.
+
+[Exit less]

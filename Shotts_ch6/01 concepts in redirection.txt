@@ -1,0 +1,92 @@
+[Title Screen: Command Line Basics: Redirection]
+
+Let's take a look at command line basics: redirection.
+
+Programs such as ls
+
+[Draw a box labeled 'ls'.]
+
+send their results to a special file, called standard output, or stdout.
+
+[Draw a tube leading out from box 'ls', label it 'stdout'.]
+
+Programs also send status and error messages to another file called standard error, or stderr.
+
+[Draw a tube leading out from box 'ls', label it 'stderr'.]
+
+By default, both standard output and standard error are linked to the screen, not saved to a disk file.
+
+[Draw tubes 'stdout' and 'stderr' connecting into a box labelled 'screen'.]
+
+Many programs, such as sort, also take input from a special file called standard input, or stdin.
+
+[Draw a box labelled 'sort', a tube 'stdin' leading into it, and tubes 'stdout'/'stderr' leading out of it. Connect 'stdout' and 'stderr' of 'sort' to box 'screen'.]
+
+By default, standard input is attached to the keyboard.
+
+[Draw a box labelled 'keyboard' connecting into tube 'stdin'.]
+
+Input or output redirection allows us to change where output goes and where input comes from. For example, standard output from ls can be redirected into a file on disk.
+
+[Change the label of the appropriate box to 'file'.]
+
+Or, standard input to sort can be redirected so that it comes from a file on disk.
+
+[Change the label of the appropriate box to 'file'.]
+
+Or, the standard output of ls can be set to feed into the standard input of sort.
+
+[Wipe away both 'file' boxes.]
+[Connect 'stdout' of 'ls' to 'stdin' to 'sort'].
+
+When the standard output of a command is directed into the standard input of another command, they form a 'pipeline'. In this pipeline, 
+
+[Gesture over boxes 'ls' and 'sort'.]
+
+the standard output of ls is said to 'pipe' into the standard input of sort.
+
+The function of this pipeline is that the output of command ls
+
+[Point to 'stdout' of 'ls'.]
+
+is sorted,
+
+[Gesture over box 'sort'.]
+
+and displayed on a screen.
+
+[Point to box 'screen' connected to 'stdout' of 'sort'.]
+
+Several commands can be put together into one pipeline.
+
+[Draw a pipeline consisting of boxes 'ls', 'sort' and 'less', with 'stdout' of 'less' going into 'screen'.]
+
+This pipeline takes the output of command ls, 
+
+[Point to 'stdout' of 'ls'.]
+
+sorts it with sort, 
+
+[Gesture over box 'sort'.]
+
+and displays the sorted output on the computer screen with less.
+
+[Gesture over box 'less' and point to box 'screen' connected to 'stdout' of 'less'.]
+
+Finally, a command such as sort,
+
+[Point to the box 'sort'.]
+
+that takes some input data, 
+
+[Point to the 'stdin' tube of 'sort'.]
+
+does something useful such as sorting to it, 
+
+[Gesture on the box 'sort'.]
+
+and then outputs the data,
+
+[Point to the 'stdout' tube of 'sort'.]
+
+is called a filter. Pipelines often make use of filters.

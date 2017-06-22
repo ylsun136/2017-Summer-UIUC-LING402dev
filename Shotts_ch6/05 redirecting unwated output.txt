@@ -1,0 +1,19 @@
+[Title Screen: Command Line Basics: Redirecting unwanted output]
+
+Let's take a look at command line basics: redirecting unwanted output.
+
+Unwanted output can be redirected to a special device called /dev/null.
+
+Let's try redirecting standard error of the ls command
+
+[Type ls -l /bin/usr 2>]
+
+to /dev/null.
+
+[Continue to type /dev/null ENTER]
+
+Let's use ls to examine the effect of redirecting to /dev/null.
+
+[Type ls -l /dev/null ENTER]
+
+This results in an error message. No file called /dev/null has been created.

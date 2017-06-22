@@ -1,0 +1,55 @@
+[Title Screen: Command Line Basics: Redirecting both standard output and standard error]
+
+Let's take a look at command line basics: redirecting both standard output and standard error.
+
+Standard output and standard error of a program can be redirected to one single file. This is useful if we wish to capture all the output of a command.
+
+To redirect both standard output and standard error from one ls command into the same file,
+
+[Type ls /usr /bin/usr > ls-output.txt]
+
+use the numeral file descriptors for standard error and standard output with the redirection operator.
+
+[Continue to type 2>&1 ENTER]
+
+Let's examine the file ls-output.txt with less.
+
+[Type less ls-output.txt ENTER]
+
+The file ls-output.txt contains the output of ls /usr and the error message of ls /bin/usr.
+
+[Exit less]
+
+The order of redirection is important. First redirect to a file,
+
+[Highlight > ls-output.txt in the command]
+
+then specify the file descriptors of standard output and standard input.
+
+[Highlight 2>&1 in the command]
+
+In newer versions of bash, we can also use the operator &> to redirect both standard output and standard error of a command to a single file.
+
+[Type ls /usr /bin/usr &> ls-output.txt ENTER]
+
+Let's examine the file ls-output.txt with less.
+
+[Type less ls-output.txt ENTER]
+
+The file ls-output.txt contains the output of ls /usr and the error message of ls /bin/usr.
+
+[Exit less]
+
+We can also use the append redirection operator to append standard output and standard error of a command to a single file.
+
+[Type ls /usr /bin/usr &>> ls-output.txt]
+[Highlight &>>]
+[Press ENTER]
+
+Let's examine the file ls-output.txt with less.
+
+[Type less ls-output.txt ENTER]
+
+The file ls-output.txt has been appended with the output of ls /usr and the error message of ls /bin/usr.
+
+[Exit less]
