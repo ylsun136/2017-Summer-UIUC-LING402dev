@@ -1,0 +1,9 @@
+-- scripts --
+
+06/23: Shotts chapter 7 (parameter expansion, $ and escape sequences)
+06/24: Shotts chapter 19 (regular expressions) [very likely will not finish in a day]
+
+-- auxiliary --
+
+- investigate youtube subtitle mechanism
+- draft converage of new python book
