@@ -1,2 +1,91 @@
-the < operator
-demonstrate with sort?
+# for this script, a sample input file named fruits.txt with some content
+# and a sample input file named usr.txt
+# should be present in the working directory
+
+[Title Screen: Command Line Basics: Redirecting standard input]
+
+Let's take a look at command line basics: redirecting standard input.
+
+To redirect standard input, use the input redirection operator.
+
+The input redirection operator is the left angle bracket character, or the 'less than' sign, on the keyboard.
+
+[Type <]
+
+We will demonstrate standard input redirection with the command sort.
+
+[Delete <]
+
+The command sort sorts lines of text. By default, sort takes text from the keyboard.
+
+[Type sort ENTER]
+
+Here, as ENTER is pressed right after typing sort, the program is waiting for input from the keyboard.
+
+Let's supply a few lines of text.
+
+[Type strawberry ENTER apricot ENTER persimmon ENTER jackfruit ENTER guava ENTER]
+
+To signal the end of the text, press Ctrl+D. That is, hold down the 'Ctrl' key on your keyboard, and press 'D'.
+
+[Press Ctrl+D]
+
+See that sort has alphabetically sorted the lines we have just typed in on the keyboard.
+
+[Highlight sorted output]
+
+Let's redirect the standard input of sort to take text from a file instead of the keyboard.
+
+[Type less fruits.txt]
+
+We have a file prepared, called fruits.txt.
+
+[Press ENTER]
+
+It contains names of fruits. Each fruit name is one line of text.
+
+[Type q to exit less]
+
+To use fruit.txt as the input to sort,
+
+[Type sort]
+
+use the input redirection operator,
+
+[Continue to type <]
+
+followed by the input file's name.
+
+[Continue to type fruits.txt ENTER]
+
+See that sort has alphabetically sorted the lines of text in fruits.txt, and displayed the sorted text on the screen.
+
+Input redirection can only be used on commands that would, by default, read input from the keyboard, such as sort. Commands that do not read input from the keyboard by default, such as ls, cd and date, will ignore input redirection even if it is used.
+
+Let us see the effect of input redirection on a command that ignores input redirection.
+
+[Type ls /usr ENTER]
+
+This command displays the contents of the subdirectory /usr on the screen.
+
+We have also prepared a file called usr.txt
+
+[Type less usr.txt, pause, press ENTER]
+
+that contains the pathname /usr in text.
+
+[Type q to exit less]
+
+Let's try to display the contents of the subdirectory /usr,
+
+[Type ls]
+
+by redirecting the input to use the pathname /usr from the file usr.txt,
+
+[Continue to type < usr.txt ENTER]
+
+See that the command ls has executed, but it has ignored input redirection. The actual command executed is just ls without the subdirectory /usr, 
+
+[Highlight ls in the command]
+
+and it has displayed the contents of the working directory, not the contents of /usr.

@@ -1,0 +1,111 @@
+[Title Screen: Command Line Basics: cat]
+
+Let's take a look at command line basics: cat.
+
+The command cat reads one or more files, and by default displays the content to the screen It displays files without paging, and is often used for quick display of short text files.
+
+We have prepared two text files named page1.txt and page2.txt.
+
+Let's try to use cat
+
+[Type cat]
+
+to display the content of page1.txt.
+
+[Continue to type page1.txt ENTER]
+
+See that the content of page1.txt is displayed, but unlike less, we did not need to press q to exit.
+
+If cat is used with multiple file names, cat will combine the contents of all files and display them. This combination process is called concatenation, and that's why this command is called cat.
+
+Let's try to use cat
+
+[Type cat]
+
+to display the contents of both page1.txt and page2.txt together.
+
+[Continue to type page1.txt page2.txt ENTER]
+
+See that the contents of both files are displayed.
+
+Note that cat does not change the contents of the original files. Let's examine the content of page1.txt to see this.
+
+[Type less page1.txt page2.txt ENTER]
+
+The content of page1.txt,
+
+[Press :n to display the next file]
+
+and page2.txt are unchanged.
+
+[Press q to exit less]
+
+cat can be used, with output redirection, to join the contents of multiple files together into a single file.
+
+Let's try to use cat
+
+[Type cat]
+
+to combine the contents of both page1.txt and page2.txt,
+
+[Continue to type page1.txt page2.txt]
+
+and send the output to a file called multi-page.txt.
+
+[Continue to type > multi-page.txt ENTER]
+
+Let's use cat to examine the content of multi-page.txt.
+
+[Type cat multi-page.txt ENTER]
+
+multi-page.txt contains the text from page1.txt and page2.txt.
+
+The output of cat can also be piped, for example, to less, for page-by-page viewing.
+
+Let's try to use cat to combine the contents of page1.txt and page2.txt,
+
+[Type cat page1.txt page2.txt]
+
+and pipe the output to less.
+
+[Continue to type | less ENTER]
+
+See that text from page1.txt and page2.txt are displayed.
+
+[Press q to exit less]
+
+If cat is not given a file name, it will read text from standard input, i.e. the keyboard, and copies it to the standard output, i.e. the screen.
+
+Let's try using cat without an argument.
+
+[Type cat]
+
+cat is now waiting for keyboard input. Let's type some text.
+
+[Type The quick brown fox jumped over the lazy dog.]
+
+To signal the end of input, type Ctrl+D, that is, hold down the Ctrl key on your keyboard and press D.
+
+[Press Ctrl+D]
+
+cat has displayed the text we just typed on the screen.
+
+This can be used, with output redirection, to type text into a text file, as a very simple word processor.
+
+Let's try to use cat to create a file called lazy_dog.txt.
+
+[Type cat > lazy-dog.txt ENTER]
+
+Now cat is again waiting for keyboard input. Let's type some text.
+
+[Type The quick brown fox jumped over the lazy dog.]
+
+and end it with Ctrl+D.
+
+[Press Ctrl+D]
+
+Let's use cat to examine the content of lazy-dog.txt.
+
+[Type cat lazy-dog.txt ENTER]
+
+See that lazy-dog.txt indeed contains the sentense we just typed.

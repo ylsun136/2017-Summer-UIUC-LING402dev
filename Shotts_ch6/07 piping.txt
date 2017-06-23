@@ -1,2 +1,75 @@
-the pipe operator
-difference from redirection operators
+[Title Screen: Command Line Basics: Piping]
+
+Let's take a look at command line basics: piping.
+
+When the standard output of a command is directed into the standard input of another command, they form a 'pipeline'. The standard output of one command is said to 'pipe' into the standard input of the next command. A pipeline allows a series of commands to execute, and can do some fairly complex processing.
+
+[cutscene showing the pipeline drawing from 01?]
+
+To create a pipeline, use the pipe operator, the vertical bar character on the keyboard. This is usually located above the backslash character on the keyboard.
+
+[Type |]
+
+Let's try piping the output of command ls,
+
+[Delete |]
+[Type ls -l /usr/bin]
+
+using the pipe operator,
+
+[Continue to type |]
+
+to the input of less.
+
+[Continue to type less]
+
+This pipeline sends the output of the ls -l command, a long listing of the contents in /usr/bin, to less, so that we can view the listing page by page, or search.
+
+[Press ENTER]
+
+[Press SPACE or b to turn pages, / to search]
+
+We may pipe the output of any command to less. This is very handy for display.
+
+[Press q to exit less]
+
+Let's try creating a pipeline that sorts and displays the output of ls. To do this, pipe the output of ls,
+
+[Type ls /bin /usr/bin |]
+
+to the input of the command sort,
+
+[Continue to type sort]
+
+and pipe the output of sort,
+
+[Continue to type |]
+
+to the input of less.
+
+[Continue to type less]
+
+We have created a pipeline that will list the contents of directories /bin and /usr/bin,
+
+[Highlight ls /bin /usr/bin in the command]
+
+sort the list,
+
+[Highlight | sort]
+
+and displays it page-by-page on the screen.
+
+[Highlight | less]
+[Press ENTER]
+[Press q to exit less]
+
+It is important to remember the difference between the pipe operator and redirection operators. The pipe operator connects one command to another *command*. 
+
+[Type command1 | command 2]
+
+The output redirection operator connects one command to one *file*.
+
+[Delete command1 | command2]
+[Type command1 > file1]
+
+The output redirection operator should *not* be used to connect one command to another command.
