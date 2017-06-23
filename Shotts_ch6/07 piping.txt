@@ -63,6 +63,20 @@ and displays it page-by-page on the screen.
 [Press ENTER]
 [Press q to exit less]
 
+We can also send the ouput of a pipeline to a file with output redirection.
+
+[Type ls /bin /usr/bin | sort > pipe-output.txt]
+[Highlight > pipe-output.txt]
+[Press ENTER]
+
+Let's examine the content of pipe-output.txt with less.
+
+[Type less pipe-output.txt]
+
+This is the output of the pipeline, a sorted listing of the contents of directories /bin and /usr/bin.
+
+[Press q to exit less]
+
 It is important to remember the difference between the pipe operator and redirection operators. The pipe operator connects one command to another *command*. 
 
 [Type command1 | command 2]

@@ -18,11 +18,17 @@ See that the content of page1.txt is displayed, but unlike less, we did not need
 
 If cat is used with multiple file names, cat will combine the contents of all files and display them. This combination process is called concatenation, and that's why this command is called cat.
 
+Let's take a look at cat's man page.
+
+[Type man cat ENTER]
+[Highlight concatenate]
+[Press q to exit man]
+
 Let's try to use cat
 
 [Type cat]
 
-to display the contents of both page1.txt and page2.txt together.
+to display the contents of both page1.txt and page2.txt.
 
 [Continue to type page1.txt page2.txt ENTER]
 
