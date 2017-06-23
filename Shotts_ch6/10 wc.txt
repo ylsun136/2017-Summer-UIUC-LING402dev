@@ -1,0 +1,68 @@
+[Title Screen: Command Line Basics: wc]
+
+Let's take a look at command line basics: wc.
+
+The wc or word count command displays the number of lines, words and bypes contained in files.
+
+Let's take a look at wc's man page.
+
+[Type man wc ENTER]
+[Press q to exit man]
+
+Therefore uniq is often used after sort in a pipeline.
+
+Let's create a text file and use wc.
+
+[Type ls -l /usr/bin > ls-output.txt ENTER]
+[Type wc ls-output.txt]
+
+wc has printed out three numbers. From the left to right, the number of lines,
+
+[Highlight first number in output]
+
+the number of words,
+
+[Highlight second number in output]
+
+and the number of bytes,
+
+[Highlight third number in output]
+
+in the file ls-output.txt.
+
+[Highlight ls-output.txt in output]
+
+To only count the number of lines in the file, use the -l option with wc.
+
+[Type wc -l ls-output.txt]
+[Highlight -l]
+[Press ENTER]
+
+Only the number of lines in the file ls-output.txt is displayed.
+
+[Highlight number in output]
+
+Let's use wc in a pipeline.
+
+[Type ls /bin /usr/bin | sort | uniq | wc -l]
+
+This command lists the contents of directories /bin and /usr/bin,
+
+[Highlight ls /bin /usr/bin in command]
+
+sorts the list,
+
+[Highlight | sort in command]
+
+removes duplicate file or directory names,
+
+[Highlight | uniq in command]
+
+and counts the number of lines in the sorted list with no duplicates.
+
+[Highlight | wc -l in command]
+[Press ENTER]
+
+We have counted the number of uniq item names in directories /bin and /usr/bin.
+
+[Highlight the number in output]

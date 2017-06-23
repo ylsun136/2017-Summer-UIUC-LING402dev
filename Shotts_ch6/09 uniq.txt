@@ -1,0 +1,49 @@
+[Title Screen: Command Line Basics: uniq]
+
+Let's take a look at command line basics: uniq.
+
+The command uniq takes a sorted list of data and filters out duplicated lines. It is important to remember that uniq does *not* detect duplicate lines in unsorted data.
+
+Let's take a look at uniq's man page.
+
+[Type man uniq ENTER]
+
+uniq only removes *adjacent* matching lines from the input.
+
+[Highlight adjacent matching lines]
+
+If the input data is not sorted, duplicate lines may not be adjacent, and uniq will not be able to filter them.
+
+[Press q to exit man]
+
+Therefore uniq is often used after sort in a pipeline.
+
+Let's try to use sort and uniq to create a listing with no duplicate lines from the output of a command like ls.
+
+[Type ls /bin /usr/bin]
+
+This command lists the contents of directories /bin and /usr/bin.
+
+Next, sort the list using sort,
+
+[Continue to type | sort]
+
+then filter out duplicate lines from the sorted list, using uniq. That is, filter out all the files or programs that have the same name in both /bin and /usr/bin.
+
+[Continue to type | uniq]
+
+And finally, display the list with no duplicates using less.
+
+[Continue to type | less ENTER]
+
+This pipeline displays a list of unique file names in directories /bin and /usr/bin, alphabetically sorted.
+
+[Press q to exit less]
+
+If, instead of a list of unique lines, we want a list of duplicates, we can use the -d option to uniq.
+
+[Type ls /bin /usr/bin | sort | uniq -d | less]
+[Highlight -d]
+[Press ENTER]
+
+This pipeline displays a list of files that have the same name in both /bin and /usr/bin directories.

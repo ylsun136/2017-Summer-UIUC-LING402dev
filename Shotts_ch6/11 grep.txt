@@ -1,0 +1,58 @@
+[Title Screen: Command Line Basics: grep]
+
+Let's take a look at command line basics: grep.
+
+The grep command finds text patterns in files. It prints out all the lines containing a matching pattern. grep can match very complex patterns with the use of regular expressions.
+
+Let's take a look at grep's man page.
+
+[Type man grep ENTER]
+[Press q to exit grep]
+
+Let's use grep to find all the files that have the word 'zip' in the name in the directories /bin and /usr/bin. To do this, first use ls to list the files in the directories,
+
+[Type ls /bin /usr/bin]
+
+and pipe the output to grep to match the pattern 'zip'.
+
+[Continue to type | grep zip ENTER]
+
+A list of file names containing 'zip' is displayed.
+
+We see that this list has some duplicate lines. This is because /bin and /usr/bin contain files of the same name.
+
+[Highlight two occurences of bzip2.txt]
+
+To print out a list of unique file names in directories /bin and /usr/bin that have the word 'zip', we pipe the output of ls through sort and uniq before piping into grep.
+
+[Type ls /bin /usr/bin | sort | uniq | grep zip]
+[Highlight | sort | uniq]
+[Press ENTER]
+
+Now we have a sorted list of unique file names in /bin and /usr/bin that contain the word 'zip'.
+
+grep pattern matching is case-sensitive by default.
+
+Let's try to list unique file names in /bin and /usr/bin that contain the word 'ZIP'.
+
+[Type ls /bin /usr/bin | sort | uniq | grep ZIP]
+[Highlight ZIP]
+[Press ENTER]
+
+We get zero matches.
+
+To allow grep to ignore case when matching the pattern, use the -i option with grep.
+
+[Type ls /bin /usr/bin | sort | uniq | grep -i ZIP]
+[Highlight -i ZIP]
+[Press ENTER]
+
+We get matches again now because grep -i will match the word 'zip' in all uppercase, all lowercase, or any mixed case.
+
+If, instead of a list of lines that match the pattern, we want a list of lines that do *not* match the pattern, use the -v option with grep.
+
+[Type ls /bin /usr/bin | sort | uniq | grep -v zip]
+[Highlight -v zip]
+[Press ENTER]
+
+We now get a sorted list of unique file names in /bin and /usr/bin that do *not* contain the word 'zip'.
