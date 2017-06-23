@@ -2,7 +2,7 @@
 
 Let's take a look at command line basics: redirecting standard error.
 
-The redirection operators
+By default, the output redirection operators
 
 [Type > >>]
 
@@ -10,9 +10,22 @@ only redirect standard output. They do not redirect standard error.
 
 Let's try a command that produces an error and redirects its standard output.
 
-[Delete > >>. Type ls -l /bin/usr > ls-output.txt ENTER]
+[Delete > >>]
+[Type ls -l /bin/usr > ls-output.txt]
 
-The directory /bin/usr does not exist, and an error message is displayed on the screen.
+The directory /bin/usr
+
+[Highlight /bin/usr in the command]
+
+does not exist.
+
+Execute this command,
+
+[Press ENTER]
+
+and an error message is displayed on the screen.
+
+[Highlight 'No such file or directory in the error message]
 
 Let's examine the file ls-output.txt with less.
 
@@ -20,21 +33,25 @@ Let's examine the file ls-output.txt with less.
 
 The file ls-output.txt does not contain the error message we just saw. 
 
-[Exit less]
+[Press q to exit less]
 
-This is because error messages are not sent to standard output, but to standard error instead, and the redirection operator we used in the command
+This is because error messages are not sent to standard output, but to standard error. And the output redirection operator we used in the command
 
 [Highlight > in the previous command]
 
 only redirects standard output to the file ls-output.txt.
 
+To redirect standard error of a command, 
+
 [Type ls -l /bin/usr]
 
-To redirect standard error, we use a numeral file descriptor, 2, immediately before the redirection operator.
+we use a numeral file descriptor, 2, immediately before the redirection operator.
 
 [Continue to type 2>]
 
-Standard input, standard output and standard errors are all special files, and each has a numeral file descriptor. The file descriptor of standard input is 0, standard output, 1, and standard error, 2.
+Standard input, standard output and standard errors are all special files. Each of them has a numeral file descriptor. The file descriptor of standard input is 0, standard output, 1, and standard error, 2.
+
+[Highlight 2 in the command]
 
 Now let's try redirecting the standard error of ls to a file.
 
@@ -46,4 +63,4 @@ Let's examine file ls-output.txt's content with less.
 
 See that the file ls-output.txt does indeed contain the error message from the ls command.
 
-[Exit less]
+[Press q to exit less]

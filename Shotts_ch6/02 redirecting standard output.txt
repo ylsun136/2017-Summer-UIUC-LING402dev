@@ -2,26 +2,48 @@
 
 Let's take a look at command line basics: redirecting standard output.
 
-By default, the standard output of a program such as ls
+By default, the standard output of a command such as ls
 
 [Type ls -l /usr/bin ENTER]
 
 displays on the screen.
 
-The standard output can be redirected to a file using a redirection operator, the 'greater than' sign on the keyboard,
+To redirect the standard output of a command to a file, use the output redirection operator.
+
+The output redirection operator is the right angle bracket character, or the 'greater than' sign, on the keyboard.
+
+[Type >]
+
+Let's redirect the output of the command ls with the output redirection operator,
+
+[Delete >]
 [Type ls -l /usr/bin >]
 
-followed by the name of the file.
+and follow it by the name of the file.
 
 [Continue to type ls-output.txt ENTER]
 
-Here, we created a long listing of the /usr/bin directory and sent the results to the file ls-output.txt, and the results do not display on the screen.
+Here, we created a long listing of the /usr/bin directory
+
+[Highlight ls -l /usr/bin in the command]
+
+and redirected the outputs to the file ls-output.txt,
+
+[Highlight > ls-output.txt in the command]
+
+and the outputs do not display on the screen.
 
 Let's examine the redirected output file with ls.
 
 [Type ls -l ls-output.txt ENTER]
 
-See from the long listing that this file has just been created, and it has content, as its length is larger than zero.
+See from the long listing that this file has just been created,
+
+[Highlight date and time fields in the output]
+
+and it has content, as its length is larger than zero.
+
+[Highlight the length field in the output]
 
 Let's examine file ls-output.txt's content with less.
 
@@ -29,9 +51,9 @@ Let's examine file ls-output.txt's content with less.
 
 See that the file ls-output.txt does indeed contain the output from the ls -l command.
 
-[Exit less]
+[Press q to exit less]
 
-The redirection operator
+The output redirection operator
 
 [Type >]
 
@@ -39,28 +61,40 @@ always overwrites the destination file from the beginning.
 
 Let's try redirecting the output of a different command to the same file.
 
-[Delete >. Type ls > ls-output.txt ENTER]
+[Delete >]
+[Type ls > ls-output.txt ENTER]
 
 Let's examine the file ls-output.txt's content with less.
 
 [Type less ls-output.txt ENTER]
 
-See that the file ls-output.txt now only contains the output of the ls command, not the output of the ls -l command.
+See that the file ls-output.txt now only contains the output of the ls command. Its old content, the output from the previous ls -l command, has been overwritten.
 
-[Exit less]
+[Press q to exit less]
 
-To append redirected output to a file instead of overwriting the file, we use a different redirection operator, double 'greater than' signs.
+To append redirected output to a file instead of overwriting the file, we use a different output redirection operator, the double left angle bracket character.
 
 [Type >>]
 
-Let's append the output of a ls-l command to the ls-output.txt file.
+Let's append the output of a ls-l command
 
-[Delete >>. Type ls -l /usr/bin >> ls-output.txt ENTER]
+[Delete >>]
+[Type ls -l /usr/bin >>]
+
+to the ls-output.txt file.
+
+[Continue to type ls-output.txt ENTER]
 
 Let's examine the file ls-output.txt's content with less.
 
 [Type less ls-output.txt ENTER]
 
-See that the file ls-output.txt now contains the output of the ls command, followed by the output of the ls -l command.
+See that the file ls-output.txt now contains the output of the ls command,
 
-[Exit less]
+[Highlight appropriate sections of text]
+
+followed by the output of the ls -l command.
+
+[Highlight appropriate sections of text]
+
+[Press q to exit less]
