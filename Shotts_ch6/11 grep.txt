@@ -7,7 +7,7 @@ The grep command finds text patterns in files. It prints out all the lines conta
 Let's take a look at grep's man page.
 
 [Type man grep ENTER]
-[Press q to exit grep]
+[Press q to exit man]
 
 Let's use grep to find all the files that have the word 'zip' in the name in the directories /bin and /usr/bin. To do this, first use ls to list the files in the directories,
 
