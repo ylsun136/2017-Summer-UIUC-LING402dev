@@ -19,7 +19,20 @@ to display a simple line of text.
 
 See that the line we just typed is displayed.
 
-However, when there are special characters in the line of text, echo does something else.
+Extra whitespace in the argument of echo will be removed in the output.
+
+[Type echo this is a SPACE SPACE SPACE test]
+
+Here, we have typed three spaces between a, and test.
+
+[Highlight the spaces between a and test in the command]
+[Press ENTER]
+
+And the output contains only one space.
+
+[Highlight the single space between a and test in the output]
+
+When there are special characters in the line of text, echo does something else.
 
 Let's try to use echo
 

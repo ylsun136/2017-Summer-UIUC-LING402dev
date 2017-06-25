@@ -79,3 +79,15 @@ This means the actual ls command executed, is like this.
 [Press ENTER]
 
 And the output is a long listing of the shell command, cp.
+
+Bash also supports an older way to denote command substitution, which is to enclose the substituted command in back quotes, instead of dollar sign and parentheses.
+
+[Type ``]
+
+Let's try to use back quotes for command substitution.
+
+[Type ls -l `which cp` ENTER]
+
+See that the output is the same as our previous command,
+
+using the dollar sign and parentheses to denote command substitution.
