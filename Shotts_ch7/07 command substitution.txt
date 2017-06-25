@@ -60,6 +60,22 @@ And we have used command substitution to replace it with the output of which cp.
 
 which cp is a command that will output the full path of the shell command cp.
 
-So, ls will use the full path of the shell command cp as its argument.
+[Type which cp ENTER]
 
-And the output a long listing of the shell command 
+Here is the full path of the shell command, cp, on this system.
+
+[Highlight the output]
+
+So, in a command with command substitution,
+
+[Type ls -l $(which cp)]
+
+ls will use the full path of the shell command cp as its argument.
+
+This means the actual ls command executed, is like this.
+
+[Delete $(which cp)]
+[Type <full path of cp>]
+[Press ENTER]
+
+And the output is a long listing of the shell command, cp.
