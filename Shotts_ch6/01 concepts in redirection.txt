@@ -6,11 +6,11 @@ Programs such as ls
 
 [Draw a box labeled 'ls'.]
 
-send their results to a special file, called standard output, or stdout.
+send their results to a special location, called standard output, or stdout.
 
 [Draw a tube leading out from box 'ls', label it 'stdout'.]
 
-Programs also send status and error messages to another file called standard error, or stderr.
+Programs also send status and error messages to another location called standard error, or stderr.
 
 [Draw a tube leading out from box 'ls', label it 'stderr'.]
 
@@ -18,7 +18,7 @@ By default, both standard output and standard error are linked to the screen, no
 
 [Draw tubes 'stdout' and 'stderr' connecting into a box labelled 'screen'.]
 
-Many programs, such as sort, also take input from a special file called standard input, or stdin.
+Many programs, such as sort, also take input from a special location called standard input, or stdin.
 
 [Draw a box labelled 'sort', a tube 'stdin' leading into it, and tubes 'stdout'/'stderr' leading out of it. Connect 'stdout' and 'stderr' of 'sort' to box 'screen'.]
 
