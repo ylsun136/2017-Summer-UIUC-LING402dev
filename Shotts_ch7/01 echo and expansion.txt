@@ -1,0 +1,42 @@
+[Title Screen: Command Line Basics: echo and expansion]
+
+Let's take a look at command line basics: echo and expansion.
+
+The command echo takes a line of text as its argument, and displays it to the screen.
+
+Let's take a look at echo's man page.
+
+[Type man echo ENTER]
+[Press q to exit man]
+
+Let's try to use echo
+
+[Type echo]
+
+to display a simple line of text.
+
+[Continue to type this is a test ENTER]
+
+See that the line we just typed is displayed.
+
+However, when there are special characters in the line of text, echo does something else.
+
+Let's try to use echo
+
+[Type echo]
+
+with a wildcard character, *, as the argument.
+
+[Continue to type *ENTER]
+
+echo did *not* display the character * itself.
+
+Instead, it displayed a listing of files in the current working directory.
+
+This is because, before the echo command is executed, the shell has *expanded* the wildcard character *, into a list of file names in the current working directory.
+
+# here we may want to mention that if the expansion found no matching items, echo will display the argument as text
+
+It is very important to understand how shell carries out expansion for different kinds of special characters.
+
+And echo is a good way to observe the effects of different special characters and expansions, before we use these special characters with other commands.

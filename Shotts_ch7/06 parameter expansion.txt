@@ -1,0 +1,71 @@
+[Title Screen: Command Line Basics: parameter expansion]
+
+Let's take a look at command line basics: parameter expansion.
+
+Parameter expansion is an expansion for the dollar sign character, followed by text that is not enclosed in double parentheses.
+
+The text following the dollar sign character commonly refer to variable names.
+
+Variables are chunks of data that are stored and given names, and their values can change. 
+
+Let's try to use echo to see how parameter expansion works.
+
+[Type echo $USER ENTER]
+
+The variable named uppercase USER is used by the system to store your username.
+
+[Highlight $USER in the command]
+
+And preceding it by the dolloar sign
+
+[Highlight $ in the command]
+
+creates a parameter expansion that has expanded to the value of the variable USER stored in the system.
+
+Without the preceding dollar sign, bash will treat uppercase USER as text, rather than a variable name.
+
+And will not do parameter expansion.
+
+[Type echo USER ENTER]
+
+See that using echo USER without the dollar sign will display the text uppercase USER,
+
+[Highlight USER in the output]
+
+not the value of the variable named uppercase USER.
+
+[Highlight the user name in the previous output]
+
+It is possible to create your own variables,
+
+and use them in parameter expansion.
+
+Let's try to create a variable and give it a value.
+
+[Type class_code=LING402 ENTER]
+
+Here we have created a variable, named lowercase class underscore code
+
+[Highlight class_code in the command]
+
+and given it a value of uppercase LING 402.
+
+[Highlight =LING402 in the command]
+
+Now we can use this variable name in parameter expansions.
+
+[Type echo This class is $class_code ENTER]
+
+And see that the variable name class_code has been expanded to the value we have given to class_code.
+
+If a variable name is not found during parameter expansion, we get an empty string.
+
+[Type echo This class is $class ENTER]
+
+See that This class is has been displayed by echo.
+
+However, in the parameter expansion of $class, there is no variable named lowercase class.
+
+So we get an empty string after This class is.
+
+Variables and parameter expansions are very important concepts for shell scripting.

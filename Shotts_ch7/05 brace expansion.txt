@@ -1,0 +1,123 @@
+[Title Screen: Command Line Basics: brace expansion]
+
+Let's take a look at command line basics: brace expansion.
+
+Brace expansion creates multiple text strings from a pattern.
+
+This expansion is capable of varying part of the pattern, while keeping other parts constant.
+
+The varying part of the pattern is enclosed by a pair of curly braces.
+
+The constant part before the opening brace is called a preamble, and the constant part trailing after the closing brace is a postscript.
+
+[Type preamble-{variable}-postscript]
+
+[Delete preamble-{variable}-postscript]
+
+Let's try to use echo to see how brace expansion works.
+
+[Type echo Front-{Brahms,Beethoven,Bach}-Back ENTER]
+
+This pattern has expanded into three text strings.
+
+Each string has the same front hyphen and back hyphen parts at the beginning, and at the end.
+
+[Highlight Front- and -Back in the command]
+
+And the middle part of each string varies, *in the order* specified in the pattern.
+
+[Highlight {Brahms,Beethoven,Bach} in the command]
+
+A brace expression can contain a comma separated list of strings, as we have just seen.
+
+It can also contain a range of integers or characters, using the operator ..
+
+Let's try to use echo to see how to specify a range in a brace expansion.
+
+[Type echo Number_{1..5} ENTER]
+
+This has expanded to five strings, number underscore one to number underscore five.
+
+[Type echo {a..z} ENTER]
+
+This has expanded to strings of lower case characters.
+
+Brace expressions may not have whitespace, but integers may be zero-padded.
+
+[Type echo {001..15} ENTER]
+
+This has expanded into strings of numbers zero zero one, zero zero two and so on, to zero one five.
+
+Brace expressions may also be specified in reverse order.
+
+[Type echo Number_{5..1} ENTER]
+
+This has expanded to strings with a numerical part in reverse order.
+
+[Type echo {z..a} ENTER]
+
+And this has expanded to lower case characters in reverse order.
+
+Brace expansions can also be nested.
+
+[Type echo a{A{1,2},B{3,4}}b ENTER]
+
+Let's work through this expansion part by part.
+
+In the expansion, the preamble, lowercase a
+
+[Highlight a in the command]
+
+and the postscript, lowercase b
+
+[Highlight b in the command]
+
+are constant.
+
+In the variable part of the expansion, the brace expression is a list of items separated by comma.
+
+[Highlight {A{1,2},B{3,4}}]
+[Highlight the comma in the middle]
+
+So Shell starts with the first item, uppercase A{1,2}, in the list.
+
+This is a brace expansion as well.
+
+And it expands to two strings, uppercase A one, and uppercase A two.
+
+So the first two strings produced for the entire expansion, are lowercase a, uppercase A, one, lowercase b,
+
+[Highlight aA1b in the output]
+
+and then lowercase a, uppercase A, two, lowercase b.
+
+[Highlight aA2b in the output]
+
+Now the first nested brace expansion is done.
+
+Shell starts with the second item, uppercase B{3,4}.
+
+This is again a brace expansion.
+
+And it expands also to two strings, uppercase B three, and uppercase B four.
+
+So the next two strings produced for the entire expansion, are lowercase a, uppercase B, three, lowercase b,
+
+[Highlight aB3b in the output]
+
+and finally, lowercase a, uppercase B, four, lowercase b.
+
+Brace expansions are particularly useful for making lists of files or directories where the names are of a fixed format.
+
+For example, when we want to organize our photos into years and months.
+
+We may wish to create a series of directories in a numeric format, in chronoligical order.
+
+Instead of creating the directories one by one, we can do it with a brace expansion.
+
+[Type mkdir Photos ENTER]
+[Type cd Photos ENTER]
+[Type mkdir {2006..2016}-{01..12} ENTER]
+[Type ls ENTER]
+
+And with one command, we have created directories for all the months in the past ten years.

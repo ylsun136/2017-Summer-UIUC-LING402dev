@@ -1,0 +1,23 @@
+[Title Screen: Command Line Basics: tilde expansion]
+
+Let's take a look at command line basics: tilde expansion.
+
+Tilde expansion is a special expansion for the tilde character.
+
+[Type ~]
+
+When the tilde character is used at the beginning of a user name, it expandes into the name of the home directory of the user of that name.
+
+[Delete ~]
+
+Let's try to use echo to see how tilde expansion works.
+
+[Type echo ~<existing user name> ENTER]
+
+This has been expanded into the home directory of the named user.
+
+If no user name is supplied after the tilde character, it expands into the home directory of the current user.
+
+[Type echo ~ ENTER]
+
+See that the tilde character has been expanded into the home directory of the current user.

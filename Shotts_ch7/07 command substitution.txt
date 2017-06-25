@@ -1,0 +1,65 @@
+[Title Screen: Command Line Basics: command substitution]
+
+Let's take a look at command line basics: command substitution.
+
+Command substitution allows us to use the output of a command as an argument of another command.
+
+This is done by using the dolloar sign character, followed by a pair of single parentheses,
+
+[Type echo $()]
+
+And the command whose output we want to use, in the parentheses.
+
+[Type ls between the parentheses]
+[Highlight ls]
+[Press ENTER]
+
+Here, we have first executed the command ls, to output a list of items in the current working directory.
+
+[Highlight ls in the command]
+
+Command sustitution then uses this output from ls,
+
+[Highlight $(ls) in the command]
+
+as the argument of echo.
+
+[Highlight echo in the command]
+
+So echo displays a list of items in the current working directory.
+
+Note that command substitution is different from piping.
+
+Piping allows us to redirect the output of one command to the *standard input* of another command.
+
+For example, a pipeline can be used to pipe the output from ls to the input of sort.
+
+But if we reverse the direction the pipeline, and try to pipe the output of sort to the input of ls, it would have no effect on ls.
+
+Because ls does not make use of standard input.
+
+On the other hand, command substitution allows us to use the output of one command as the *argument* of another command.
+
+Therefore, if we wish to configure the behavior of a command such as ls, with the output of another command,
+
+we would use command substitution, *not* piping.
+
+Let's try to use command substitution as an argument of ls.
+
+[Type ls -l $(which cp)]
+
+In this command, we want to make a long listing with ls.
+
+[Highlight ls -l in the command]
+
+The directory we want to examine with ls, is an argument to ls.
+
+And we have used command substitution to replace it with the output of which cp.
+
+[Highlight $(which cp)]
+
+which cp is a command that will output the full path of the shell command cp.
+
+So, ls will use the full path of the shell command cp as its argument.
+
+And the output a long listing of the shell command 
