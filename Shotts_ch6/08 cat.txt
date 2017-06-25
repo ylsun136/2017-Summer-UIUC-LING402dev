@@ -1,3 +1,9 @@
+# for this script, two sample input files
+# page1.txt and page2.txt
+# should be present in the working directory
+# page1.txt contains the following line: This is page 1.ENTER
+# page2.txt contains the following line: This is page 2.ENTER
+
 [Title Screen: Command Line Basics: cat]
 
 Let's take a look at command line basics: cat.
