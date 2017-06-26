@@ -11,11 +11,11 @@ only redirect standard output. They do not redirect standard error.
 Let's try a command that produces an error and redirects its standard output.
 
 [Delete > >>]
-[Type ls -l /bin/usr > ls-output.txt]
+[Type ls -l /XYZ > foo.txt]
 
-The directory /bin/usr
+The directory /XYZ
 
-[Highlight /bin/usr in the command]
+[Highlight /XYZ in the command]
 
 does not exist.
 
@@ -27,11 +27,11 @@ and an error message is displayed on the screen.
 
 [Highlight 'No such file or directory in the error message]
 
-Let's examine the file ls-output.txt with less.
+Let's examine the file foo.txt with less.
 
-[Type less ls-output.txt ENTER]
+[Type less foo.txt ENTER]
 
-The file ls-output.txt does not contain the error message we just saw. 
+The file foo.txt does not contain the error message we just saw. 
 
 [Press q to exit less]
 
@@ -39,11 +39,11 @@ This is because error messages are not sent to standard output, but to standard 
 
 [Highlight > in the previous command]
 
-only redirects standard output to the file ls-output.txt.
+only redirects standard output to the file foo.txt.
 
 To redirect standard error of a command, 
 
-[Type ls -l /bin/usr]
+[Type ls -l /XYZ]
 
 we use a numeral file descriptor, 2, immediately before the redirection operator.
 
@@ -55,12 +55,12 @@ Standard input, standard output and standard errors are all special files. Each 
 
 Now let's try redirecting the standard error of ls to a file.
 
-[Continue to type ls-output.txt ENTER]
+[Continue to type foo.txt ENTER]
 
-Let's examine file ls-output.txt's content with less.
+Let's examine file foo.txt's content with less.
 
-[Type less ls-output.txt ENTER]
+[Type less foo.txt ENTER]
 
-See that the file ls-output.txt does indeed contain the error message from the ls command.
+See that the file foo.txt does indeed contain the error message from the ls command.
 
 [Press q to exit less]

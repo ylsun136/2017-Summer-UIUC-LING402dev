@@ -1,10 +1,10 @@
-[Title Screen: Command Line Basics: Redirecting standard output]
+[Title Screen: Command Line Concepts: Redirecting standard output]
 
-Let's take a look at command line basics: redirecting standard output.
+Let's take a look at command line concepts: redirecting standard output.
 
 By default, the standard output of a command such as ls
 
-[Type ls -l /usr/bin ENTER]
+[Type ls -l /etc/X11 ENTER]
 
 displays on the screen.
 
@@ -17,39 +17,27 @@ The output redirection operator is the right angle bracket character, or the 'gr
 Let's redirect the output of the command ls with the output redirection operator,
 
 [Delete >]
-[Type ls -l /usr/bin >]
+[Type ls -l /etc/X11 >]
 
 and follow it by the name of the file.
 
-[Continue to type ls-output.txt ENTER]
+[Continue to type foo.txt ENTER]
 
-Here, we created a long listing of the /usr/bin directory
+Here, we created a long listing of the /etc/X11 directory
 
-[Highlight ls -l /usr/bin in the command]
+[Highlight ls -l /etc/X11 in the command]
 
-and redirected the outputs to the file ls-output.txt,
+and redirected the outputs to the file foo.txt.
 
-[Highlight > ls-output.txt in the command]
+[Highlight > foo.txt in the command]
 
-and the outputs do not display on the screen.
+Note that the output does not display on the screen.
 
-Let's examine the redirected output file with ls.
+Let's examine this file's contents using less.
 
-[Type ls -l ls-output.txt ENTER]
+[Type less foo.txt ENTER]
 
-See from the long listing that this file has just been created,
-
-[Highlight date and time fields in the output]
-
-and it has content, as its length is larger than zero.
-
-[Highlight the length field in the output]
-
-Let's examine file ls-output.txt's content with less.
-
-[Type less ls-output.txt ENTER]
-
-See that the file ls-output.txt does indeed contain the output from the ls -l command.
+We see that the file does indeed contain the output from the ls -l command.
 
 [Press q to exit less]
 
@@ -62,34 +50,34 @@ always overwrites the destination file from the beginning.
 Let's try redirecting the output of a different command to the same file.
 
 [Delete >]
-[Type ls > ls-output.txt ENTER]
+[Type seq 1 20 > foo.txt ENTER]
 
-Let's examine the file ls-output.txt's content with less.
+Let's examine the file's content with less.
 
-[Type less ls-output.txt ENTER]
+[Type less foo.txt ENTER]
 
-See that the file ls-output.txt now only contains the output of the ls command. Its old content, the output from the previous ls -l command, has been overwritten.
+See that the file foo.txt now only contains the output of the seq command. Its old content, the output from the previous ls -l command, has been overwritten.
 
 [Press q to exit less]
 
-To append redirected output to a file instead of overwriting the file, we use a different output redirection operator, the double left angle bracket character.
+To append redirected output to a file instead of overwriting the file, we use a different output redirection operator, the double right angle bracket character.
 
 [Type >>]
 
-Let's append the output of a ls-l command
+Let's append the output of the command ls -l
 
 [Delete >>]
-[Type ls -l /usr/bin >>]
+[Type ls -l /etc/X11 >>]
 
-to the ls-output.txt file.
+to the file foo.txt.
 
-[Continue to type ls-output.txt ENTER]
+[Continue to type foo.txt ENTER]
 
-Let's examine the file ls-output.txt's content with less.
+Now let's examine the file's content with less.
 
-[Type less ls-output.txt ENTER]
+[Type less foo.txt ENTER]
 
-See that the file ls-output.txt now contains the output of the ls command,
+See that the file foo.txt now contains the output of the seq command,
 
 [Highlight appropriate sections of text]
 

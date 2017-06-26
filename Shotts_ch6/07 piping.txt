@@ -1,6 +1,6 @@
-[Title Screen: Command Line Basics: Piping]
+[Title Screen: Command Line Basics: Pipes]
 
-Let's take a look at command line basics: piping.
+Let's take a look at command line basics: pipes.
 
 When the standard output of a command is directed into the standard input of another command, they form a 'pipeline'. The standard output of one command is said to 'pipe' into the standard input of the next command. A pipeline allows a series of commands to execute, and can do some fairly complex processing.
 
@@ -65,13 +65,13 @@ and displays it page-by-page on the screen.
 
 We can also send the ouput of a pipeline to a file with output redirection.
 
-[Type ls /bin /usr/bin | sort > pipe-output.txt]
-[Highlight > pipe-output.txt]
+[Type ls /bin /usr/bin | sort > foo.txt]
+[Highlight > foo.txt]
 [Press ENTER]
 
-Let's examine the content of pipe-output.txt with less.
+Let's examine the content of foo.txt with less.
 
-[Type less pipe-output.txt]
+[Type less foo.txt]
 
 This is the output of the pipeline, a sorted listing of the contents of directories /bin and /usr/bin.
 
@@ -86,4 +86,4 @@ The output redirection operator connects one command to one *file*.
 [Delete command1 | command2]
 [Type command1 > file1]
 
-The output redirection operator should *not* be used to connect one command to another command.
+The output redirection operator can *not* be used to connect one command to another command.

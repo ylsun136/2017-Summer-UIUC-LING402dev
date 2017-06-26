@@ -1,19 +1,39 @@
-[Title Screen: Command Line Basics: Redirecting unwanted output]
+[Title Screen: Command Line Basics: Redirecting unwanted output to /dev/null]
 
-Let's take a look at command line basics: redirecting unwanted output.
+Let's take a look at command line basics: redirecting unwanted output to /dev/null
 
 Unwanted output can be redirected to a special file called /dev/null. 
 
 Let's try redirecting standard error of the ls command
 
-[Type ls -l /bin/usr 2>]
+[Type ls -l /XYZ]
 
-to /dev/null.
+This directory does not exist, so ls produces an error message. 
 
-[Continue to type /dev/null ENTER]
+Now, let's redirect the standard error stream of ls to /dev/null.
+
+[Type ls -l /XYZ 2> /dev/null]
+
+We no longer observe the error message. ls is still producing the error message, but the standard error stream of ls is being redirected to the special file /dev/null.
+
+/dev/null is not a regular file. We can confirm this using the command file.
+
+[Type file /dev/null]
+
+We can also confirm this by attempting to open /dev/null using less
 
 Let's use less to examine the effect of redirecting to /dev/null.
 
 [Type less /dev/null ENTER]
 
-This results in an error message that /dev/null is not a regular file. This is useful when we wish to supress error messages or status messages from a command and do not care to store them.
+This results in an error message that /dev/null is not a regular file. 
+
+We can similarly use /dev/null when redirecting standard output
+
+[Type ls /usr/bin > /dev/null]
+
+and also when redirecting both standard output and standard error
+
+[Type ls /usr/bin /XYZ &> /dev/null]
+
+The use of /dev/null can be useful whenever we wish to discard the results of an output or error stream.

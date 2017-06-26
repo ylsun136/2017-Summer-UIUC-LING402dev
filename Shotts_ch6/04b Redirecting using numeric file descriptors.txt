@@ -1,0 +1,66 @@
+[Title Screen: Command Line Basics: Redirecting using numeric file descriptors]
+
+Let's take a look at command line concepts: Redirecting using numeric file descriptors
+
+Sometimes it can be useful to have fine-grained control of stream redirection.
+
+Recall that each of the three standard streams (standard input, standard output, and standard error) is associated with a numeric file descriptor.
+
+Bash allows us to use these numeric file descriptors in conjunction with a redirection operator to redirect the results of one of these streams into a different stream. 
+
+Let's take a look at a concrete example.
+
+[Type ls /etc/X11 /XYZ 2>&1]
+
+Here, the number 2 refers to the standard error stream and the number 1 refers to the standard output stream. In this context, the ampersand is being used as an addressing operator.
+
+[Highlight 2>&1]
+
+This combined notation should be interpreted as follows.
+
+Redirect the results of the standard error stream into the address of the standard output stream.
+
+Or put more simply, redirect standard error into standard output.
+
+Now, let's add to the command by redirecting standard output into a file.
+
+[Type ls /etc/X11 /XYZ > baz.txt 2>&1]
+
+Here, we have told bash to redirect the results of standard output to the file baz.txt, and also told bash to redirect the results of standard error to standard output.
+
+As a result, the file baz.txt contains all of the output and errors from the command. 
+
+[Type less foo.txt ENTER]
+
+The file foo.txt contains the error message from ls /XYZ, 
+
+[Highlight the error message]
+
+and the output from ls /etc/X11.
+
+It is important to note that the order is important here. If we place the standard error redirection before the standard output redirection, we do not get the desired result.
+
+[Type ls /etc/X11 /XYZ 2>&1 > baz.txt]
+
+Here, standard error remains connected to the screen, and the file contains only the results of standard output.
+
+[Type cat baz.txt]
+[Highlight contents of baz.txt]
+
+It is also possible to redirect standard output to standard error.
+
+[Type ls /etc/X11 /XYZ 1>&2]
+
+In this example, we have instructed bash to redirect stream 1, which is standard output, into stream 2, which is standard error.
+
+Let's verify this by piping the results of this command to another command.
+
+[Type ls /etc/X11 /XYZ | wc --chars]
+
+In this command, we see standard error printed to the screen, while the standard output of ls is redirected using the pipe operator to standard input of the wc command. The wc command counts the number of characters it receives on standard input, which we see here was 121.
+
+Now, let's also redirect standard input to standard error.
+
+[Type ls /etc/X11 /XYZ 1>&2 | wc --chars]
+
+We see here that all results from the ls command are printed to the screen. We see that wc received zero characters, confirming that the standard output of ls was indeed redirected to the standard error stream of ls, resulting in all results from the ls command being printed to the screen.

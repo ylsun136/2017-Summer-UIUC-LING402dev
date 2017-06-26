@@ -1,10 +1,6 @@
-# for this script, a sample input file named fruits.txt with some content
-# and a sample input file named usr.txt
-# should be present in the working directory
+[Title Screen: Command Line Concepts: Redirecting standard input]
 
-[Title Screen: Command Line Basics: Redirecting standard input]
-
-Let's take a look at command line basics: redirecting standard input.
+Let's take a look at command line concepts: redirecting standard input.
 
 To redirect standard input, use the input redirection operator.
 
@@ -16,7 +12,7 @@ We will demonstrate standard input redirection with the command sort.
 
 [Delete <]
 
-The command sort sorts lines of text. By default, sort takes text from the keyboard.
+The command sort sorts lines of text. sort reads from the standard input stream, which by default is attached to the keyboard.
 
 [Type sort ENTER]
 
@@ -26,7 +22,7 @@ Let's supply a few lines of text.
 
 [Type strawberry ENTER apricot ENTER persimmon ENTER jackfruit ENTER guava ENTER]
 
-To signal the end of the text, press Ctrl+D. That is, hold down the 'Ctrl' key on your keyboard, and press 'D'.
+To signal the end of the text, we press Ctrl+D. That is, hold down the 'Ctrl' key on your keyboard, and press 'D'.
 
 [Press Ctrl+D]
 
@@ -38,13 +34,17 @@ Let's redirect the standard input of sort to take text from a file instead of th
 
 [Type less fruits.txt]
 
-We have a file prepared, called fruits.txt.
+Let's create a file called fruits.txt.
 
-[Press ENTER]
+[echo strawberry > fruits.txt]
+[echo apricot >> fruits.txt]
+[echo persimmon >> fruits.txt]
+[echo jackfruit >> fruits.txt]
+[echo guava >> fruits.txt]
 
-It contains names of fruits. Each fruit name is one line of text.
+Our file now contains names of fruits. Each fruit name is one line of text.
 
-[Type q to exit less]
+[less fruits.txt]
 
 To use fruit.txt as the input to sort,
 
@@ -64,28 +64,12 @@ Input redirection can only be used on commands that would, by default, read inpu
 
 Let us see the effect of input redirection on a command that ignores input redirection.
 
-[Type ls /usr ENTER]
+[Type ls /etc/X11 ENTER]
 
-This command displays the contents of the subdirectory /usr on the screen.
+This command displays the contents of the directory /etc/X11 to standard output, which is currently attached to the screen.
 
-We have also prepared a file called usr.txt
+Now let's try to display the contents of the subdirectory /etc/X11 and also redirect standard input
 
-[Type less usr.txt, pause, press ENTER]
+[Continue to type < fruits.txt ENTER]
 
-that contains the pathname /usr in text.
-
-[Type q to exit less]
-
-Let's try to display the contents of the subdirectory /usr,
-
-[Type ls]
-
-by redirecting the input to use the pathname /usr from the file usr.txt,
-
-[Continue to type < usr.txt ENTER]
-
-See that the command ls has executed, but it has ignored input redirection. The actual command executed is just ls without the subdirectory /usr, 
-
-[Highlight ls in the command]
-
-and it has displayed the contents of the working directory, not the contents of /usr.
+See that the command ls has executed, but it has ignored input redirection.
