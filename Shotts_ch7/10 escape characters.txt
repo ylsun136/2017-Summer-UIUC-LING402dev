@@ -1,0 +1,79 @@
+[Title Screen: Command Line Basics: escape characters]
+
+Let's take a look at command line basics: escape characters.
+
+Quoting is a mechanism to suppress unwanted expansions.
+
+Escape character is a type of quoting.
+
+It quotes a single character.
+
+The character we wish to quote, say a dolloar sign, is preceded with a backslash.
+
+[Type \$]
+
+This prevents this one particular dollar sign from being interpreted as a special character.
+
+And prevents it from expansion.
+
+It does not affect other special characters that are not preceded by the backslash character.
+
+This type of quoting is used to selectively supress expansions.
+
+It is handy when we occasionally want a special character, such as the dollar sign, to appear as the dollar sign character.
+
+[Delete \$]
+
+Let's see the effect of escape characters in commands.
+
+[Type echo The balance for user $USER is \$5.00 ENTER]
+
+In this command, there are two parameter expansions, marked by the dollar sign.
+
+One is dollar sign uppercase USER,
+
+[Highlight $USER in the command]
+
+and the other is dollar sign five.
+
+[Highlight $5 in the command]
+
+But the second dollar sign is also preceded by a backslash,
+
+[Highlight \ in the command]
+
+So the second dollar sign is not interpreted as a special character,
+
+Parameter expansion does not happen at the second dollar sign,
+
+and the dollar sign would appear in the output as ordinary text.
+
+[Highlight $5.00 in the output]
+
+The first dollar sign, on the other hand,
+
+is not preceded by a backslash,
+
+and is interpreted as a special character.
+
+Parameter expansion does happen at the first dollar sign,
+
+and the dollar sign does not appear in the output.
+
+Instead, $USER is expanded into the value of the variable uppercase USER.
+
+[Highlight user name in the output]
+
+Since the backslash is a special character itself,
+
+if we want a backslash character to appear as ordinary text,
+
+we also need to escape it with a preceding backslash character.
+
+Thus, the double backslash.
+
+Let's see the double backslash in a command.
+
+[Type echo The balance for user \\$USER is \$5.00 ENTER]
+
+See that we get a backslash character in front of the user name in the output.
