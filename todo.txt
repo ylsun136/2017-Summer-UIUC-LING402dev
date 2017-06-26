@@ -1,9 +1,11 @@
 -- scripts --
 
-06/23: Shotts chapter 7 (parameter expansion, $ and escape sequences)
-06/24: Shotts chapter 19 (regular expressions) [very likely will not finish in a day]
+/ Shotts chapter 7 (expansions)
+> Shotts chapter 19 (regular expressions)
+- Shotts chpater 5 (command info, help and documentation)
+- Shotts chapter 20 (text slicing, comparison, transformation)
 
 -- auxiliary --
 
-- investigate youtube subtitle mechanism
+/ investigate youtube subtitle mechanism
 - draft converage of new python book
