@@ -1,0 +1,46 @@
+[Title Screen: Command Line Basics: literals and metacharacters in regular expressions]
+
+Let's take a look at command line basics: literals and metacharacters in regular expressions.
+
+Regular expressions are symbolic notations to identify patterns in text.
+
+We have seen that the command grep searches text files for text matching a specified regular expression.
+
+[Type ls /usr/bin | grep zip ENTER]
+
+This lists all the files in the /usr/bin directory whose names match the regular expression 'zip'.
+
+The regular expression we just used, zip, is a string of literal characters.
+
+grep will only match a line if it contains at least three characters,
+
+and the characters z, i and p occur somewhere in the line, in that order, with no characters in between.
+
+In addition to literal characters, regular expressions may also include metacharacters.
+
+Metacharacters are a set of special characters that specify more complex patterns.
+
+These include the following characters:
+
+the caret,
+the dollar sign,
+the period
+the square brackets,
+the curly brackets, or braces,
+the hyphen,
+the question mark,
+the asterisk, or star,
+the plus sign,
+the round brackets, or parentheses,
+the vertical bar,
+and the backslash.
+
+[Type ^ $ . [ ] { } - ? * + ( ) | \]
+
+Many regular expression metacharacters are also special characters for bash to perform expansions.
+
+When we use regular expressions on the command line,
+
+it is crucial to enclose them in single quotes,
+
+to prevent bash from expanding them.
