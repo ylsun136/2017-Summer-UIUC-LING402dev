@@ -1,0 +1,43 @@
+[Title Screen: Command Line Basics: pathname expansion]
+
+Let's take a look at command line basics: pathname expansion.
+
+Pathname expansion is how wildcard characters, such as *, ?, and [[:alpha:]],
+
+[Type * ? [[:alpha:]] ]
+
+work. The shell expands these characters into listings of file or directory names.
+
+[Delete * ? [[:alpha]] ]
+
+Let's try to use echo to see how pathname expansion works.
+
+# From here on arguments may be varied to suit the contents of the actual wd. Ideally we want a small amount of output, so the original command typed would be visible together with the output.
+
+[Type echo *.txt ENTER]
+
+This wildcard
+
+[Highlight *.txt in the command]
+
+has been expanded into a listing of all file names that end in .txt, in the current working directory.
+
+Let's try to use wildcards that specify a class of characters.
+
+[Type echo [[:upper:]]* ENTER]
+
+This wildcard
+
+[Highlight [[:upper:]]*]
+
+has been expanded into a listing of all items in the current working directory, that starts with an uppercase character.
+
+Let's try to use wildcards in directory names.
+
+[Type echo /usr/* ENTER]
+
+This wildcard
+
+[Highlight /usr/* in the command]
+
+has been expanded into a listing of all items under the directory /usr.

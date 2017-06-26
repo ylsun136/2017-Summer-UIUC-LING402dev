@@ -1,0 +1,183 @@
+[Title Screen: Command Line Basics: double quotes]
+
+Let's take a look at command line basics: double quotes.
+
+Quoting is a mechanism to suppress unwanted expansions.
+
+Double quotes is one type of quoting. Text is placed inside double quotation marks.
+
+[Type "only $\` expand in these"]
+[Highlight the double quotes]
+
+When 
+text is placed inside double quotes, all the special characters, except three, are no longer treated as special characters.
+
+[Delete "only $\` expand in these"]
+
+The three exceptions are the dollar sign character,
+
+[Type $ ]
+
+the backslash,
+
+[Continue to type \]
+
+and the back quote.
+
+[Continue to type `]
+[Pause]
+[Delete $ \ `]
+
+All other special characters, such as white space, wildcard characters,
+
+[Type * ? [[:upper:]] ]
+
+the tilde character,
+
+[Continue to type ~]
+
+and the curly braces,
+
+[Continue to type {}]
+
+will be treated as ordinary text, not special characters.
+
+So, with double quotes, the following operations are suppressed:
+
+word splitting,
+
+pathname expansion,
+
+tilde expansion,
+
+and brace expansion.
+
+The following operations are carried out:
+
+parameter expansion,
+
+arithmetic expansion,
+
+and command substitution.
+
+Let's see the effect of double quotes in commands.
+
+[Type echo this is a SPACE SPACE SPACE SPACE test ENTER]
+
+In the command, the argument to echo has extra spaces between words.
+
+[Highlight the spaces between a and test]
+
+The output of echo does not have extra spaces between a and test.
+
+This is because, without double quotes, space is interpreted as a special character for performing word splitting, and the extra spaces are ignored.
+
+If we put the argument in double quotes.
+
+[Type echo "this is a SPACE SPACE SPACE SPACE test" ENTER]
+
+The spaces are no longer interpreted as special characters.
+
+Word splitting is not performed.
+
+And all the spaces remain in the output as ordinary text.
+
+Let's try a command where double quotes will suppress expansions.
+
+[Type echo ~/*.txt color-{red,green,blue}]
+
+This command has a pathname expansion that lists all the files that ends with dot txt,
+
+[Highlight *.txt in the command]
+
+in the home directory of the current user, indicated by the tilde expansion.
+
+[Highlight ~/ in the command]
+
+and a brace expansion that produces three strings,
+
+color hyphen red,
+color hyphen green,
+color hyphen blue.
+
+[Press ENTER]
+
+And here we see the expected listing of files,
+
+[Highlight the file listing in output]
+
+and output strings.
+
+[Highlight the color- strings in output]
+
+Now let's try adding double quotes.
+
+[Type echo "~/*.txt color-{red,green,blue}" ENTER]
+
+The entire string in double quotes is displayed as ordinary text.
+
+No pathname expansion took place.
+
+No tilde expansion took place.
+
+No brace expansion took place.
+
+Note that expansion suppression only affects text enclosed in double quotes.
+
+Expansions outside double quotes in the same command will still be carried out.
+
+Let's try a command that has both double quoted and unquoted arguments.
+
+[Type echo echo "~/*.txt" color-{red,green,blue}] 
+
+In this command, the pathname expansion and tilde expansion are in double quotes.
+
+And will be supressed.
+
+[Highlight "~/*.txt" in the command]
+
+But the brace expansion is not in double quotes,
+
+and will be executed.
+
+[Highlight color-{red,green,blue} in the command]
+[Press ENTER]
+
+And we see that the output contains the double quoted text as ordinary text,
+
+[Highlight ~/*.txt in the output]
+
+and the output of the brace expansion.
+
+[Highlight the color- strings in the output]
+
+Let's try a command that is not affected by double quotes.
+
+[Type echo "$USER $((2+2)) $(cal)"]
+
+This command contains a parameter expansion,
+
+[Highlight $USER in the command]
+
+an arithmetic expansion,
+
+[Highlight $((2+2)) in the command]
+
+and a command substitution.
+
+[Highlight $(cal) in the command]
+[Press ENTER]
+
+And all of them expanded as expected, despite the double quotes:
+
+Parameter expansion gives us the value of the variable named uppercase USER.
+
+[Highlight user name in the output]
+
+Arithmetic expansion calculated the result of two plus two.
+
+[Highlight 4 in the output]
+
+And command substitution has displayed the output of command cal.
+
+[Highlight the calendar in the output]

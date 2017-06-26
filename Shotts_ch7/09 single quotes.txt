@@ -1,0 +1,59 @@
+[Title Screen: Command Line Basics: single quotes]
+
+Let's take a look at command line basics: single quotes.
+
+Quoting is a mechanism to suppress unwanted expansions.
+
+Single quotes is one type of quoting. Text is placed inside singlequotation marks.
+
+[Type 'nothing expands in these']
+
+Single quotes suppress *all* expansions.
+
+[Delete 'nothing expands in these']
+
+Let's see the effect of single quotes in commands.
+
+[Type echo 'text ~/*.txt {a,b} $(echo foo) $((2+2)) $USER']
+
+In this command, there is ordinary text,
+
+[Highlight text in the command]
+
+tilde expansion,
+
+[Highlight ~ in the command]
+
+pathname expansion,
+
+[Highlight *.txt in the command]
+
+brace expansion,
+
+[Highlight {a,b} in the command]
+
+command substitution,
+
+[Highlight $(echo foo) in the command]
+
+arithmetic expansion,
+
+[Highlight $((2+2)) in the command]
+
+and parameter expansion.
+
+[Highlight $USER in the command]
+
+But they are all within a pair of single quotes.
+
+[Highlight the two ' in the command]
+
+Therefore, no expansion at all will happen.
+
+[Press ENTER]
+
+See that all the special characters,
+
+[Highlight ~, *, { and $ in the output]
+
+and expressions remain as ordinary text in the output.

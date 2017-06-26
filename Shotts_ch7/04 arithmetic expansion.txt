@@ -1,0 +1,110 @@
+[Title Screen: Command Line Basics: arithmetic expansion]
+
+Let's take a look at command line basics: arithmetic expansion.
+
+Arithmetic expansion allows the shell to perform calculations before passing the results to a command as arguments.
+
+Arithmetic expansion uses the dollar sign character, and *double* parentheses around an arithmetic expression.
+
+[Type $((expression))]
+
+Let's try to use echo to see how arithmetic expansion works.
+
+[Delete $((expression))]
+[Type echo $((2+2)) ENTER]
+
+See that this arithmetic expression
+
+[Highlight 2+2 in the command]
+
+has been calculated through arithmetic expansion,
+
+[Highlight $((2+2)) in the command]
+
+and displayed is the result of two plus two.
+
+Note that arithmetic expansion only supports integers, or whole numbers.
+
+The expansion would result in an error, if decimals are present in the expression.
+
+[Type echo $((2.0+2)) ENTER]
+
+See that bash has displayed an error message for the decimal.
+
+Arithmetic expansion supports addition,
+
+[Type + ]
+
+subtraction,
+
+[Continue to type - ]
+
+multiplication,
+
+[Continue to type * ]
+
+division,
+
+[Continue to type / ]
+
+modulo, or remainder,
+
+[Continue to type % ]
+
+and exponentiation.
+
+[Continue to type **]
+
+Arithmetic expansion may also be used alongside text.
+
+Let's try to use echo to see how the division and modulo operators work. If the result of the division is not an integer, it will be truncated to the integer part, and will not be rounded.
+
+[Delete + - * / % **]
+[Type echo Five divided by two equals $((5/2)) ENTER]
+[Type echo with $((5%2)) left over ENTER]
+
+See that the division in this command
+
+[Highlight 5/2 in the command]
+
+has truncated the results to the integer two.
+
+[Highlight 2 in the output]
+
+And the modulo, or remainder operator has calculated the remainder of five divided by two,
+
+[Highlight 5%2 in the command]
+
+which is the integer 1.
+
+[Highlight 1 in the output]
+
+Let's try to use echo to see how the exponentiation operator works.
+
+[Type echo $((5**2))]
+
+This calculation has raised five to the exponent of two, or, five squared, which is twenty-five.
+
+Inside the double parentheses of an arithmetic expression, it is possible to nest another arithmetic expression.
+
+[Type echo $(($((5**2)) * 3)) ENTER]
+
+First, the expansion $((5**2)) nested inside
+
+[Highlight $((5**2)) in the command]
+
+is calcuated to twenty-five.
+
+The outer expansion
+
+[Highlight the first $(( in the command]
+
+then takes the result of twenty-five, and multiplies it by 3.
+
+[Highlight *3)) in the command]
+
+We can also use *single* parentheses inside double parentheses to group subexpressions.
+
+[Type echo $(( (5**2) * 3 )) ENTER]
+
+This will calculate to the same result of seventy-five, but uses only one arithmetic expansion instead of two.

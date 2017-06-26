@@ -9,8 +9,6 @@ Let's take a look at wc's man page.
 [Type man wc ENTER]
 [Press q to exit man]
 
-Therefore uniq is often used after sort in a pipeline.
-
 Let's create a text file and use wc.
 
 [Type ls -l /usr/bin > ls-output.txt ENTER]
