@@ -94,7 +94,7 @@ Let's try using cat without an argument.
 
 cat is now waiting for keyboard input. Let's type some text.
 
-[Type The quick brown fox jumped over the lazy dog.]
+[Type The quick brown fox jumped over the lazy dog. ENTER]
 
 To signal the end of input, type Ctrl+D, that is, hold down the Ctrl key on your keyboard and press D.
 
@@ -110,7 +110,7 @@ Let's try to use cat to create a file called lazy_dog.txt.
 
 Now cat is again waiting for keyboard input. Let's type some text.
 
-[Type The quick brown fox jumped over the lazy dog.]
+[Type The quick brown fox jumped over the lazy dog. TAB ENTER]
 
 and end it with Ctrl+D.
 
@@ -121,3 +121,46 @@ Let's use cat to examine the content of lazy-dog.txt.
 [Type cat lazy-dog.txt ENTER]
 
 See that lazy-dog.txt indeed contains the sentense we just typed.
+
+cat can be configured to display non-printing characters, such as tabs, in its output.
+
+The option to use is - uppercase A.
+
+Let's examine a text file using cat -A.
+
+[Type cat -A lazy-dog.txt ENTER]
+
+Here we see that the line of text contains a tab.
+
+[Highlight ^I in the output]
+
+and a dollar sign character that signals the end of the line.
+
+[Highlight $ in the output]
+
+cat can display numbers on the lines in a file with the -n option.
+
+Let's try examining lazy-dog.txt again.
+
+[Type cat -n lazy-dog.txt ENTER]
+
+See that cat has added line numbers to the display.
+
+cat can also be configured to supress extra blank lines in the output, with the -s option.
+
+Let's put a few blank lines in lazy-dog.txt.
+
+[Type cat > lazy-dog.txt ENTER]
+[Type The quick brown fox ENTER ENTER ENTER jumped over the lazy dog. ENTER Ctrl+D]
+
+Now there are two blanks between two lines of text in lazy-dog.txt.
+
+Let's examine it using some options with cat.
+
+[Type cat -ns lazy-dog.txt ENTER]
+
+Here we have combined two options, -n and -s.
+
+So cat has removed extra blank lines and only kept one,
+
+then placed line numbers to the display.

@@ -47,3 +47,13 @@ If, instead of a list of unique lines, we want a list of duplicates, we can use 
 [Press ENTER]
 
 This pipeline displays a list of files that have the same name in both /bin and /usr/bin directories.
+
+If we want to see how many times each duplicate item occurs, we can use the -c option.
+
+[Type ls /bin /usr/bin | sort | uniq -c | less]
+[Highlight -c]
+[Press ENTER]
+
+This pipeline displays a list of files that have the same name in both /bin and /usr/bin directories,
+
+and also how many times each duplicate name has occured in the output of ls.
