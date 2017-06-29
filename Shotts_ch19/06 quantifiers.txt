@@ -1,0 +1,125 @@
+[Title Screen: Command Line Basics: quantifiers in regular expressions]
+
+Let's take a look at command line basics: quantifiers in regular expressions.
+
+Quantifier is an extended regular expression feature.
+
+A quantifier metacharacter allows us to specify how many times an element is to be matched.
+
+All quantifiers affect the immediately preceding element.
+
+And remember to add the -E option to grep when using quantifiers in a regular expression.
+
+We will introduce four quantifiers.
+
+The first quantifier is the question mark ?.
+
+It matches an element zero or one time.
+
+In effect, it makes the preceding element optional.
+
+For example, if we have a file that contains telephone numbers,
+
+the numbers may or may not be preceded with a plus sign.
+
+The following extended regular expression will match a number with three digits, with or without the plus sign at the beginning.
+
+[Type '\+?[0-9][0-9][0-9]']
+
+The second quantifier is the asterisk *.
+
+It matches an element zero or more times.
+
+Like the question mark, the asterisk makes the preceding element optional.
+
+But unlike the question mark, the preceding element of an asterisk may occur any number of times.
+
+For example, the following regular expression will match a string of any length,
+
+as long as it starts with an uppercase character,
+
+and contains only uppercase and lowercase characters:
+
+[Type '^[[:upper:]][[:upper:][:lower:]]*']
+
+This regular expression contains two brackets.
+
+The first bracket
+
+[Highlight first [[:upper:]] ]
+
+contains a character class upper,
+
+and will match one and only one uppercase character.
+
+The second bracket
+
+[Highlight [[:upper:][:lower:]] ]
+
+will match either one uppercase character or one lowercase character.
+
+And the asterisk is after the second bracket.
+
+[Highlight *]
+
+This will match to any number of characters, uppercase or lowercase.
+
+Let's try to use this regular expression with echo and grep.
+
+[Type echo "CNN" | grep -E '^[[:upper:]][[:upper:][:lower:]]*' ENTER]
+
+This is a match.
+
+[Type echo "DnD" | grep -E '^[[:upper:]][[:upper:][:lower:]]*' ENTER]
+
+This is also a match.
+
+[Type echo "guiTAR" | grep -E '^[[:upper:]][[:upper:][:lower:]]*' ENTER]
+
+This is not a match because the string starts with a lowercase character.
+
+The third quantifier is the plus sign, +.
+
+It matches an element one or more times.
+
+The plus sign works similarly to the asterisk, but the preceding element is *not* optional.
+
+For example, the following regular expression will match a string if it starts with at least one alphabetic character, and contains only alphanumeric characters.
+
+[Type '^[:alpha:]+[:alnum:]*']
+
+Let's try to use this regular expression with echo and grep.
+
+[Type echo "y43zbe1" | grep -E '^[[:alpha:]]+[[:alnum:]]*' ENTER]
+
+This is a match.
+
+[Type echo "L" | grep -E '^[[:alpha:]]+[[:alnum:]]*' ENTER]
+
+This is also a match.
+
+[Type echo "2017Summer" | grep -E '^[[:alpha:]]+[[:alnum:]]*' ENTER]
+
+This is not a match because the string starts with a digit.
+
+The last quantifier is the curly braces {}.
+
+These are used to specify minimum and maximum numbers of required matches.
+
+For example, the following regular expression matches if the letter a occurs at least twice in sequence:
+
+[Type 'a{2,}h']
+
+The following matches if the letter a repeats no more than five times:
+
+[Type 'a{,5}h']
+
+The following matches if the letter a repeats anywhere between twice and five times:
+
+[Type 'a{2,5}h']
+
+If an exact number of matches is required, a single number is put in the curly braces.
+
+For example, the following will match a six-digit number:
+
+[Type '[[:digit:]]{6}']

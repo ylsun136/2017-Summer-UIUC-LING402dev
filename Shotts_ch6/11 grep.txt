@@ -81,3 +81,11 @@ To output the line number of the matches, use the -n option with grep.
 [Press ENTER]
 
 We get a listing of matches, each prefixed with the line number where the match is found.
+
+To highlight the matches in the output of grep, use the --color option. 
+
+[Type ls /usr/bin | sort | uniq | grep --color zip]
+[Highlight --color]
+[Press ENTER]
+
+We see that the occrences of the string 'zip' are highlighted in a different color in the output.

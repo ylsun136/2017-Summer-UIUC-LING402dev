@@ -39,7 +39,7 @@ and the backslash.
 
 Many regular expression metacharacters are also special characters for bash to perform expansions.
 
-When we use regular expressions on the command line,
+Therefore, when we use regular expressions on the command line,
 
 it is crucial to enclose them in single quotes,
 
