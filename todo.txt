@@ -1,11 +1,10 @@
 -- scripts --
 
-/ Shotts chapter 7 (expansions)
-> Shotts chapter 19 (regular expressions)
-- Shotts chpater 5 (command info, help and documentation)
+/ Shotts chapter 19 (regular expressions)
+> Shotts chpater 5 (command info, help and documentation)
+[rather than listing the ways to look at command doc, it's probably more useful to teach about how to read a help file]
 - Shotts chapter 20 (text slicing, comparison, transformation)
 
 -- auxiliary --
 
-/ investigate youtube subtitle mechanism
-- draft converage of new python book
+/ draft converage of new python book
