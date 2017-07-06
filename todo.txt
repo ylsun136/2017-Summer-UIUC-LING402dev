@@ -1,10 +1,17 @@
 -- scripts --
 
-/ Shotts chapter 19 (regular expressions)
-> Shotts chpater 5 (command info, help and documentation)
-[rather than listing the ways to look at command doc, it's probably more useful to teach about how to read a help file]
-- Shotts chapter 20 (text slicing, comparison, transformation)
+/ Shotts chapter 20 (text slicing, comparison, transformation)
+
+- Shotts chapter 8 (command line navigation, editing, completion, using history)
+- Shotts chapter 9 (permissions, chmod)
+- Shotts chapter 11 (the environment)
+
+- Shotts chapter 25 (script basics: shebang, comment, chmod, running; variables and constants, assignment, here script)
+- Shotts chapter 26 (program design: functions, local variables and functional independence, feedback messages)
+- Shotts chapter 27 (flow control: if, exit status, test expressions, compound expression with logical operators, compound command with logical operators)
+
+- Shotts chpater 5 (command info, help and documentation)
+- Shotts chapter 10 (processes: list and examine, interrupt, foregrounding, pausing, kill and killall, reboot and shutdown)
+[not exactly a useful chapter for HW purposes]
 
 -- auxiliary --
-
-/ draft converage of new python book
