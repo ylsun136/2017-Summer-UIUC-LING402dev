@@ -1,0 +1,103 @@
+[Title Screen: Command Line Basics: tr]
+
+Let's take a look at command line basics: tr.
+
+tr is used to translate characters.
+
+Meaning, it changes characters from one set to another.
+
+For example, we can use tr to convert lowercase letters to uppercase letters.
+
+[Type echo "lowercase letters" | tr a-z A-Z]
+
+In this command, we have used echo to output a string of lowercase characters to the standard output,
+
+and pipes it to tr.
+
+[Highlight echo "lowercase letters" | tr in the command]
+
+And tr is specified with two sets of characters as arguments.
+
+The first is a set of characters to convert from.
+
+In this case, the lowercase characters in the range of a to z.
+
+[Highlight a-z in the command]
+
+The second is a set of characters to convert to.
+
+In this case, the uppercase characters in the range of A to Z.
+
+[Highlight A-Z in the command]
+[Press ENTER]
+
+And we see tr has converted this string of lowercase characters to their corresponding uppercase characters.
+
+[Highlight the output]
+
+It is also possible to use character classes such as [:upper:] and [:lower:].
+
+[Type echo "lowercase letters" | tr [:lower:] [:upper:] ENTER]
+
+This command translates lowercase letters to uppercase letters,
+
+by specifying character classes.
+
+We can also use an enumerated list of characters for tr.
+
+[Type echo "this line contains some vowel letters" | tr aeiou AEIOU]
+
+This command will translate the five lowercase vowel letters specified in the first set,
+
+[Highlight aeiou in the command]
+
+to the corresponding uppercase vowel letters specified in the second set.
+
+[Highlight AEIOU in the command]
+[Press ENTER]
+
+tr tranlates characters by the order they appear in the specified character set.
+
+For example,
+
+[Type echo "this line contains some vowel letters" | tr aeiou UOIEA]
+
+In this command, tr will translate lowercase letter a
+
+[Highlight a in the tr command]
+
+to uppercase letter U.
+
+[Highlight U in the tr command]
+
+And lowercase letter e to uppercase letter O, and so on.
+
+[Press ENTER]
+
+So the output has mangled vowel letters.
+
+In most cases, the two character sets in tr should be of equal length.
+
+But it is possible for the first set to be longer than the second.
+
+In this case, tr will translate the rest of the first set to the last character in the second set.
+
+This is useful if we want to convert multiple characters to a single character.
+
+[Type echo "lowercase letters" | tr [:lower:] '*' ENTER]
+
+To delete characters rather than to replace them, we can use the option -d on tr.
+
+Let's try to use tr -d to delete characters.
+
+[Type echo "username: 928509" | tr -d [:digit:] ENTER]
+
+This command has deleted all digits from the line of text.
+
+tr can also squeeze repeated instances of a character with the -s option.
+
+This is useful, for example, when we want to remove extra spaces in lines of text.
+
+[Type echo "This SPACE SPACE SPACE SPACE SPACE is SPACE SPACE SPACE for SPACE testing" | tr -s [:space:] ENTER]
+
+See that tr has preserved only one space where there had been multiple spaces in this line of text.

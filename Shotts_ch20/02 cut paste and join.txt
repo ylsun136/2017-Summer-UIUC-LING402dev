@@ -1,0 +1,122 @@
+[Title Screen: Command Line Basics: cut, paste and join]
+
+Let's take a look at command line basics: cut, paste and join.
+
+cut, paste and join are text slicing commands.
+
+Let us first look at cut.
+
+cut is used to extract and output a section of text from a line.
+
+Let's try to use cut on a file listing.
+
+[Type ls -l /usr/bin | tail ENTER]
+
+The first string of characters on each line specifies the file type and file access mode.
+
+[Highlight first field]
+
+
+Specifically, the second to fourth characters specify access modes for the owner of the file.
+
+[Highlight first rwx in first field]
+
+We can use cut to extract these three characters, with -c option.
+
+We can also use cut to extract fields, with the -f option.
+
+Note that, by default, cut requires fields to be separated by a single tab character.
+
+If a different delimiter such as space is used, we need to specify it with the -d option.
+
+For example, if we want to extract the owner's username from each line,
+
+we can use the following command,
+
+[Type ls -l /usr/bin | cut -d ' ' -f 3 | tail]
+
+The -d option specifies that the input uses space as the field delimiter.
+
+[Highlight -d ' ']
+
+And the -f option specifies that cut should extract the third field, which is the owner's username.
+
+[Highlight -f 3]
+[Press ENTER]
+
+And we see a listing of each file's owner names.
+
+Note that if more than one field number is specified for the -f option, cut will not enforce the listing ordering of the fields in the output.
+
+It will always output the columns in the order they are read.
+
+That is to say, for example, cut -f 2,3 and cut -f 3,2 from the same input will produce the same output.
+
+
+Next, we would look at paste.
+
+paste does the opposite of cut.
+
+It adds one or more columns of text to a file.
+
+This is often used after cut is used to extract various columns of text, to combine them into a single output.
+
+Let's try to use paste to create a listing of user names and their respective default shells, from the text in /etc/passwd.
+
+[Type less /etc/passwd ENTER]
+
+Fields in this file are delimited with a colon.
+
+User names are listed in field number one.
+
+And default shells are listed in field number seven.
+
+First, use cut to extract the column of user names to a file.
+
+[Type cut -d ':' -f 1 /etc/passwd > output1.txt ENTER]
+
+Then, use cut to extract the column of default shells to a file.
+
+[Type cut -d ':' -f 7 /etc/passwd > output2.txt ENTER]
+
+Finally, use paste to combine the two columns of text.
+
+[Type paste output1.txt output2.txt ENTER]
+
+And we get a listing of user names and their default shells.
+
+The last command for text slicing is join.
+
+Like paste, join adds columns of text to a file.
+
+But it adds data by matching values in a shared key field.
+
+Let's see how join may be used.
+
+Each user listed in the file /etc/passwd has a user ID in field number three.
+
+First, use cut to extract user names and user IDs, and sort alphabetically by user name.
+
+[Type cut -d ':' -f 1,3 /etc/passwd | sort > output1.txt ENTER]
+
+Let's examine the content of this output file.
+
+[Type less output1.txt ENTER]
+[Press q to exit less]
+
+Then, use cut to extract user names and their default shells, and sort the listing alphabetically by user name.
+
+[Type cut -d ':' -f 1,7 /etc/passwd | sort -n > output2.txt ENTER]
+
+Let's examine the content of the second output file.
+
+[Type less output2.txt ENTER]
+[Press q to exit less]
+
+Now we have two files with a shared key, the user name.
+
+Note that both files need to be sorted on the shared key for join to work.
+
+Let's use join to produce a listing of user names, user IDs and default shells.
+
+[Type join -t ':' output1.txt output2.txt ENTER]

@@ -1,0 +1,68 @@
+[Title Screen: Command Line Basics: comm and diff]
+
+Let's take a look at command line basics: comm and diff.
+
+comm and diff are used to compare the contents of text files.
+
+comm compares two text files and outputs the portions that are unique to each file, as well as the portions that are common.
+
+Let's create two slighly different text files using cat.
+
+[Type cat > file1.txt ENTER]
+[Type a ENTER b ENTER c ENTER d ENTER Ctrl+D]
+[Type cat > file2.txt ENTER]
+[Type b ENTER c ENTER d ENTER e ENTER Ctrl+D]
+
+Now we can use comm to compare the two files.
+
+[Type comm file1.txt file2.txt ENTER]
+
+comm has produced three columns of output. The first column are lines unique to the first file, the second column are lines unique to the second file, and the third column are lines common to both files.
+
+Next, let's look at diff.
+
+Like comm, diff compares two text files.
+
+But diff is able to produce much more complex output,
+
+to specify how the two files should be modified to make them the same.
+
+Let's take a look at diff.
+
+[Type diff file1.txt file2.txt ENTER]
+
+This output shows that the first line in the first file needs to be deleted,
+
+[Highlight 1d0 in the output]
+
+the deleted line's content is 'a'.
+
+[Highlight < a in the output]
+
+And the fourth line in the second file needs to be appended as the fourth line in the first file,
+
+[Highlight 4a4 in the output]
+
+the appended line's content is 'e'.
+
+[Highlight > e in the output]
+
+And after these two operations, the two files would have the same contents.
+
+diff can also be used with the -c option to display the output using the context format.
+
+[Type diff -c file1.txt file2.txt ENTER]
+
+And we see that the line 'a' is only the first file, marked by a minus sign,
+
+and the line 'e' is only in the second file, marked by a plus sign.
+
+An even more compact format can be specified with the -u option.
+
+[Type diff -u file1.txt file2.txt ENTER]
+
+Similarly, we see that lines are marked by the minus sign if they are only in the first file,
+
+by the plus sign if they are only in the second file,
+
+and not marked it they are common to both files.
