@@ -1,0 +1,61 @@
+# for this script, I am using the linux words file,
+# by default, located in /usr/share/dict.
+
+[Title Screen: Command Line Basics: the any character in regular expressions]
+
+Let's take a look at command line basics: the any character in regular expressions.
+
+The 'any' character is the dot or period character.
+
+[Type .]
+
+When used in regular expressions, this metacharacter match any single character in that character position.
+
+[Delete .]
+
+Let's try to use the dot character in a regular expression.
+
+We will use a text file that contains alphabetically sorted words.
+
+[Type less /usr/share/dict/words ENTER]
+[Press q to exit less]
+
+Each word is one line of text.
+
+Now let's use a regular expression with grep.
+
+[Type grep 'un.' /usr/share/dict/words --color]
+
+This command will match any line of text in the file, if it contains characters u and n, in that order,
+
+and followed by any character, including space and punctuation marks.
+
+[Highlight . in the command]
+[Press ENTER]
+
+We can see that grep has printed all the lines that contain 'un' followed by any character.
+
+Note that there is no restriction as to where in the line the match has to occur.
+
+Here we see lines with matches at the beginning, in the middle and at the end, or even more than one match in the same line.
+
+Let's try using a regular expression with more dots.
+
+[Type grep 'un..' /usr/share/dict/words --color]
+
+This command will match any line of text in the file, if it contains characters u and n, in that order,
+
+and followed by any *two* characters, including space and punctuation marks.
+
+[Highlight .. in the command]
+[Press ENTER]
+
+We can see that grep has again printed the lines containing matches,
+
+and matches may occur anywhere along a line of text.
+
+But it no longer matches lines like 'young',
+
+because 'young' contains 'un' followed by only one character, g,
+
+whereas our regular expression has two dots, which requires 'un' to be followed by two characters.

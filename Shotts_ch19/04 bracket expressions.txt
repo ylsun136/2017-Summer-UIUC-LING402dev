@@ -1,0 +1,77 @@
+# for this script, I am using the linux words file,
+# by default, located in /usr/share/dict.
+
+[Title Screen: Command Line Basics: bracket expressions]
+
+Let's take a look at command line basics: bracket expressions.
+
+Using brackets in regular expressions allow us to match a single character from a specific set of characters.
+
+To specify a set of characters to match from, use square brackets to enclose them.
+
+Let's try a bracket expression.
+
+We will use a text file that contains alphabetically sorted words.
+
+[Type less /usr/share/dict/words ENTER]
+
+Each word is one line of text.
+
+[Press q to exit less]
+[Type grep 'gr[ea]t' /usr/share/dict/words --color ENTER]
+
+This command has matched all lines that contain either 'gret' or 'grat'.
+ 
+Note that it will not match a line that contains 'great'.
+
+Because only one character from the set enclosed in brackets is matched.
+
+To specify a set of character that should *not* be matched at a given position, use the caret as the first character after the opening bracket.
+
+Let's try a bracket expression with a caret.
+
+[Type grep 'gr[^ea]t' /usr/share/dict/words --color ENTER]
+
+This command has matched all lines that contain g, r, any character that is not e or a, and t, in that order.
+
+Note that the caret must be inside the bracket.
+
+We can also a specify a range of characters inside brackets.
+
+[Type grep '^[A-Z]' /usr/share/dict/words --color]
+
+This command will match line that starts
+
+[Highlight ^]
+
+with an uppercase character.
+
+[Highlight [A-Z] ]
+[Press ENTER]
+
+And we can see that grep has indeed listed all lines that start with an uppercase character.
+
+Note that since the dash character is used to specify a range of characters in bracket expressions,
+
+if we want to actually match a dash character, it needs to be the *first* character in the bracket expression.
+
+We can also use character classes enclosed in brackets and colons, such as,
+
+[Type [:upper:]]
+
+in bracket expressions,
+
+as we used them on the bash command line.
+
+[Type grep '^[[:upper:]]' /usr/share/dict/words --color]
+
+This command will match lines that starts with an uppercase character, as defined by the character class upper
+
+[Highlight [:upper:]]
+
+in the bracket expression.
+
+[Highlight the outer brackets]
+[Press ENTER]
+
+And we see that grep has indeed listed all lines that start with an uppercase character.

@@ -50,3 +50,31 @@ To output the number of matches instead of the matching lines, use the -c option
 [Type ls /bin /usr/bin | grep -c zip]
 [Highlight -c zip]
 [Press ENTER]
+
+We get a number indicating the total number of file names in the To 
+directories that contain the word 'zip'.
+
+To output the names of each file that contains a match, use the -l option with grep.
+
+[Type grep -l zip /bin/*]
+[Highlight -l zip]
+[Press ENTER]
+
+We get a list of names of files in the bin directory that contain the word 'zip'.
+
+To output the line number of the matches, use the -n option with grep.
+
+[Type ls /bin /usr/bin | sort | uniq | grep -n zip]
+[Highlight -n zip]
+[Press ENTER]
+
+We get a listing of matches, each prefixed with the line number where the match is found.
+
+To highlight the matches in the output of grep, use the --color option. 
+
+[Type ls /usr/bin | sort | uniq | grep --color zip]
+[Highlight --color]
+[Press ENTER]
+
+We see that the occrences of the string 'zip' are highlighted in a different color in the output.
+

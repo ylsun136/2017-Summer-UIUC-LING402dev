@@ -1,0 +1,70 @@
+# for this script, I am using the linux words file,
+# by default, located in /usr/share/dict.
+
+[Title Screen: Command Line Basics: alternation in regular expressions]
+
+Let's take a look at command line basics: alternation in regular expressions.
+
+Alternation is an extended regular expression feature.
+
+It allows us to match one string from a set of strings.
+
+Just as a bracket expression matches one character from a set of characters.
+
+To use alternation, add a vertical bar between a set of strings in a regular expression.
+
+And add the -E option to grep,
+
+because it is an extended regular expression feature.
+
+Note the option must be uppercase letter E.
+
+Let's try an alternation.
+
+We will use a text file that contains alphabetically sorted words.
+
+[Type less /usr/share/dict/words ENTER]
+
+Each word is one line of text.
+
+[Press q to exit less]
+[Type grep -E 'ight|ite' /usr/share/dict/words --color]
+
+This command will match all lines that either contain the character sequence i, g, h and t,
+
+[Highlight ight in the command]
+
+or contain the character sequence i, t and e.
+
+[Highlight ite in the command]
+[Press ENTER]
+
+See that grep has matched words like 'write' and 'Wightman'.
+
+Alternations can be combined with other regular expression metacharacters.
+
+Parentheses can be used to separate the alternation from other metacharacters.
+
+Let's try to match all the lines that end either in 'ight', or in 'ite'.
+
+[Type grep -E '(ight|ite)$' /usr/share/dict/words --color]
+
+Note that the dollar sign is outside the parentheses.
+
+[Press ENTER]
+
+And see that grep has matched all lines that either end in 'ight', or end in 'ite'.
+
+Let's try an alternation without parentheses.
+
+[Type grep -E 'ight|ite$' /usr/share/dict/words --color]
+
+Now, the dollar sign only works on the second string in the alternation.
+
+This will match all the lines that either *contain* 'ight',
+
+or end in 'ite'.
+
+[Press ENTER]
+
+grep has now matched all the lines that contain 'ight', or end in 'ite', but not any that contains 'ite' in the middle or at the beginning.

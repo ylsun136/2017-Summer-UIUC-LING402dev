@@ -1,0 +1,44 @@
+# aspell may not be available on individual linux shell installations
+# bash will issue a 'command not found' error
+# in which case aspell and its dictionaries need to be installed from gnu's ftp and configured on the local box.
+
+[Title Screen: Command Line Basics: aspell]
+
+Let's take a look at command line basics: aspell.
+
+aspell is an interactive spelling checker.
+
+To demonstrate aspell, we first create a text file with spelling errors.
+
+[Type cat > foo.txt ENTER]
+[Type The quick brown fox jimped over the laxy dog.ENTER Ctrl+D]
+
+This file has two spelling errors, 'jimped' and 'laxy'.
+
+Let's use aspell to check foo.txt.
+
+[Type aspell check foo.txt ENTER]
+
+As aspell finds a spelling error, it will halt and display a list of suggestions, and waits for the user to input a choice.
+
+Let's choose 'jumped' by pressing one.
+
+[Press 1]
+
+aspell has replaced the error with our choice, 'jumped', and moved to the next error.
+
+This will continue till the end of the file.
+
+Now that aspell is finished, let's examine the content of foo.txt.
+
+[Type cat foo.txt ENTER]
+
+See that both spelling errors have been corrected.
+
+aspell is capable of spellchecking different kinds of text files.
+
+For example, we can spell check an html file, with the -H mode option.
+
+[Type aspell -H check foo.html]
+
+The -H or html checking mode will allow aspell to recognize html tags and not flag them as spelling mistakes.

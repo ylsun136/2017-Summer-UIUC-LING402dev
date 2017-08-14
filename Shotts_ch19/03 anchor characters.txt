@@ -1,0 +1,73 @@
+# for this script, I am using the linux words file,
+# by default, located in /usr/share/dict.
+
+[Title Screen: Command Line Basics: anchor characters in regular expressions]
+
+Let's take a look at command line basics: anchor characters in regular expressions.
+
+The caret
+
+[Type ^ ]
+
+and the dollar sign characters
+
+[Continue to type $]
+
+are used in regular expressions as *anchors*.
+
+They specify the location at which a match is to occur.
+
+The caret character
+
+[Highlight ^]
+
+is used at the beginning of a pattern,
+
+and makes a match only if the pattern is found at the beginning of a line.
+
+And the dollar sign
+
+[Highlight $]
+
+is used at the end of a pattern,
+
+and makes a match only if the regular expression is found at the end of the line.
+
+Anchors only affect the immediately adjacent element.
+
+That is, the caret only affects the immediately following element,
+
+and the dollar sign only affects the immediately preceding element.
+
+Let's try using anchor characters in regular expressions.
+
+We will use a text file that contains alphabetically sorted words.
+
+[Type less /usr/share/dict/words ENTER]
+
+Each word is one line of text.
+
+[Press q to exit less]
+[Type grep '^un' /usr/share/dict/words --color]
+
+This command will match any line of text in the file, if it *begins* with characters u and n, in that order.
+
+[Highlight ^un in the command]
+[Press ENTER]
+
+We can see that grep has printed all the lines that begin with 'un'.
+
+[Type grep 'un$' /usr/share/dict/words --color]
+
+This command will match any line of text in the file, if it *ends* with characters u and n, in that order, and nothing else.
+
+[Highlight un$ in the command]
+[Press ENTER]
+
+We can see that grep has printed all the lines that end with 'un'.
+
+The anchor characters can be used with the any character to specify patterns such as
+
+[Type grep '^.a.r..$' /usr/share/dict/words --color]
+
+This command will match any lines with exactly 6 characters, where the second character is a, and the fourth character is r.
