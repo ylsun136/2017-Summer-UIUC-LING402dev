@@ -1,0 +1,18 @@
+
+We get a number indicating the total number of file names in the two directories that contain the word 'zip'.
+
+To output the names of each file that contains a match, use the -l option with grep.
+
+[Type grep -l zip /bin/*]
+[Highlight -l zip]
+[Press ENTER]
+
+We get a list of names of files in the bin directory that contain the word 'zip'.
+
+To output the line number of the matches, use the -n option with grep.
+
+[Type ls /bin /usr/bin | sort | uniq | grep -n zip]
+[Highlight -n zip]
+[Press ENTER]
+
+We get a listing of matches, each prefixed with the line number where the match is found.

@@ -2,42 +2,47 @@
 
 Let's take a look at command line basics: pathname expansion.
 
-Pathname expansion is how wildcard characters, such as *, ?, and [[:alpha:]],
+Bash is capable of performing certain types of expansions.
 
-[Type * ? [[:alpha:]] ]
+Let's try to use ls to see how pathname expansion works.
 
-work. The shell expands these characters into listings of file or directory names.
 
-[Delete * ? [[:alpha]] ]
-
-Let's try to use echo to see how pathname expansion works.
-
-# From here on arguments may be varied to suit the contents of the actual wd. Ideally we want a small amount of output, so the original command typed would be visible together with the output.
-
-[Type echo *.txt ENTER]
+[Type ls /usr/include/*.h ENTER]
 
 This wildcard
 
-[Highlight *.txt in the command]
+[Highlight *.h in the command]
 
-has been expanded into a listing of all file names that end in .txt, in the current working directory.
+has been expanded into a listing of all file names that end in .h in the specified directory.
 
-Let's try to use wildcards that specify a class of characters.
-
-[Type echo [[:upper:]]* ENTER]
-
-This wildcard
-
-[Highlight [[:upper:]]*]
-
-has been expanded into a listing of all items in the current working directory, that starts with an uppercase character.
 
 Let's try to use wildcards in directory names.
 
-[Type echo /usr/* ENTER]
+[Type ls /usr/bin/py* ENTER]
 
 This wildcard
 
-[Highlight /usr/* in the command]
+[Highlight /usr/bin/py* in the command]
 
-has been expanded into a listing of all items under the directory /usr.
+will expand into a listing of all items under the directory /usr/bin that start with py.
+
+
+Another type of expansion involves the tilde character.
+
+[Type ~]
+
+When the tilde character is used at the beginning of a user name, it expandes into the name of the home directory of the user of that name.
+
+[Delete ~]
+
+Let's try to use echo to see how tilde expansion works.
+
+[Type echo ~<existing user name> ENTER]
+
+This has been expanded into the home directory of the named user.
+
+If no user name is supplied after the tilde character, it expands into the home directory of the current user.
+
+[Type echo ~ ENTER]
+
+See that the tilde character has been expanded into the home directory of the current user.

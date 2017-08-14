@@ -19,23 +19,11 @@ and pipe the output to grep to match the pattern 'zip'.
 
 A list of file names containing 'zip' is displayed.
 
-We see that this list has some duplicate lines. This is because /bin and /usr/bin contain files of the same name.
-
-[Highlight two occurences of bzip2.txt]
-
-To print out a list of unique file names in directories /bin and /usr/bin that have the word 'zip', we pipe the output of ls through sort and uniq before piping into grep.
-
-[Type ls /bin /usr/bin | sort | uniq | grep zip]
-[Highlight | sort | uniq]
-[Press ENTER]
-
-Now we have a sorted list of unique file names in /bin and /usr/bin that contain the word 'zip'.
-
 grep pattern matching is case-sensitive by default.
 
-Let's try to list unique file names in /bin and /usr/bin that contain the word 'ZIP'.
+Let's try to list the file names in /bin and /usr/bin that contain the word 'ZIP'.
 
-[Type ls /bin /usr/bin | sort | uniq | grep ZIP]
+[Type ls /bin /usr/bin | grep ZIP]
 [Highlight ZIP]
 [Press ENTER]
 
@@ -43,7 +31,7 @@ We get zero matches.
 
 To allow grep to ignore case when matching the pattern, use the -i option with grep.
 
-[Type ls /bin /usr/bin | sort | uniq | grep -i ZIP]
+[Type ls /bin /usr/bin | grep -i ZIP]
 [Highlight -i ZIP]
 [Press ENTER]
 
@@ -51,7 +39,7 @@ We get matches again now because grep -i will match the word 'zip' in all upperc
 
 If, instead of a list of lines that match the pattern, we want a list of lines that do *not* match the pattern, use the -v option with grep.
 
-[Type ls /bin /usr/bin | sort | uniq | grep -v zip]
+[Type ls /bin /usr/bin | grep -v zip]
 [Highlight -v zip]
 [Press ENTER]
 
@@ -59,25 +47,6 @@ We now get a sorted list of unique file names in /bin and /usr/bin that do *not*
 
 To output the number of matches instead of the matching lines, use the -c option with grep.
 
-[Type ls /bin /usr/bin | sort | uniq | grep -c zip]
+[Type ls /bin /usr/bin | grep -c zip]
 [Highlight -c zip]
 [Press ENTER]
-
-We get a number indicating the total number of file names in the To 
-directories that contain the word 'zip'.
-
-To output the names of each file that contains a match, use the -l option with grep.
-
-[Type grep -l zip /bin/*]
-[Highlight -l zip]
-[Press ENTER]
-
-We get a list of names of files in the bin directory that contain the word 'zip'.
-
-To output the line number of the matches, use the -n option with grep.
-
-[Type ls /bin /usr/bin | sort | uniq | grep -n zip]
-[Highlight -n zip]
-[Press ENTER]
-
-We get a listing of matches, each prefixed with the line number where the match is found.

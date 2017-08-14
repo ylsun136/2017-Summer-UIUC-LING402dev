@@ -13,32 +13,37 @@ Let's take a look at their man pages.
 
 Let's create a text file and use head and tail to examine its first and last lines.
 
-[Type ls -l /usr/bin > ls-output.txt ENTER]
-[Type head ls-output.txt ENTER]
+[Type ls /usr/bin | sort > foo.txt ENTER]
 
-These are the first ten lines of ls-output.txt.
+We can observe that foo.txt now contains a sorted list of the files in /usr/bin
 
-[Type tail ls-output.txt ENTER]
+[less foo.txt]
 
-And these are the last ten lines of ls-output.txt.
+We can use head to display the first ten lines of the file.
+
+[head foo.txt]
+
+We can use tail to display the last ten lines of the file.
+
+[Type tail foo.txt ENTER]
 
 To view a different number of lines, say the first or last *five* lines of a file, use the -n option with head and tail.
 
-[Type head -n 5 ls-output.txt]
+[Type head -n 5 foo.txt]
 [Highlight -n 5]
 [Press ENTER]
 
-These are the first five lines of ls-output.txt.
+These are the first five lines of foo.txt.
 
-[Type tail -n 5 ls-output.txt ENTER]
+[Type tail -n 5 foo.txt ENTER]
 
-And these are the last five lines of ls-output.txt.
+And these are the last five lines of foo.txt.
 
 head and tail can be used in pipelines.
 
 Let's list the last seven items of the contents of the directory /usr/bin. To do this, use ls to list the contents of the directory /usr/bin,
 
-[Type ls /usr/bin]
+[Type ls /usr/bin | sort]
 
 and pipe the output to tail with the appropriate options.
 

@@ -2,7 +2,7 @@
 
 Let's take a look at command line basics: wc.
 
-The wc or word count command displays the number of lines, words and bypes contained in files.
+The wc or word count command displays the number of lines, words and bytes contained in files.
 
 Let's take a look at wc's man page.
 
@@ -11,8 +11,8 @@ Let's take a look at wc's man page.
 
 Let's create a text file and use wc.
 
-[Type ls -l /usr/bin > ls-output.txt ENTER]
-[Type wc ls-output.txt]
+[Type ls -l /usr/bin > foo.txt ENTER]
+[Type wc foo.txt]
 
 wc has printed out three numbers. From the left to right, the number of lines,
 
@@ -26,17 +26,17 @@ and the number of bytes,
 
 [Highlight third number in output]
 
-in the file ls-output.txt.
+in the file foo.txt.
 
-[Highlight ls-output.txt in output]
+[Highlight foo.txt in output]
 
 To only count the number of lines in the file, use the -l option with wc.
 
-[Type wc -l ls-output.txt]
+[Type wc -l foo.txt]
 [Highlight -l]
 [Press ENTER]
 
-Only the number of lines in the file ls-output.txt is displayed.
+Only the number of lines in the file foo.txt is displayed.
 
 [Highlight number in output]
 

@@ -1,0 +1,21 @@
+[Title Screen: Command Line Basics: echo]
+
+Let's take a look at command line basics: echo
+
+The command echo takes zero or more strings, and displays them to the screen, separated by spaces.
+
+[echo hello]
+
+As we can see, echo printed the string hello.
+
+[echo hello world]
+
+If we provide more than one string to echo, it will print each string, and will put a single space between each pair of strings.
+
+[echo hello      world]
+
+If we want to print a string, preserving all spacing and other formatting, we can enclose the string in quotation marks. 
+
+When we do this, echo will treat everything within the quotation marks as a single string.
+
+[echo "Hello,     world    .   How are    you       today???"
