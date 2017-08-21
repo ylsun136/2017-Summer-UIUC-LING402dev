@@ -1,0 +1,209 @@
+[Title Screen: Command Line Basics: editing the command line]
+
+Let's take a look at command line basics: editing the command line.
+
+We know that the backspace key deletes one character to the left of the cursor.
+
+However, there are more ways to edit the command line efficiently using the keyboard.
+
+Let's now try some command line editing key combinations.
+
+First, we can delete the character at the cursor location by pressing Ctrl+d.
+
+This is the same as pressing the Delete key.
+
+This is particularly useful when used together with navigation key combinations.
+
+[Type cd /usr/bin]
+
+The cursor is now at the end of this line.
+
+Suppose that instead of using cd, we now want to use the command ls instead.
+
+Rather than pressing the left arrow or the backspace key multiple times, we can first move the cursor to the beginning of the line by pressing Ctrl+a.
+
+[Press Ctrl+a]
+
+The cursor is now at the beginning of the line.
+
+Then delete the cd command by pressing Ctrl+d twice.
+
+[Press Ctrl+d twice]
+
+And type in ls.
+
+[Type ls]
+
+We have edited the command with a few keystrokes.
+
+We can also switch the character at the cursor location with the one proceding it, by pressing Ctrl+t.
+
+If the cursor is at the end of the line, pressing Ctrl+t will switch the two characters before the cursor.
+
+This is a useful way to fix typos in commands, especially typos at the end of a command.
+
+[Press Alt+f to put the cursor at the end of 'usr']
+[Change 'usr' to 'urs']
+
+Now there is an error in the middle of the directory name.
+
+To fix this error, we need to switch characters 'r' and 's'.
+
+First, place the cursor before the character 's'.
+
+[Move the cursor to before 's']
+
+The cursor position is now at the character 's'. We can use Ctrl+t to switch it with the preceding character 'r'.
+
+[Press Ctrl+t]
+
+Now characters 'r' and 's' are switched.
+
+Similarly, we can switch the word at the cursor with the word preceding it, by pressing Alt+t.
+
+If the cursor is at the end of the line, pressing Alt+t will switch the last two words before the cursor.
+
+Let's try to switch the two words in the directory name.
+
+First, place the cursor at the beginning of the word 'bin'.
+
+[Move the cursor to the word 'bin']
+
+The cursor position is now at the word 'bin'.
+
+[Press Alt+t]
+
+Now the words 'usr' and 'bin' are switched.
+
+It is also possible to change the case of characters in the command line using the keyboard.
+
+To convert characters from the cursor location to the end of the word to uppercase, press Alt+u.
+
+Let's try to change the directory in the command to uppercase.
+
+First, place the cursor at the beginning of the directory name.
+
+This can be done easily with using Alt+b twice.
+
+[Press Alt+b twice]
+
+The cursor is now at the beginning of the word 'bin'.
+
+Now we can convert the word 'bin' to uppercase with Alt+u.
+
+[Press Alt+u]
+
+Now the word 'bin' is in uppercase.
+
+And the cursor is at the beginning of the word 'usr'.
+
+[Press Alt+u again]
+
+And pressing Alt+u again converts the word 'usr' to uppercase as well.
+
+To convert characters from the cursor location to the end of the word to lowercase, press Alt+l.
+
+Let's change the directory name back to lowercase.
+
+First, place the cursor back at the beginning of the directory name.
+
+[Press Alt+b twice]
+
+By pressing Alt+b twice, the cursor is back at the beginning of the word 'bin'.
+
+Now press Alt+l twice.
+
+[Press Alt+l twice]
+
+Both words 'bin' and 'usr' are now in lowercase.
+
+Finally, it is possible to cut and paste text from and into the command line.
+
+In bash terms, cutting text is called killing, and pasting text is called yanking.
+
+Cut text is stored in what is called the kill-ring.
+
+First, to kill text from the cursor location to the end of the line, press Ctrl+k.
+
+Let's now try cutting the current line of command.
+
+First, put the cursor to the beginning of the line with Ctrl+a.
+
+[Press Ctrl+a]
+
+The cursor is now at the beginning of the line.
+
+And we can kill this entire line with Ctrl+k.
+
+[Press Ctrl+k]
+
+The line of text is cut.
+
+To paste or 'yank' text, press Ctrl+y.
+
+Let's now try yanking the line we just killed.
+
+[Press Ctrl+y]
+
+And we get back the line of text.
+
+We can also kill text from the cursor location to the beginning of the line by pressing Ctrl+u.
+
+Now let's try killing the current line again.
+
+The cursor is at the end of the line, so we can use Ctrl+u.
+
+[Press Ctrl+u]
+
+The line is cut.
+
+Now let's yank it again with Ctrl+y.
+
+[Press Ctrl+y]
+
+And we get back the line of text.
+
+We can kill text from the cursor location to the end of the current word by pressing Alt+d.
+
+Let's try killing the word 'bin' from the directory.
+
+First, place the cursor at the beginning of the word 'bin'.
+
+[Move cursor to before 'b']
+
+The cursor is now at the beginning of the word 'bin'.
+
+Let's kill the word 'bin' with Alt+d.
+
+[Press Alt+d]
+
+We have cut the word 'bin' out of the directory.
+
+Let's paste back the word 'bin' with Ctrl+y.
+
+[Press Ctrl+y]
+
+To kill text from the cursor location to the beginning of the current word, press Alt+backspace.
+
+Let's 
+try killing the word 'bin' again.
+
+The cursor is at the end of the word 'bin', so we can use Alt+backspace.
+
+[Press Alt+Backspace]
+
+We have cut the word 'bin' out of the directory.
+
+Let's paste it at another position.
+
+[Delete the first /]
+[Press Ctrl+e]
+[Type SPACE /]
+
+Now the cursor is at the end of the line, after the slash.
+
+And we can yank the word 'bin' here with Ctrl+y.
+
+[Press Ctrl+y]
+
+The word 'bin' is yanked to the end of the line.

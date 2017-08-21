@@ -1,0 +1,51 @@
+[Title Screen: Command Line Basics: umask]
+
+Let's take a look at command line basics: umask.
+
+The umask command controls the default permissions given to a file when it is created.
+
+The permissions are expressed in octal numbers, and represent the permissions to be removed from the file's mode attributes.
+
+Let's first check the current value of umask with the umask command.
+
+[Type umask ENTER]
+
+(This value may be different depending on the system. The following examples follow Shotts.)
+
+The value is 0002.
+
+Each digit is an octal number. The value 2 in octal number corresponds to 010 in binary number, and it being the last digit corresponds to permission specification for the 'others', i.e. users that are not the file's owner nor group owners.
+
+Therefore, the masks means the second bit in the 'others'  should be turned off.
+
+Which means write access to newly created files will be turned off for the 'others'. All other original permissions will remain as they are.
+
+We can change the value of umask by using the umask command and giving it a new number.
+
+Let's try turn of the mask entirely by setting it to 0000.
+
+[Type umask 0000 ENTER]
+
+Now let's create a new file and look at its file mode.
+
+Here we use the rm command to makes sure there's no lingering copy of foo.txt around.
+
+[Type rm foo.txt ENTER]
+[Type > foo.txt ENTER]
+[Type ls -l foo.txt ENTER]
+
+See that when there is no mask applied, the default permission setting is read and write access for the owner, the group owner, and others.
+
+We have seen that a umask value of 0002 will retain read and write access for the owner and the group owner, and remove write access for the others.
+
+Let's put the umask value back to 0002.
+
+[Type umaks 0002 ENTER]
+
+Now create a new foo.txt again and examine its file mode.
+
+[Type rm foo.txt ENTER]
+[Type > foo.txt ENTER]
+[Type ls -l foo.txt ENTER]
+
+See that the mask has indeed retained access for the owner and group owner, but removed write access for the others. 

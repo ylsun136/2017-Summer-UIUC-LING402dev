@@ -1,0 +1,60 @@
+[Title Screen: Command Line Basics: completion]
+
+Let's take a look at command line basics: completion.
+
+Completion is a mechanism that will fill in an incomplete command when the tab key is pressed.
+
+Let's see how completion works.
+
+We start by typing a ls command, but not finishing with a full directory name.
+
+[Type ls /usr/b]
+
+Without pressing the Enter key, press the tab key.
+
+[Press tab]
+
+The sub-directory name 'bin' has been completed.
+
+If there is more than one entity that matches the partial name given, completion will not be successful.
+
+Let's try completion again.
+
+[Type l]
+
+Still without pressing the Enter key, press the tab key.
+
+[Press tab]
+
+This time there is no completion, because 'l' matches to multiple things in the /usr/bin directory.
+
+To see all possible completions, we can use the key combination Alt+the question mark,
+
+or just press the tab key a second time.
+
+[Press tab]
+
+We get a list of names starting with 'l' in the /usr/bin/ directory.
+
+For successful completion, the partial name needs to be unambiguous.
+
+[Continue to type s]
+
+Now try completion again by pressing the tab key.
+
+[Press tab]
+
+The completion is successful.
+
+Completion also works for commands in the same way, but only for the first word on the line.
+
+Let's now see command completion.
+
+[Delete current line]
+[Type typ]
+
+Now press the tab key to complete the command.
+
+[Press tab]
+
+Completion has completed the command 'type'.

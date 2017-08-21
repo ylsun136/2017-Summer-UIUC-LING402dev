@@ -1,0 +1,84 @@
+[Title Screen: Command Line Basics: command documentation]
+
+Let's take a look at command line basics: command documentation.
+
+Different types of commands have different types of documentation.
+
+Once we know the type of a command, we can look for the appropriate kind of documentation.
+
+First, shell builtins have built-in helps.
+
+To use built-in help, type help followed by the name of the shell builtin.
+
+Let's try to look at the help available for the command cd.
+
+[Type help cd ENTER]
+
+This is a description of the functionality and available options for the cd command.
+
+On the other hand, executable programs, such as cat, do not have built-in help.
+
+But there are still a few ways to display documentation for executable programs.
+
+To display a description of how to use an executale program, use the dash dash help option.
+
+Let's try to look at the usage information for the command cat.
+
+[Type cat --help ENTER]
+
+We see a summary of the command's usage, and available options.
+
+Most executable programs also provide formal documentation in a manual page.
+
+To view a command's full manual, use the command man.
+
+man uses less to display the manual page, and the less navigation commands would work on the manual page display.
+
+Let's look at cat's man page.
+
+[Type man cat ENTER]
+
+A command's manual is broken into sections.
+
+Note that man is currently displaying section 1 of the manual for cat, which is usually the first matching manual page for a command.
+
+[Highlight CAT(1) in the upper left corner]
+[Press q to exit man]
+
+If we need to look at a specific section of the manual, we can specify a section number for man.
+
+Let's see how manual sections work with the command groff.
+
+[Type man 7 groff ENTER]
+
+This is the 'Miscellaneous' section of groff's manual page.
+
+[Press q to exit man]
+
+It is also possible to search manual pages for a specific term. To do this, use the command apropos, or man with the -k option.
+
+Let's use apropos to find approriate commands whose man pages contain the term 'compare'.
+
+[Type apropos compare ENTER]
+
+apropos has found several commands that might be appropriate for comparing things.
+
+To see a one-line description of an executable program, use the command whatis.
+
+Let's see a brief discription of ls.
+
+[Type whatis ls ENTER]
+
+It is a one-line summary of what the command does.
+
+Many executable programs also have hyperlinked information pages as an alternative to manual pages.
+
+To access a program's info pages, use the command info.
+
+[Type info ls ENTER]
+
+This is the information page for the command ls.
+
+Note that info pages are linked in a tree-like structure, and we can use keyboard shortcuts like n, p or u to navigate the pages.
+
+[Press q to quit info]

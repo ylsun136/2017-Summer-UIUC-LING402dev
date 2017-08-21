@@ -1,0 +1,41 @@
+[Title Screen: Command Line Basics: startup files]
+
+startup files are configuration scripts read by bash at the start of a session. bash uses startup files to establish the default environment shared by all users, and also to define the personal environment for the user.
+
+The most common startup files are bashrc and profile.
+
+Most startup files are hidden and have names starting with a period. To see them, use the -a option when using ls.
+
+Let's use ls -a to see what startup files are installed.
+
+[Type ls -a /etc ENTER]
+
+The /etc directory contains global startup files for all users.
+
+See that the output lists files like /etc/profile and /etc/bash.bashrc.
+
+[Type ls -a ENTER]
+
+The user's personal directory contains personal startup files.
+
+See that the output lists files like ~/.bash_profile, ~/profile, and ~/.bashrc.
+
+We can also examine the contents of a startup file, such as the user's personal ~/.bash_profile.
+
+[Type less ~/.bash_profile ENTER]
+
+The first lines beginning with the hash symbol # are comments, and are not read by bash.
+
+Let's look at the first line that does not begin with the hash symbol.
+
+[Highlight if [-f "${HOME}/.bashrc" ]; then ... block]
+
+This sequence means if there is a .bashrc file in the user's directory, then read that .bashrc file.
+
+Let's now look at the next part dealing with the environment variable named PATH.
+
+[Highlight the part where the private /bin of the user is added to PATH]
+
+This modifies the value of the environment variable PATH by appending the user's private /bin directory to it.
+
+[Press q to quite less]

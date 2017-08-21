@@ -1,0 +1,43 @@
+[Title Screen: Command Line Basics: identifying commands]
+
+Let's take a look at command line basics: identifying commands.
+
+There are four types of commands in bash.
+
+A command can be an executable program, a shell builtin, a shell function, or an alias to another command.
+
+It is often useful to identify the type of a command.
+
+To do that, use the type command.
+
+Let's try to find out the types of a few commands we have used so far.
+
+(The results of type may vary depending on system setup. The following are from Shotts.)
+
+[Type type cat ENTER]
+
+cat is an executable program in the directory /bin.
+
+[Type type cd ENTER]
+
+cd is a shell builtin.
+
+[Type type ls ENTER]
+
+ls is an alias for the command ls with the --color=tty option.
+
+There are sometimes multiple versions of an executable program installed on a system.
+
+To see the exact location of an executable program, use the which command.
+
+[Type which grep ENTER]
+
+which shows that the grep command we are using is the executable program called grep in the /bin directory.
+
+which only works on executable programs, not shell builtins or aliases.
+
+Let's try to use which on a shell builtin like cd.
+
+[Type which cd ENTER]
+
+This results in an error message.

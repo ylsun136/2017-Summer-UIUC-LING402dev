@@ -1,0 +1,180 @@
+[Title Screen: Command Line Basics: using history]
+
+Let's take a look at command line basics: using history.
+
+Bash keeps a history of commands that have been entered.
+
+We have learned to use the up and down arrow keys to access commands in the history.
+
+Now let's see a few more commands to use with the history.
+
+To get the previous command in the history, press Ctrl+p.
+
+[Press Ctrl+p]
+
+The previous command is copied to the current command line prompt and ready for execution.
+
+To get the next command in the history,
+ press Ctrl+n.
+
+[Press Ctrl+n]
+
+We can also access the first and last commands in the history.
+
+To get the first command in the history, press Alt+open angled bracket, or the 'less than' key.
+
+[Press Alt+<]
+
+The first command in the history is copied to the current command line prompt and ready for execution.
+
+To get the last command in the history, press Alt+close angled bracket, or the 'larger than' key.
+
+[Press Alt+>]
+
+We are back to the current command line.
+
+The contents of the history list can be viewed using the history command.
+
+Let's try viewing the command history.
+
+[Type history ENTER]
+
+This brings us to the end of the history list, where we see the most recent commands.
+
+To see the beginning of the history list, we can pipe the output of history to a viewing program, such as less.
+
+[Type history | less ENTER]
+
+Now we see the beginning of command history.
+
+[Press q to quit less]
+
+To search the command history, we can pipe the output of history to a pattern matching program, such as grep.
+
+Now let's try to find the commands dealing with the directory /usr/bin.
+
+[Type history | grep /usr/bin ENTER]
+
+And the results show all the commands containing '/usr/bin', with line numbers.
+
+We can reverse search the history list incrementally, from the most recent commands backwards, by pressing Ctrl+r.
+
+Let's try searching the history incrementally.
+
+[Press Ctrl+r]
+
+The prompt changes to 'reverse-i-search' because we are searching backwards into past commands.
+
+Now type some search text.
+
+As soon as we start typing, the incremental search mechanism will start showing the most recent command matching the search text.
+
+[Type /usr/bin]
+
+Once we finish typing the search text, the most recent matching command will be displayed.
+
+We can execute the command right away by pressing Enter.
+
+Or we can copy the command to the current command line by pressing Ctrl+j.
+
+Let's try copying this command.
+
+[Press Ctrl+j]
+
+The command is copied to the command line and ready for execution.
+
+We can also reverse search the history non-incrementally by pressing Alt+p.
+
+This search will not display results as search text is entered.
+
+You need to type in the search text and press Enter.
+
+And the first matching command will be copied to the current command line.
+
+Let's use non-incremental reverse search on the history.
+
+[Press Alt+p]
+
+The prompt now shows a colon.
+
+Let's type our search string.
+
+[Type /usr/bin ENTER]
+
+The most recent matching command is copied to the current command line and ready for execution.
+
+To forward search the history, from the oldest command to the newest, press Alt+n.
+
+This is also an non-incremental search.
+
+To use it effectively, we need to first move to the beginning of the history by pressing Alt+open angled bracket.
+
+Let's use forward search on the history.
+
+First, get to the first command in the history by pressing Alt+open angled bracket.
+
+[Press Alt+<]
+
+Now we can perform a forward search.
+
+[Press Alt+n]
+
+The prompt now shows a colon.
+
+Let's type our search string.
+
+[Type /usr/bin ENTER]
+
+The oldest command containing /usr/bin is copied to the current command line and ready for execution.
+
+To execute the current command in the history and advance to the next command in the list, press Ctrl+o.
+
+This is useful when we want to re-execute a sequence of commands from the history.
+
+Let's use try to re-execute the first two commands in the history.
+
+First, get to the beginning of the history by pressing Alt+open angled bracket.
+
+[Press Alt+<]
+
+Now execute it by pressing Ctrl+o.
+
+[Press Ctrl+o]
+
+Now the second command in the history is copied to the current command line and ready for execution.
+
+Pressing Ctrl+o again to execute the second command in the history.
+
+[Press Ctrl+o]
+
+Finally, we can also use the line numbers to repeat any command in the history.
+
+This is done through history expansion, by adding an exclamation mark before a line number.
+
+Let's try history expansion with command number <your preferred number>.
+
+[Type !<your preferred number here> ENTER]
+
+bash has expanded the number into the contents of the <your preferred number>-th line in the history list and executed it.
+
+We can also use history expansion rather than the up arrow to access the last command.
+
+To do this, use two exclamation marks.
+
+[Type !! ENTER]
+
+bash has expanded this into the contents of the last command in the history list and executed it.
+
+History expansion also allows a search string instead of a number.
+
+To repeat the most recent command that starts with a search string, add an exclamation mark before the search string.
+
+[Type !ls ENTER]
+
+bash has expanded this into the most recent command that starts with ls, and executed it.
+
+To repeat the most recent command that contains a search string, add an exclamation mark and a question mark before the search string.
+
+[Type !?/usr/bin ENTER]
+
+bash has expanded this into the most recent command that contains the string /usr/bin, and executed it.

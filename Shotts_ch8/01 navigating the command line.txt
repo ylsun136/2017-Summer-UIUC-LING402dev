@@ -1,0 +1,78 @@
+[Title Screen: Command Line Basics: navigating the command line]
+
+Let's take a look at command line basics: navigating the command line.
+
+It is possible to navigate the command line efficiently using the keyboard.
+
+We have learned that the left and right arrow keys moves the cursor backward and forward by one character.
+
+Let's now try more command line navigation key combinations.
+
+[Type cd /usr/bin]
+
+The cursor is now at the end of this line.
+
+We can move the cursor to the beginning of the line by pressing Ctrl+a.
+
+[Press Ctrl+a]
+
+The cursor is now at the beginning of this line.
+
+We can also move the cursor to the end of the line by pressing Ctrl +e.
+
+[Press Ctrl+e]
+
+The cursor is back at the end of the line.
+
+We can move the cursor backward one character by pressing Ctrl+b.
+
+This is the same as the left arrow key.
+
+[Press Ctrl+b]
+
+The cursor is now at the character 'n' in 'bin'.
+
+To move the cursor forward one character, press Ctrl+f.
+
+This is the same as the right arrow key.
+
+[Press Ctrl+f]
+
+The cursor is back at the end of the line.
+
+We can also move the cursor backward one word by pressing Alt+b.
+
+This key combination moves the cursor to the beginning of the word to the left of the cursor.
+
+This is particularly useful if we want to edit part of the command.
+
+[Press Alt+b]
+
+The cursor is now at the beginning of the word 'bin'.
+
+[Press Alt+b]
+
+The cursor is now at the beginning of the word 'usr'.
+
+We can move the cursor forward one word by pressing Alt+f.
+
+This key combination moves the cursor to the end of the word to the right of the cursor.
+
+[Press Alt+f]
+
+The cursor is now at the end of the word 'usr'.
+
+Finally, we can quickly clear the screen by pressing Ctrl+l.
+
+This is the same as the clear command, but fewer keystrokes.
+
+Let's first execute a few commands.
+
+[Press ENTER]
+[Type ls ENTER]
+
+Now let's use Ctrl+l to clear the screen.
+
+[Press Ctrl+l]
+
+The screen is cleared and the cursor is moved to the top left.

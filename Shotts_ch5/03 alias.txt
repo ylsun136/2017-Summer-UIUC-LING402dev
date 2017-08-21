@@ -1,0 +1,63 @@
+[Title Screen: Command Line Basics: alias]
+
+Let's take a look at command line basics: alias.
+
+Aliasing is a way to assign a name for a command, or sequence of commands.
+
+This allows us to create a command of our own.
+
+To create an alias, first make sure the name you would like to use is not already a command.
+
+This can be checked with the type command.
+
+Let's find out if 'test' is an available name.
+
+[Type type test ENTER]
+
+test is a shell builtin, and we should not use it for aliasing.
+
+Let's try another name, say 'foo'.
+
+[Type type foo ENTER]
+
+'foo' is not an existing command.
+
+Now let's create an alias named 'foo'.
+
+[Type alias foo='cd /usr; ls; cd -' ENTER]
+
+This command assigns the name 'foo' to the commands enclosed in single quotes.
+
+[Highlight the single quoted string]
+
+In the quoted string, there are three commands, separated by semicolons.
+
+The first command, cd /usr, changes the directory to /usr.
+
+The second command, ls, lists the files in that directory.
+
+The third command, cd -, returns to the original directory.
+
+Now, whenever the alias foo is used as a command, it will perform these three commands.
+
+Let's try using the alias.
+
+[Type foo ENTER]
+
+The files in /usr are listed and the current directory is changed back to where it was.
+
+We can also use the type command to see the alias.
+
+[Type type foo ENTER]
+
+The output shows that foo is an alias to a sequence of three commands.
+
+To remove an alias, use the unalias command.
+
+[Type unalias foo ENTER]
+
+Let's use the type command again to check that the alias is removed.
+
+[Type type foo ENTER]
+
+The name 'foo' is again not an existing command.

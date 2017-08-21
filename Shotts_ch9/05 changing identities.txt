@@ -1,0 +1,53 @@
+[Title Screen: Command Line Basics: changing identities]
+
+Let's take a look at command line basics: changing identities.
+
+(This part is perhaps not necessary for the curriculum, but included for completeness. The availability and outputs of commands in this part is highly dependent on system config.)
+
+Sometimes it is necessary to assume the identity of another user, for example, when testing accounts.
+
+To change identities, use the su or sudo command.
+
+First, let's look at all the users of the current system.
+
+User information is saved in /etc/passwd, and can be examined with cat or less.
+
+[Type cat /etc/passwd ENTER]
+
+The first column lists all usernames.
+
+The su command can be used to start a shell session as another user, specified by a username and followed by a space.
+
+If no username is specified, it is assumed that the user wants to start a root session. This is the equivalent of the command su root.
+
+su can also be used to execute a single command in a new shell session with the -c option.
+
+The command must be enclosed in single quotes.
+
+Let's try to use su to execute a command.
+
+[Type su -c 'ls -l /root/*' ENTER]
+
+After the system executes the command, it returns to the current shell session.
+
+The command sudo can be configured to specify which specific commands can be executed by a user assuming another identity.
+
+Unlike su, the use of sudo does not require superuser password.
+
+For example, the following command,
+
+[Type sudo -u alice ls /usr/bin]
+
+attempts to list the contents of /usr/bin as the user named alice.
+
+If sudo has been configured to allow this, users can authenticate themselves with their own passwords, not the superuser password.
+
+To change the owner and group owner of a file or directory, use the chown command.
+
+This can be used to grant access to a file or directory.
+
+Lastly, to set or change the password, use the passwd command.
+
+[Type passwd ENTER]
+
+The system will prompt for the current and new password for the current user.

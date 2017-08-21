@@ -1,0 +1,39 @@
+[Title Screen: Command Line Basics: the environment]
+
+Let's take a look at command line basics: the environment.
+
+The environment is a body of information maintained by bash during a shell session.
+
+To see what is in the environment, use the printenv command.
+
+[Type printenv | less ENTER]
+
+This output shows us a list of environment variables and their values.
+
+For example, there is a variable called USER.
+
+[Highlight the USER line in the output]
+[Press q to quit less]
+
+printenv can also list the value of a specific variable given its name.
+
+Let's list the value of the environment variable called USER.
+
+[Type printenv USER ENTER]
+
+The command set also displays the contents of the environment, and sorts its output in alphabetical order.
+
+[Type set | less ENTER]
+[Press q to quit less]
+
+The command echo can also be used to view the value of an environment variable.
+
+With echo, the name of the environment variable needs to be preceded by the dolloar sign.
+
+Let's use echo to look at the value of an environment variable named HOME.
+
+[Type echo $HOME ENTER]
+
+Neither printenv nor set lists aliases. To see aliases in the environment, use the alias command without arguments.
+
+[Type alias ENTER]

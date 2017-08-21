@@ -1,0 +1,54 @@
+[Title Screen: Command Line Basics: modifying the environment]
+
+Let's take a look at command line basics: modifying the environment.
+
+To customize the environment, edit the startup files.
+
+Edits should be limited to personal startup files in the home directory, and always make a backup copy before editing.
+
+As a general rule, to add directories to the PATH variable, or to define additional environment variables, edit .bash_profile.
+
+All other changes go to .bashrc.
+
+To edit a startup file, we can use a text editor program, such as vim.
+
+Let's try to customize .bashrc.
+
+First, make a copy of .bashrc and name it .bashrc.bak.
+
+[Type cp .bashrc .bashrc.bak]
+
+Now start the editor.
+
+[Type vim .bashrc ENTER]
+
+Navigate to the end of the file by pressing Shift+g.
+
+Add the following lines:
+
+[Type # alias to display a long format directory listing ENTER]
+[Type alias ll='ls -l --color=auto']
+
+The alias command creates a new command called ll, which displays a long format directory listing.
+
+The line beginning with the hash symbol # is a comment.
+
+As good practice, always add comments to new commands to make them easier to understand for other people.
+
+Commenting is also a handy way to preserve optional configurations in the startup file when they are deactivated.
+
+The optional commands can be commented out with the hash symbol when not needed, and the hash symbol can be removed when the commands are to be activated.
+
+Finally, press :x to save the changes and exit vim.
+
+Since startup files are only read at the beginning of a bash session, we need to terminate the current session and start a new one for the changes to take effect.
+
+However, we can also force bash to re-read the .bashrc with the source command.
+
+[Type source .bashrc ENTER]
+
+Now we can use the new alias ll to display a long directory listing.
+
+[Type ll ENTER]
+
+Since the alias is defined in a startup file, it will still be available for use if we terminate the current bash session and start a new one.

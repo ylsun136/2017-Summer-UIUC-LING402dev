@@ -1,0 +1,143 @@
+[Title Screen: Command Line Basics: chmod]
+
+Let's take a look at command line basics: chmod.
+
+The chmod command is used to change the mode, or permissions, of a file or directory.
+
+Only the file's owner or the superuser can change the mode of a file or directory.
+
+Mode changes can be specified with octal numbers, or symbolic notations.
+
+We will first cover octal numbers.
+
+Octal is a base eight number system that use digits zero through seven.
+
+Most humans count using a base ten number system, that is, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, and as we get to ten, we start using two digits, 1 and 0.
+
+In a base eight number system, we would count through 0, 1, 2, 3, 4, 5, 6, 7, and as we get to eight, we start using two digits, 1 and 0, then goes on to 11, 12, and so on.
+
+Octal numbers are particularly suitable for representing three binary digits, where each digit can be either 1 or 0.
+
+We have seen that file modes are represented in three groups of three characters. To recap, let's look at a file mode with ls -l.
+
+First, create a new text file called foo.txt.
+
+[Type > foo.txt ENTER]
+
+And list its properties with ls -l.
+
+[Type ls -l foo.txt ENTER]
+
+The nine characters after the first characters represent the file mode.
+
+[Highlight the file mode in the output]
+
+For each character, it is either a hyphen, meaning permission is not granted, or not a hyphen, meaning permission is granted.
+
+Therefore, if we represent permission granted as 1, and permission not granted as 0, each group of three characters becomes a three digit binary string, or one octal digit.
+
+For example, the first three characters in the file mode of foo.txt is r, w, hypen.
+
+[Highlight the first three characters in the file mode]
+
+This would be 1, 1 and 0 in binary number, and 6 in octal number.
+
+Therefore, three octal digits would be able to represent permission settings for three types of users.
+
+Now let's try to use octal numbers and chmod to turn off access to foo.txt for everyone except the owner.
+
+[Type chmod 600 foo.txt ENTER]
+
+In this command, permissions are set with three octal digits, 6, 0 and 0.
+
+The first digit represents the permission settings for the owner of foo.txt, and its value, 6, means the owner is granted read and write permission, but not execute permission.
+
+The second digit represents the permission settings for the group owner of foo.txt, and its value, 0, means read, write and execute permission are all not granted.
+
+The third digit represents the permission settings the everybody else, and its value, 0, means read, write and execute permission are all not granted.
+
+We can now use ls -l again to check the changed permission settings for foo.txt.
+
+[Type ls -l foo.txt ENTER]
+
+See that the owner of foo.txt has read and write permission, and nobody else has permission to access the file.
+
+The most often used octal digit values are:
+
+seven, for read, write and execute;
+
+six, for read and write but not execute access;
+
+five, for read and execute but not write access;
+
+four, for read access only;
+
+and zero, for no access.
+
+If you give fewer than three digits to chmod, leading zeros will be assumed.
+
+That is, a command like
+
+[Type chmod 6 foo.txt ENTER]
+
+is the same as 
+
+[Type chmod 006 foo.txt ENTER]
+
+Next, we will cover chmod with symbolic notations.
+
+A symbolic notation for chmod consists of three parts:
+
+The first part is who will the mode change affect. This is represented by a combination of characters u, g, o and a.
+
+u means the owner.
+
+g means the group owner.
+
+o means others.
+
+And a means all, which means the combination of u, g and o.
+
+The characters can be combined to specify more than one group, for example, ug means the mode change is for the owner and group owner.
+
+If no character is specified, 'all' is assumed.
+
+The second part of a symbolic notation is a sign that specifies the mode change operation.
+
+A plus sign means a permission to be added.
+
+A minus sign means a permission is to be removed.
+
+An equal sign means only the specified permissions are to be granted, and all other permissions to be removed.
+
+The third part of a symbolic notation uses characters r, w or x to specify the exact permissions to be granted or removed.
+
+The symbolic notation makes it easier to grant or remove a single permission without changing the others.
+
+Let's see a few examples of symbolic notations.
+
+First, let's take a look at the current file mode of foo.txt.
+
+[Type ls -l foo.txt ENTER]
+
+The file mode shows the owner of foo.txt does not have execute permission.
+
+Let's use chmod with symbolic notation to add permissions for the owner.
+
+[Type chmod u+rwx foo.txt ENTER]
+
+And use ls -l again to check the new file mode.
+
+[Type ls -l foo.txt ENTER]
+
+See that the owner now has all permissions granted.
+
+Now let's try remove execute permission of the file's owner, and add read and execute permissions for the group owner and everyone else.
+
+[Type chmod u-x,go=rx foo.txt ENTER]
+
+And use ls -l to check the new file mode.
+
+[Type ls -l foo.txt ENTER]
+
+See that the owner now has read and write access to the file, and others have read and execute access to the file.

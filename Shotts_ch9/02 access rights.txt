@@ -1,0 +1,63 @@
+[Title Screen: Command Line Basics: access rights]
+
+Let's take a look at command line basics: access rights.
+
+Access rights to files and directories are defined in terms of read access, write access, and execution access.
+
+We can use the ls -l command to see access rights of files and directories.
+
+First, let's create a text file called foo.txt.
+
+[Type > foo.txt ENTER]
+
+Next, use the ls -l command to display the properties of foo.txt.
+
+[Type ls -l foo.txt ENTER]
+
+The first ten characters of the listing indicate files attributes.
+
+[Highlight the file attributes in the output]
+
+The first character indicates the file type.
+
+[Highlight the first - in the output]
+
+A hyphen means this is a regular file.
+
+Other common values are 'd' for directories, and 'l' for symbolic links.
+
+The next nine characters are called the mode, and are in groups of three.
+
+The first three characters represent the read, write and execute permissions for the file's owner, 
+
+[Highlight the first three characters of the nine]
+
+The second group of three characters represent permissions for the file's group owner,
+
+[Highlight the second three characters]
+
+The last three characters represent persmissions for everybody else, or the world.
+
+[Highlight the last three characters]
+
+A hyphen means permission is not granted.
+
+The character 'r' means read permission is granted.
+
+If read permission is granted to a file, the file can be opened and read.
+
+If read permission is granted to a directory, and execute permission is also granted, the directory's contents can be listed.
+
+The character 'w' means write permission is granted.
+
+If write permission is granted to a file, it allows a file to be written or truncated, but does not allow the file to be renamed or deleted.
+
+If write permission is granted to a directory, and execute permission is also granted, it allows files to be created, deleted and renamed in that directory.
+
+The character 'x' means execute permission is greanted.
+
+If execute permission is granted to a file, the file can be treated as a program and executed. If the file is written is scripting languages, the read permission must also be granted to execute.
+
+If read permission is granted to a directory, the directory can be entered, for example, in a cd command.
+
+For symbolic links, the permissions are dummy values, and are always rwxrwxrwx. The real permissions on the actual files or directories that the symbolic links point to.

@@ -1,0 +1,41 @@
+[Title Screen: Command Line Basics: user identity and groups]
+
+Let's take a look at command line basics: user identity and groups.
+
+Linux is capable of allowing multiple people to use the same system at the same time.
+
+In order to support many users at the same time, the activities of one user must not intefere with another.
+
+Therefore it is essential to be able to identify users, and to determine who is allowed to do what to which files and directories.
+
+There are three ways a user can gain access to files and directories:
+
+A user may own files and directories and have control over their access.
+
+A user may belong to a group, and have access to files and directories that the group can access.
+
+A user may also access files and directories that everyone has access to.
+
+To find out your identity, use the id command.
+
+[Type id ENTER]
+
+The output first shows uid, or user ID.
+
+It is a number assigned to the user when the user account was created.
+
+[Highlight uid in the output]
+
+And shows the corresponding username is parentheses.
+
+[Highlight username in the output]
+
+The next number is gid, or primary group ID.
+
+It is a number assigned to the user's personal group.
+
+And followed by the primary group name in parentheses.
+
+The next entries list the IDs and names of groups that the user belongs to.
+
+Therefore this user can access any files and directories that these groups can access.
