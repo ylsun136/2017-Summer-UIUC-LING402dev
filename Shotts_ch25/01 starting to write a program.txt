@@ -1,0 +1,90 @@
+[Title Screen: Command Line Basics: starting to write a program]
+
+Let's take a look at command line basics: starting to write a program.
+
+A program is usually not written entirely in one sitting.
+
+Instead, it is built in a series of stages, adding features or capabilities in each stage.
+
+Let's try to write a report generator program in stages.
+
+Before starting to write a program, we should be able to describe what the program will do or produce.
+
+Our report generator program will report various statistics about the system and its status. The report will be produced in HTML format.
+
+Since the report generator program needs to produce reports in HTML format, we will start by writing a program that produces a minimal, well-formatted page in HTML format.
+
+The simplest way to do this in bash scripting is to use echo to display text with HTML tags.
+
+Use a text like vi, we can write such a script:
+[Type vi sys_info_page ENTER]
+
+Remember that the script should first have a shebang line.
+
+[Press i to enter INSERT mode]
+[Type #!/bin/bash ENTER]
+
+It is always good to include comments.
+
+[Type # Program to output a system information page ENTER]
+
+and use echo to display text.
+
+[Type echo "<HTML>" ENTER]
+[Type echo "<HEAD>" ENTER]
+[Type echo "<TITLE>Page Title</TITLE>" ENTER]
+[Type echo "</HEAD>" ENTER]
+[Type echo "<BODY>" ENTER]
+[Type echo "Page body." ENTER]
+[Type echo "</BODY>" ENTER]
+[Type echo "</HTML>" ENTER]
+
+This is a well-formatted HTML page with matching tags, a head and a body.
+
+[Press Esc to quit INSERT mode. Type :wq to save and quit vi]
+
+We have now created a script file named sys_info_page.
+
+It is also a good idea to test run the program frequently, and as early as possible.
+
+Let's use chmod to make the script file executable and run it.
+
+[Type chmod 755 sys_info_page ENTER]
+[Type ./sys_info_page ENTER]
+
+And we see the text of the HTML page displayed on the screen.
+
+This output can then be redirected to a file and viewed in a web browser.
+
+Here, we will use the w3m browser to see it.
+
+[Type ./sys_info_page > sys_info_page.html ENTER]
+[Type w3m sys_info_page.html ENTER]
+
+See that w3m displays the body text at the top of the page, and the title in the bottom.
+
+[Press Q to quit w3m](uppercase Q)
+
+Next, we will try to make the program a little bit simpler, by combining the multiple echo commands into one.
+
+[Type vi sys_info_page ENTER]
+[Press i to enter INSERT mode]
+[Edit the content so that it looks like:]
+[echo "<HTML>]
+[<HEAD>]
+[<TITLE>Page Title</TITLE>]
+[</HEAD>]
+[<BODY>]
+[Page body.]
+[</BODY>]
+[</HTML>"]
+
+This will make it easier if later we want to add more lines to the output.
+
+[Press Esc to exit INSERT mode. Type :wq to save and quit]
+
+Let's run the program again to make sure it still works as expected.
+
+[Type ./sys_info_page ENTER]
+
+The text is displayed as expected.

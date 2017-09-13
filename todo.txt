@@ -4,9 +4,6 @@
 - Shotts chapter 26 (program design: functions, local variables and functional independence, feedback messages)
 - Shotts chapter 27 (flow control: if, exit status, test expressions, compound expression with logical operators, compound command with logical operators)
 
-- Shotts chapter 10 (processes: list and examine, interrupt, foregrounding, pausing, kill and killall, reboot and shutdown)
-[not exactly a useful chapter for HW purposes]
-
 -- auxiliary --
 
 - upload cc files to youtube

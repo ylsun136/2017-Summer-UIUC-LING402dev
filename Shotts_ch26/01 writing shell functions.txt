@@ -1,0 +1,101 @@
+[Title Screen: Command Line Basics: writing shell functions]
+
+Let's take a look at command line basics: writing shell functions.
+
+We will keep on building a report generator program.
+
+As of now, the program displays the text of a HTML page.
+
+[Type ./sys_info_page ENTER]
+
+The page has a title and a page heading, which says 'System Information Report For' followed by the name of the host machine.
+
+The page also has a paragraph of body text that displays the time at which the page was generated, and the username of the user who generated the page.
+
+As the program has grown in size and complexity, it is often beneficial to use a top-down design process to break it down into increasingly smaller, simpler tasks.
+
+As we continue to add functionalities to the program, a break-down of the program helps us to identify where a new functionality is to be added.
+
+Let's now try breaking the report generator program into steps.
+
+[Type vi sys_info_page ENTER]
+
+At a very broad level, the program first sets initial values for variables,
+
+[Highlight the variable assignments]
+
+then generates an HTML document with a here document.
+
+[Highlight the entire section between cat << _EOF_ and _EOF_]
+
+We can further break down the generation of HTML document into smaller tasks.
+
+First, set page title in page header.
+
+[Highlight from <HTML> to </HEAD>]
+
+Second, output page heading and timestamp in page body.
+
+[Highlight from <BODY> to </BODY>]
+
+We can break the task to output page heading and timestamp even further.
+
+For example, it first opens page body.
+
+[Highlight <BODY>]
+
+then outputs page heading and timestamp.
+
+[Highlight from <H1> to </P>]
+
+Then closes page body.
+
+[Highlight </BODY>]
+
+Therefore, if we wish to add more output to the page body, we know the tasks need to be added between the output of page heading, and the closing of page body.
+
+Let's now try to add some system statistics to the HTML page.
+
+We will display system uptime and load, total disk space used, and home space, which is the amount of storage space used by each user.
+
+[Press i to enter INSERT mode]
+
+If we have had a single command for each of these tasks, we can simply add them at the appropriate positions in the script.
+
+[Add below <P>$TIMESTAMP</P>:]
+[$(report_uptime) ENTER]
+[$(report_disk_space) ENTER]
+[$(report_home_space)]
+
+Unfortunately, report underscore uptime and such are not existing bash commands. We will need to create these additional commands.
+
+To do that, we can write three shell functions.
+
+shell functions are mini-scripts within a script, and they can act as autonomous programs.
+
+A shell function has a name, and a series of commands enclosed in braces.
+
+Let's try adding three minimal functions to the report generator program.
+
+[Add below the assignment to TIMESTAMP:]
+[report_uptime(){ ENTER]
+[TAB return ENTER]
+[} ENTER]
+[report_disk_space(){ ENTER]
+[TAB return ENTER]
+[} ENTER]
+[report_home_space(){ ENTER]
+[TAB return ENTER]
+[} ENTER]
+
+Currently, these minimal functions do not output anything.
+
+Let's check that the program still runs as before.
+
+[Press Esc to exit INSERT mode. Type :wq to save and quit vi]
+[Type ./sys_info_page > sys_info_page.html ENTER]
+[Type w3m sys_info_page.html ENTER]
+
+See that the output remains the same.
+
+[Press Q to exit w3m]

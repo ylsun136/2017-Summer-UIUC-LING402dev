@@ -1,0 +1,55 @@
+[Title Screen: Command Line Basics: combining expressions]
+
+Let's take a look at command line basics: combining expressions.
+
+It is possible to combine test expressions to create complex evaluations for an if statement.
+
+Expressioins are combined using logical operators.
+
+There are three logical operators, logical AND, logical OR, and logical NOT.
+
+Logical AND evaluates the combined test expression to true only if both combining test expressions are true.
+
+Logical OR evaluates the combined test expression to true if either one or both of the combining test expressions is true.
+
+Logical NOT reverses the outcome of a test expression, turning true to false and false to true.
+
+If the test command or single square brackets are used, the operators are written -a, -o and the exclamation point, respectively.
+
+Let's try to combine two integer test expressions to access if a variable's value is within a given range.
+
+First, we assign an integer value to a variable named INT.
+
+[Type INT=7 ENTER]
+
+And use INT in an if construct.
+
+[Type if [ $INT -ge 3 -a $INT -le 15 ]; then echo "$INT is within range"; else echo "$INT is out of range"; fi ENTER]
+
+In this command, one expression tests if the value of INT is greater or equals to 3,
+
+[Highlight $INT -ge 3 in the command]
+
+another expression tests if the value of INT is less than or equals to fifteen.
+
+[Highlight $INT -le 15 in the command]
+
+-a logically ANDs the results of the two expressions together.
+
+[Highlight -a in the command]
+
+That is, the entire test expression evaluates to true only when the value of INT is both greater of equal to three, and smaller or equal to fifteen.
+
+This effectively tests if the value of INT lies within a range.
+
+If the newer form of test expressions are used, meaning the double square brackets or double parentheses, the logical operators are written as double ampersand, double vertical bar, and the exclamation point, respectively.
+
+The same integer range test expression can therefore be re-written using double square brackets and double ampersand:
+
+[Type if [[ $INT -ge 3 && $INT -le 15 ]]; then echo "$INT is within range"; else echo "$INT is out of range"; fi]
+
+The logical NOT operator, unlike AND and OR, comes before the expression.
+
+If we want to test if the value of int is not within a certain range, we add an exclamation point to the current test expression:
+
+[Type if [[ ! ($INT -ge 3 && $INT -le 15) ]]; then echo "$INT is within range"; else echo "$INT is out of range"; fi]

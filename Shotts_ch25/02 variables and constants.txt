@@ -1,0 +1,118 @@
+[Title Screen: Command Line Basics: variables and constants]
+
+Let's take a look at command line basics: variables and constants.
+
+We will keep on building a report generator program.
+
+As of now, the program displays the text of a minimal HTML page.
+
+[Type ./sys_info_page ENTER]
+
+Let's now try putting some data in the page.
+
+We will start by changing the title text and the body text.
+
+[Type vi sys_info_page ENTER]
+[Press i to enter INSERT mode]
+[Change 'Page Title' to 'System Information Report']
+[Change 'Page body.' to '<H1>System Information Report</H1>']
+
+The page now has 'System Information Report' as its page title, and a heading in the page body.
+
+[Press Esc to exit INSERT mode. Type :wq to quit vi]
+
+Let's check that the output page looks as expected.
+
+[Type ./sys_info_page > sys_info_page.html ENTER]
+[Type w3m sys_info_page.html ENTER]
+
+We see that the output page does have the new title and body heading.
+
+[Press Q to quit w3m]
+
+Now, we should notice that the string 'System Information Report' is repeated in the script.
+
+If our intention is to have the page heading be the same as the page title, then if we ever decide to change the title or the heading, we would have to change the string in multiple places.
+
+In a large program, this would be very inefficient and error-prone.
+
+Therefore, we want to write the program so that the string only appears once.
+
+We can achieve this through the use of a variable.
+
+Let's edit our script again.
+
+[[Type vi sys_info_page ENTER]
+[Press i to enter INSERT mode]
+[Add below the comment line: title="System Information Report"]
+
+We have created a variable named title, and assigned it the value "System Information Report", using the equal sign.
+
+Note that there must not be a space either before or after the equal sign.
+
+Variable names in bash scripts also must only consist of alphanumeric characters and the underscore character only.
+
+No space or punctuation marks are allowed.
+
+Now, wherever we want this string to appear, we can refer to the variable 'title' through parameter expansion.
+
+[Change the two hard-coded occurences of the title to $title]
+
+Let's check that the program still runs as expected.
+
+[Press Esc to exit INSERT mode. Type :wq to save and exit vi]
+[Type ./sys_info_page > sys_info_page.html ENTER]
+[Type w3m sys_info_page.html ENTER]
+
+The page title and page heading are still "System Information Report", which is what we expect.
+
+[Press Q to exit w3m]
+
+Now, instead of using a completely literal string as the page title and heading,
+
+let's try to display the name of the current machine in the title.
+
+[Type vi sys_info_page ENTER]
+[Press i to enter INSERT mode]
+[Change the value of 'title' to "System Information Report For $HOSTNAME"]
+
+The page title and heading should now display the name of the current machine, which we have retrieved through the environment variable, $HOSTNAME.
+
+Let's check that the program runs as expected.
+
+[Press Esc to exit INSERT mode. Type :wq to save and exit vi]
+[Type ./sys_info_page > sys_info_page.html ENTER]
+[Type w3m sys_info_page.html ENTER]
+
+See that the page now has a title and page heading that says the report is for the machine we are on. 
+
+[Press Q to exit w3m]
+
+Finally, let's take another look at the variable named 'title', that we just created.
+
+The word 'variable' implies a value that changes.
+
+In our program, however, title is being used as a constant. Its value does not change since it was first assigned.
+
+Bash does not disguish between variables and constants. However, it is convenient for us to tell which variables have constant values and which don't.
+
+A common convention is to use all uppercase letters for the name of a constant, and lowercase letters for the name of a variable.
+
+Let's modify the script to this convention:
+
+[[Type vi sys_info_page ENTER]
+[Press i to enter INSERT mode]
+[Change 'title' to 'TITLE']
+[Change the two '$title' to '$TITLE']
+
+Remember to change all the occurrences of the variable's name.
+
+Let's check that the program still runs as expected.
+
+[Press Esc to exit INSERT mode. Type :wq to save and exit vi]
+[Type ./sys_info_page > sys_info_page.html ENTER]
+[Type w3m sys_info_page.html ENTER]
+
+See that the page displays the title and heading with the machine name as expected.
+
+[Press Q to exit w3m]

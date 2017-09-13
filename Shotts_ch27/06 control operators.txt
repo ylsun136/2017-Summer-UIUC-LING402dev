@@ -1,0 +1,33 @@
+[Title Screen: Command Line Basics: control expressions]
+
+Let's take a look at command line basics: control expressions.
+
+Bash provides two control operators that can perform branching in command execution, based on the exit status of a command.
+
+The operators are double ampersand for logical AND, and double vertical bar for logical OR.
+
+They work like the logical operators used in combining test expressions.
+
+However, instead of combining two test expressions, these control operators combine two commands.
+
+The behavior of control operators is also different from those used for combining test expressions.
+
+Let's see some examples of control operators.
+
+[Type mkdir temp && cd temp]
+
+The double ampersand operator means the command mkdir temp is to be executed, and the command cd temp will only execute if the mkdir command was successful.
+
+[Type [[ -d temp ]] || mkdir temp]
+
+The double vertical bar operator means the test expression [[ -d temp ]] is to be executed and evaluated, and the command mkdir temp will only execute if the test expression is false.
+
+These operators are very useful for handling errors in scripts.
+
+For example, if we want to terminate a script with the exit status of one when a required directory does not exist, we can use
+
+[Type [ -d required ] || exit 1 ]
+
+instead of writing a full if construct like
+
+[Type [ ! -d temp ]; then exit 1; fi]

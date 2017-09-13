@@ -1,0 +1,81 @@
+[Title Screen: Command Line Basics: viewing processes]
+
+Let's take a look at command line basics: viewing processes.
+
+Linux is a multitasking system: it switches rapidly from one executing program to another, so that it appears to execute multiple programs at the same time.
+
+The different programs being executed are organized as processes.
+
+To manage processes, each process is assigned a number calld a process ID, or PID.
+
+A program can also launch another program by creating a new process.
+
+The launching program is a parent process, and the launched program is a child process.
+
+The most commonly used command to view processes is ps.
+
+Let's take a look at the man page of ps.
+
+[Type man ps ENTER]
+
+ps gives us a snapshot of current proccesses.
+
+[Press q to exit man]
+
+Let's use ps to view current processes.
+
+[Type ps ENTER]
+
+We can see that both bash and ps are executed as processes, and their PIDs.
+
+The TTY field shows the control terminal that the processes are associated with. It indicates the terminal device or window where the current session is running.
+
+We can also see, in the TIME field, how much CPU time has been used by each process. This can help us to access whether the processes are running normally.
+
+To see all processes of the current session, use ps with the x option, without a leading dash.
+
+[Type ps x ENTER]
+
+In addition to bash and ps x, here we see a sshd process that handles the current user's server connection.
+
+We also see a STAT field, which indicates the current status of each process.
+
+For example, upper case R indicates that the process ps x is running,
+
+and upper case S indicates bash is sleeping, or waiting for input.
+
+To see processes of all users, use ps with the aux option, without a leading dash.
+
+[Type ps aux | tail -5 ENTER]
+
+We now see information such as the user ID for each process, and the time when the process started.
+
+ps provides only a snapshot of the processes at the time when the ps command is executed.
+
+To see a dynamic view of processes, use the top command.
+
+Like Activity Monitor on Mac or Task Manager on Windows, top provides a continuously updating display of processes, order by process activity.
+
+By default, top updates every three seconds.
+
+[Type top ENTER]
+
+The first part of top's display is a summary of the system.
+
+We can see the current time, 
+
+[Highlight current system time in the output]
+
+for how long the system has been up since the last boot,
+
+[Highlight up time in the output]
+
+number of logged in users,
+
+[Highlight number of users in the output]
+
+and a variety of statistics to indicate how the system is running.
+
+To exit top, press q.
+
+[Press q to exit top]

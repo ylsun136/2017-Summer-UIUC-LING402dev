@@ -1,0 +1,65 @@
+[Title Screen: Command Line Basics: using exit status]
+
+Let's take a look at command line basics: using exit status.
+
+In an if construct, if is evaluating the success or failure of commands.
+
+Whether a command succeeds or fails is indicated by its exit status.
+
+This is an integer in the range of 0 to 255.
+
+And a command sends an exit status to the system when it terminates.
+
+By convention, an exit status of zero indicates success.
+
+Any other value indicates failure.
+
+Functions may choose to explicitly return certain values to indicate errors.
+
+Bash provides a parameter to access the exit status of the last run command.
+
+Let's try to examine the exit status.
+
+[Type ls -d /usr/bin ENTER]
+
+This command runs successfully.
+
+[Type echo $? ENTER]
+
+And its exit status is zero.
+
+[Type ls -d /bin/usr ENTER]
+
+This command fails.
+
+[Type echo $? ENTER]
+
+And its exit status is not zero.
+
+Bash also provides two builtin commands that provides an exit status of zero and one.
+
+The true command always succeeds with exit status zero.
+
+[Type true ENTER]
+[Type echo $? ENTER]
+
+The false command always fails with exit status one.
+
+[Type false ENTER]
+[Type echo $? ENTER]
+
+Using true and false, we can see how the if statement works.
+
+[Type if true; then echo "It's true."; fi ENTER]
+
+The echo command is executed here because true is successful.
+
+[Type if false; then echo "It's true."; fi ENTER]
+
+The echo command is not executed because false fails.
+
+If multiple commands follow it, the last command is evaluated.
+
+[Type if false; true; then echo "It's true."; fi ENTER]
+
+The echo command is again executed because the last command after if and before then is true.

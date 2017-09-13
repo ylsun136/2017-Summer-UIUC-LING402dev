@@ -1,0 +1,142 @@
+[Title Screen: Command Line Basics: controlling processes]
+
+Let's take a look at command line basics: controlling processes.
+
+Processes can be controlled via a variety of commands. To demonstrate process controlling commands, we will use the command sleep, which simply sleeps for a given amount of time before returning to the prompt.
+
+Let's see how sleep works.
+
+[Type sleep 5s]
+
+This specifies a sleep of five seconds.
+
+[Press ENTER]
+
+We see that there is only the cursor and no prompt for a while..
+
+..and after five seconds, sleep has finished running, and the prompt comes back.
+
+The first control command we will demonstrate is the interrupt.
+
+To interrupt and terminate a process while it is running, press Ctrl plus C on the keyboard.
+
+Let's see interrupt in action.
+
+First, let's sleep for one minute.
+
+[Type sleep 1m ENTER]
+
+[Wait for like 5 seconds]
+
+Sleep is still running, and we do not have the prompt.
+
+Now, if we press Ctrl+C,
+
+[Press Ctrl+C]
+
+We see the interrupt command being displayed as the caret character plus C,
+
+[Highlight ^C]
+
+The prompt has returned.
+
+We can use ps to check that sleep has been terminated.
+
+[Type ps ENTER]
+
+The next control command is the ampersand character, which backgrounds a process.
+
+[Type &]
+
+When a command is executed with a following ampersand, the executed command is running, but put in the background, so we get back to the prompt right away.
+
+Let's try to sleep again for thirty minutes, but in the background.
+
+[Delete &]
+[Type sleep 30m & ENTER]
+
+We get back to the prompt. But we also get a number.
+
+This is the PID of the sleep process that has been put to the background.
+
+We can see the sleep process with ps.
+
+[Type ps ENTER]
+
+Note that the sleep process has the PID that we just saw.
+
+[Highlight sleep's PID in output]
+
+When we put sleep to the background, we also get a number one in square brackets before the PID.
+
+This indicates that the process is assigned to job number one.
+
+Job numbers are part of bash's job control facility, which groups multiple processes into 'jobs', so multiple processes may be controlled as a group.
+
+We can use the jobs command to see current jobs.
+
+[Type jobs ENTER]
+
+Here we see that we have one job numbered one, and it is running the sleep command.
+
+Now, since sleep is running in the background, it will not respond to keyboard input.
+
+Let's try interrupting sleep.
+
+[Press Ctrl+C]
+
+See that the keyboard input has been received and displayed as caret C, but if we look at the current job again,
+
+[Type jobs ENTER]
+
+see that sleep is still running in the background.
+
+To be able to send keyboard input to the sleep process again, we need to return it to the foreground.
+
+To do that, use the command fg with a percentage sign, followed by the job number.
+
+[Type fg %1 ENTER]
+
+See that the name of the foregrounded process is displayed.
+
+And we don't have the prompt again, because now sleep is running in the foreground.
+
+Now we can interrupt sleep.
+
+[Press Ctrl+C]
+
+And use ps to check that sleep is terminated.
+
+[Type ps ENTER]
+
+To put a foreground process back into the background, we may use the command bg with the process' job number.
+
+But as the process in the foreground, it needs to be stopped first.
+
+That is, we want to stop a process without terminating it.
+
+Then we can get to the prompt and use the bg command.
+
+To stop a foreground process, press Ctrl plus Z on the keyboard.
+
+Let's try stopping and backgrounding a process.
+
+Let's start again by sleeping for thirty minutes, in the foreground.
+
+[Type sleep 30m ENTER]
+
+The sleep process is now running in the foreground and we do not have to the prompt.
+
+Let's stop the sleep process with Ctrl plus Z.
+
+[Press Ctrl+Z]
+
+We see that the sleep process has been stopped, and assigned the job number one.
+
+And we get the prompt again. Now let's use bg to put the sleep process to the background.
+
+[Type bg %1 ENTER]
+
+See that the process has been placed in the background, as indicated by the ampersand at the end.
+
+[Highlight the & in the output]

@@ -1,0 +1,78 @@
+[Title Screen: Command Line Basics: using stubs]
+
+Let's take a look at command line basics: using stubs.
+
+We will keep on building a report generator program.
+
+As of now, the program displays the text of a HTML page.
+
+[Type ./sys_info_page ENTER]
+
+The page has a title and a page heading, which says 'System Information Report For' followed by the name of the host machine.
+
+The page also has a paragraph of body text that displays the time at which the page was generated, and the username of the user who generated the page.
+
+The program also has three minimal functions that will eventually allow the HTML output to display system uptime, disk space used in total, and disk space used by each user.
+
+[Type vi sys_info_page ENTER]
+[Highlight the functions]
+
+The minimal functions in the program are called stubs.
+
+These can help us verify the flow of the program.
+
+We have already added an echo command to the function report_uptime.
+
+When we see this echo command's output as we run the program, we can tell that the function has executed and returned properly.
+
+Therefore, it is good to put some kind of feedback into stubs.
+
+Let's try adding feedback to the stubs.
+
+[Press i to enter INSERT mode]
+[Edit report_uptime function:]
+[TAB echo "Function report_uptime executed."]
+[Edit report_disk_space function:]
+[TAB echo "Function report_disk_space executed."]
+[Edit report_home_space function:]
+[TAB echo "Function report_home_space executed."]
+
+Let's run the program again and verify its workings.
+
+[Press Esc to exit INSERT mode. Type :wq to save and exit vi]
+[Type ./sys_info_page ENTER]
+
+We see that between the timestamp and the closing tag of </BODY>, the outputs are from the echo commands in the three functions.
+
+Therefore we know that the functions have properly executed in the expected order.
+
+Finally, let's add working commands to the functions.
+
+[Type vi sys_info_page ENTER]
+[Press i to enter INSERT mode]
+
+[Edit function report_uptime():]
+[TAB cat <<- _EOF_ ENTER]
+[TAB <H2>System Uptime</H2> ENTER]
+[TAB <PRE>$(uptime)</PRE> ENTER]
+[TAB _EOF_ ENTER]
+
+[Edit function report_disk_space():]
+[TAB cat <<- _EOF_ ENTER]
+[TAB <H2>Disk Space Utilization</H2> ENTER]
+[TAB <PRE>$(df -h)</PRE> ENTER]
+[TAB _EOF_ ENTER]
+
+[Edit function report_home_space():]
+[TAB cat <<- _EOF_ ENTER]
+[TAB <H2>Home Space Utilization</H2> ENTER]
+[TAB <PRE>$(du -sh /home/*))</PRE> ENTER]
+[TAB _EOF_ ENTER]
+
+Note that the here documents used in the functions have the dash option, since the matching _EOF_ tokens are tab indented.
+
+Also note that the function report_home_space may not always execute properly, because many systems only permit home directories to be read by their respective users.
+
+Only a superuser has the privilege to read all home directories.
+
+At this point, the program cannot yet judge whether the user is a superuser, and act accordingly.

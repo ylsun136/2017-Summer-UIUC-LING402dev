@@ -1,0 +1,69 @@
+[Title Screen: Command Line Basics: here document]
+
+Let's take a look at command line basics: here document.
+
+We will keep on building a report generator program.
+
+As of now, the program displays the text of a HTML page.
+
+[Type ./sys_info_page ENTER]
+
+The page has a title and a page heading, which says 'System Information Report For' followed by the name of the host machine.
+
+The page also has a paragraph of body text that displays the time at which the page was generated, and the username of the user who generated the page.
+
+In this program, echo is used to display text to the screen.
+
+[Type vi sys_info_page ENTER]
+
+Let's now try a different way of directing input/output in a bash script, which is to use a here document.
+
+A here document is a way to embed text into a script, and feed it to the standard input of a command.
+
+It can be used with any command that accepts standard input.
+
+Let's try to use a here document in the report generator program.
+
+[Press i to enter INSERT mode]
+[Add below TIMESTAMP assignment line: cat << _EOF_]
+[Add below the last line, </HTML>: _EOF_]
+[Remove: echo, double quotes]
+
+We have removed echo from the script. Instead, the script now uses cat to display the HTML text.
+
+The line starts with the command cat has designated the string underscore EOF underscore as the token that marks the end of embedded text.
+
+[Highlight cat << _EOF_]
+
+Therefore, the text from the following line onwards, until the string underscore EOF underscore is encountered again, will be the input to cat.
+
+[Highlight the embedded text]
+
+and as the second string underscore EOF underscore is encountered, cat considers it as the end of input text, and displays the embedded text to the screen.
+
+[Press Esc to exit INSERT mode. Type :wq to quit vi]
+
+Let's check that the output page looks as expected.
+
+[Type ./sys_info_page > sys_info_page.html ENTER]
+[Type w3m sys_info_page.html ENTER]
+
+See that the here document we just added has the same effect as echo.
+
+However, echo will behave differently when there are single and double quotes in the input text.
+
+On the other hand, a here document ignores single and double quotes in the embedded text.
+
+Therefore, using a here document allows quotations marks to be freely used in the output text, without worrying about their effects on expansion.
+
+[Press Q to quit w3m]
+
+A final note on the here document is the dash option:
+
+[Type cat <<- _EOF_]
+
+This option ignores indentation preceding the _EOF_ at the end of embedded text.
+
+This is because the token at the end of the embedded text is not to be indented.
+
+When we have added indentation such as tabs before the _EOF_ token for readability, the dash option should be used for here document to work. 

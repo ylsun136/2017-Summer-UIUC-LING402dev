@@ -1,0 +1,100 @@
+[Title Screen: Command Line Basics: assigning values]
+
+Let's take a look at command line basics: assigning values.
+
+We will keep on building a report generator program.
+
+As of now, the program displays the text of a HTML page.
+
+The page has a title and a page heading, which says 'System Information Report For' followed by the name of the host machine.
+
+[Type ./sys_info_page ENTER]
+
+Let's now try a few more varied ways to assign values to variables.
+
+Bash does not care about the type of data assigned to a variable.
+
+It treats them all as strings.
+
+Therefore, we can assign to variables anything that is able to expand into a string.
+
+They can be literal strings in quotes, which may be contain escape sequences or expansions in them.
+
+They can also be results of a command or an arithmetic expansion.
+
+It is also possible to do assignments to multiple variables on a single line, as long as they are separated by a space.
+
+Let's see some examples.
+
+[Type a=z b="a string" ENTER]
+
+This will assign the string 'z' to a variable named 'a', and the string 'a string' to a variable named 'b'.
+
+Note that a=z does NOT assign the value of a variable named 'z' to a variable named 'a', although this is common with other programming languages.
+
+We can check the variables' values with echo.
+
+[Type echo $a ENTER]
+[Type echo $b ENTER]
+
+Now let's assign the value of the variable named b to the variable named a.
+
+[Type a=$b ENTER]
+
+Note how b is referenced with parameter expansion.
+
+Now the variable named a would have the same value as the variable named b.
+
+[Type echo $a ENTER]
+
+The value of a is now also 'a string'.
+
+Let's see an example with parameter expansion in a string. We have also used this in the report generator program for the value of the variable TITLE.
+
+[Type a="To $b or not to $b, that is the question" ENTER]
+
+Parameter expansion will replace the $b with the value of the variable named b.
+
+And the value of a becomes the following string:
+
+[Type echo $a ENTER]
+
+Finally, we can assign the output of a command to a variable.
+
+[Type a=$(date) ENTER]
+
+This assigns the output of the date command to the variable named a.
+
+[Type echo $a ENTER]
+
+Now that we have introduced various ways to assign variable values, let's try to add more data to the report produced by the generator program.
+
+We will add the date and time the report was created, and the username of the user who generated the report.
+
+[Type vi sys_info_page ENTER]
+[Press i to enter INSERT mode]
+[Add below TITLE assignment line: CURRENT_TIME=$(date +"%x %r %z")]
+[Add below again: TIMESTAMP="Generated $CURRENT_TIME, by $USER"]
+
+We have assigned the output of a date command to a variable called CURRENT_TIME.
+
+The uppercase naming signals that this variable is to be used as a constant.
+
+We have also assigned a string to TIMESTAMP, which contains the value of the variable named CURRENT_TIME, and the environment variable named USER.
+
+Therefore, TIMESTAMP should display with the actual time when the report generator program is executed, and the username of whoever the executed the program.
+
+[Add below <H1>$TITLE</H1> in the body: <P>$TIMESTAMP</P>]
+
+We have added a text paragraph that displays the value of TIMESTAMP, in the body of the html page.
+
+[Press Esc to exit INSERT mode. Type :wq to quit vi]
+
+Let's check that the output page looks as expected.
+
+[Type ./sys_info_page > sys_info_page.html ENTER]
+[Type w3m sys_info_page.html ENTER]
+
+We see that the output page now displays a timestamp message in the body.
+
+[Press Q to quit w3m]

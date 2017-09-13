@@ -1,0 +1,68 @@
+[Title Screen: Command Line Basics: kill and killall]
+
+Let's take a look at command line basics: kill and killall.
+
+Pressing Ctrl+C on the keyboard allows us to interrupt and terminate a process running in the foreground.
+
+The command kill can be used to terminate a process in the background.
+
+The process to be killed can be specified by PID, or job number if it has one.
+
+Let's try using kill to terminate a background process.
+
+Let's start by running a sleep process in the background.
+
+[Type sleep 30m & ENTER]
+
+Note the PID of sleep.
+
+Now we can use kill to terminate the sleep process using its PID.
+
+[Type kill <PID of sleep> ENTER]
+
+And bash has terminated the sleep process.
+
+The kill command achieves its purposes by sending signals to processes.
+
+Keyboard controls such as Ctrl+C or Ctrl+Z work the same way, by sending a fixed, specific signal to processes.
+
+For example, Ctrl+C sends an INT, or intterrupt signal.
+
+The default signal sent by kill is TERM, or to terminate. But kill can also send various other signals.
+
+A list of signals can be displayed by the -l option for kill.
+
+[Type kill -l ENTER]
+
+To specify a signal to send, use either the number or the name of the signal.
+
+Let's try sending signals with kill.
+
+Let's start a sleep process in the background again.
+
+[Type sleep -30m & ENTER]
+
+Now let's send a HUP or hangup signal to sleep. This signal is sent to processes to terminate them when a terminal session is closed without exiting.
+
+[Type kill -1 <PID of sleep> ENTER]
+
+Note that the argument here is the number one, which stands for the HUP signal.
+
+And we see that the sleep process is in hangup.
+
+Finally, it is possible to send signals to multiple processes that match a specified program name or username.
+
+Let's try to use killall to terminate multiple processes.
+
+First, start two sleep sessions in the background.
+
+[Type sleep 10m & ENTER]
+[Type sleep 30m & ENTER]
+Note that 
+the two sleep processes are assigned different PIDs, and different job numbers.
+
+Now we can use killall to terminate both sleep processes.
+
+[Type killall sleep ENTER]
+
+And both sleep processes are now terminated.

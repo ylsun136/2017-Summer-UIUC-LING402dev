@@ -1,0 +1,66 @@
+[Title Screen: Command Line Basics: enhanced test expressions]
+
+Let's take a look at command line basics: enhanced test expressions.
+
+Modern versions of bash include an enhanced version of the test command.
+
+It uses double square brackets, with obligatory spaces.
+
+This enhanced version is very similar to the plain test command or the single square bracket form, and supports all the regular test expressions.
+
+But it adds several important features.
+
+One of the important features is to test if a string is matched by a regular expression.
+
+This provides a way to perform data validation.
+
+For example, we can use this enhanced test to validate that the numbers we use in integer test expressions are indeed integers.
+
+Let's first see what happens when a non-integer is used in an integer test expression.
+
+First, assign a non-integer value to a variable named INT.
+
+[Type INT=int ENTER]
+
+And use INT in an if construct.
+
+[Type if [ $INT -lt 0 ]; then echo "INT is negative."; else echo "INT is positive."; fi ENTER]
+
+This commands runs into an error because the value of INT is not an actual integer.
+
+We can improve this by testing if the value of INT only contains numbers.
+
+[Type if [[ "$INT" =~ ^-?[0-9]+$ ]]; then if [ $INT -lt 0 ]; then echo "INT is negative."; else echo "INT is positive."; fi; else echo "INT is not an integer."; fi ENTER]
+
+This series of commands uses a regular expression to determine if the value of the variable INT is a valid integer number.
+
+The number can be negative and begin with an optional minus sign,
+
+[Highlight ^-?]
+
+and followed by one or more digits.
+
+[Highlight [0-9]+$]
+
+The enhanced version of test is also capable of pattern matching file names and directory names in the same way pathname expansion does.
+
+Let's try an example of filename matching.
+
+[Type FILE=foo.txt ENTER]
+[Type if [[ $FILE == foo.* ]]; then echo "$FILE matches pattern"; fi ENTER]
+
+This if construct tests if a file is named foo, regardless of its extension.
+
+In addition, bash provides a specific command for testing integers.
+
+It uses double parentheses, with obligaroty spaces.
+
+The arithmetic expressions in this command can use simplified comparison notations.
+
+Let's see how this command can be used to make integer testing slightly simpler.
+
+[Use the Up arrow to find the integer comparison command with regex matching]
+[Change [ $INT -lt 0 ] to (( INT < 0 ))]
+[Press ENTER]
+
+The effect of the command is the same, but the test expressions look more natural.

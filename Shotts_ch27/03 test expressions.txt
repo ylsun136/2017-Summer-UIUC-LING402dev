@@ -1,0 +1,135 @@
+[Title Screen: Command Line Basics: test expressions]
+
+Let's take a look at command line basics: test expressions.
+
+In an if construct, the test command is most often used to perform a variety of checks and comparisons.
+
+A test command can be written as:
+
+[Type if test $x -eq 1; ]
+
+where the word test is followed by an *expression* that is to be evaluated as either true or false.
+
+When the expression evaluates to true, the test command returns an exit status of zero.
+
+When the expression evalutes to false, the test command returns an exit status of one.
+
+The more popular form of the test command is:
+
+[Delete previous command]
+[Type if [ $x -eq 1 ]; ]
+
+where the expression is enclosed in square brackets.
+
+The left square bracket is in fact a command, and an equivalent of test.
+
+Since the bracket is a command, the spaces after the left square bracket and before the right square bracket are required to separate the command from the expression, just as for other commands.
+
+Now let's look at commonly used test expressions for various types of data.
+
+
+For a complete listing of test expressions, please consult the man page for test.
+
+First, we list a few test file expressions.
+
+[Type if [ foo1.txt -nt foo2.txt ];]
+
+Test if foo1.txt is newer in modification date than foo2.txt.
+
+[Type if [ foo1.txt -ot foo2.txt ];]
+
+Test if foo1.txt is older in modification date than foo2.txt.
+
+[Type if [ -b ~/ ];]
+
+Test if ~/ exists and is a directory.
+
+[Type if [ -e foo.txt ];]
+
+Test if foo.txt exists.
+
+[Type if [ -f foo.txt ];]
+
+Test if foo.txt exists and is a regular file, meaning it is not a directory, symlink, device, etc.
+
+[Type if [ -r foo.txt ];]
+
+Test if foo.txt exists and is readable.
+
+[Type if [ -s foo.txt ];]
+
+Test if foo.txt exists and has a size larger than zero, meaning it is not empty.
+
+[Type if [ -w foo.txt ];]
+
+Test if foo.txt exists and is writable.
+
+[Type if [ -x foo.txt ];]
+
+Test if foo.txt exists and is executable.
+
+Next, we look at some test string expressions.
+
+[Type if [ "foo" ];]
+
+Test if the string "foo" is null.
+
+[Type if [ -n "foo" ];]
+
+Test if the length of the string "foo" is greater than zero. This is essentially the same as the previous test expression.
+
+[Type if [ -z "foo" ];]
+
+Test if the length of the string "foo" *is* zero.
+
+[Type if [ "foo" == "bar" ];]
+
+Test if the strings "foo" and "bar" are equal.
+
+[Type if [ "foo" != "bar" ];]
+
+Test if the strings "foo" and "bar" are not equal.
+
+[Type if [ "foo" > "bar" ];]
+
+Test if the string "foo" sorts after the string "bar" when sorted.
+
+[Type if [ "foo" < "bar" ];]
+
+Test if the string "foo" sorts before the string "bar" when sorted.
+
+Finally, a collection of test integer expressions.
+
+[Type if [ 6 -eq 3 ];]
+
+Test if the integer six equals to three.
+
+[Type if [ 6 -ne 3 ];]
+
+Test if the integer six does not equal to three.
+
+[Type if [ 6 -le 3 ];]
+
+Test if the integer six is less than or equal to three.
+
+[Type if [ 6 -lt 3 ];]
+
+Test if the integer six is less than three.
+
+[Type if [ 6 -ge 3 ];]
+
+Test if the integer six is greater than or equal to three.
+
+[Type if [ 6 -gt 3 ];]
+
+Test if the integer six is greater than three.
+
+Note that these test expressions only take integers directly.
+
+If we wish to compare the results of arithmetic expressions, the arithmetic expressions need to be put in arithmetic expansion.
+
+Let's try to use arithmetic expansion in a test expression.
+
+[Type if [ 24 -eq $((3*8)) ]; then echo "yes"; fi ENTER]
+
+By enclosing 3 times 8 in double parentheses preceded by the dollar sign, the test expression will evaluate if the integer 24 is equal to the integer result of 3 times 8.

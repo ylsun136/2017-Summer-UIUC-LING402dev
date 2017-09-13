@@ -1,0 +1,63 @@
+[Title Screen: Command Line Basics: local variables]
+
+Let's take a look at command line basics: local variables.
+
+We will keep on building a report generator program.
+
+As of now, the program displays the text of a HTML page.
+
+[Type ./sys_info_page ENTER]
+
+The page has a title and a page heading, which says 'System Information Report For' followed by the name of the host machine.
+
+The page also has a paragraph of body text that displays the time at which the page was generated, and the username of the user who generated the page.
+
+The program also has three minimal functions that will eventually allow the HTML output to display system uptime, disk space used in total, and disk space used by each user.
+
+[Type vi sys_info_page ENTER]
+[Highlight the empty functions]
+
+So far, the variables we have used are all global variables.
+
+[Highlight the lines that assign values to TITLE, CURRENT_TIME, TIMESTAMP]
+
+They exist throughout the program.
+
+Inside shell functions, however, it is often desirable to have local variables.
+
+Local variable only exist within the shell function.
+
+Once a function terminates or returns, local variables in that function no longer exist.
+
+If a local variable inside a function has the same name as a global variable, the function will access the local variable and not the global variable.
+
+This helps functions to avoid naming conflits.
+
+Local variables are declared by preceding the variable name with the word local.
+
+Let's try using a local variable in the program.
+
+[Press i to enter INSERT mode]
+[Add in report_uptime() function:]
+[TAB local CURRENT_TIME=$(uptime) ENTER]
+[TAB echo $CURRENT_TIME ENTER]
+
+Here, a local variable also named CURRENT_TIME is declared in the function named report_uptime.
+
+The global variable CURRENT_TIME is assigned the results of the command *date*.
+
+The local variable, on the other hand, is assigned the results of the command *uptime*.
+
+The echo command inside function report_uptime will display the value of the local CURRENT_TIME, not that of the global variable.
+
+We can see by running the program.
+
+[Press Esc to exit INSERT mode. Type :wq to save and exit]
+[Type ./sys_info_page > sys_info_page.html ENTER]
+[Type w3m sys_info_page.html ENTER]
+
+See that the first line of text in the page body displays the value of the global CURRENT_TIME.
+
+But the second line of text, which comes from the echo command in the functioin report_uptime, displays the value of the local variable.
+
+[Press Q to exit w3m]

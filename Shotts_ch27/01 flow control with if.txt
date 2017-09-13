@@ -1,0 +1,83 @@
+[Title Screen: Command Line Basics: flow control with if]
+
+Let's take a look at command line basics: flow control with if.
+
+We will keep on building a report generator program.
+
+As of now, the program displays the text of a HTML page.
+
+[Type vi sys_info_page ENTER]
+
+The page has a title and a page heading, which says 'System Information Report For' followed by the name of the host machine.
+
+The page also has a paragraph of body text that displays the time at which the page was generated, and the username of the user who generated the page.
+
+The program also has three functions that allow the HTML output to display system uptime, disk space used in total, and home space used by each user.
+
+But, the program cannot yet decide whether the user is a superuser, and adapt the display of home space according to user privilege settings.
+
+[Highlight the report_home_space function]
+
+We need to make the program *branch* in report_home_space:
+
+That is, the program needs to make a decision, and execute different chunks of commands depending on that decision.
+
+We use an if construct to accomplish this.
+
+[Type :q to quit vi]
+
+Let's try an if construct.
+
+First, assign the value of five to a variabled named x.
+
+[Type x=5 ENTER]
+
+Next, judge if the value of x is equal to five.
+
+[Type if [ $x -eq 5 ];]
+
+If the value of x is equal to five, then display 'x equals 5',
+
+[Type then echo "x equals 5";]
+
+Otherwise, display 'x does not equal 5',
+
+[Type else echo "x does not equal 5";]
+
+And this is the end of the if constrcut.
+
+[Type fi ENTER]
+
+This has executed the echo command after 'then',
+
+because the expression [ $x -eq 5 ] evaluates to success,
+
+If we change the value of x to something other than five, the same if construct will execute the echo command after 'else',
+
+because the expression [ $x -eq 5 ] evaluates to fail. 
+
+[Type x=0 ENTER]
+[Use up arrow to find and execute the if command again]
+
+An if construct can have more than two branches.
+
+[Type x=2 ENTER]
+[Type if [ $x -eq 1 ]; then echo "singular"; elif [ $x -eq 2 ]; then echo "dual"; else echo "plural"; fi]
+
+This command tests if the value of x is equal to 1.
+
+If it is, execute the command after the first if, which will display 'singular'.
+
+If it is not, then execute the commands after elif.
+
+Which tests if the value of x is equal to 2.
+
+[Highlight [ $x -eq 2 ] ]
+
+If the value of x is indeed equal to 2, execute the command after the second then, which will display 'dual'.
+
+Otherwise, the value of x is not 1 nor 2, execute the command after the final else, which displays 'plural'.
+
+As we have set the value of x to two, this command should display 'dual'.
+
+[Press ENTER]
