@@ -1,0 +1,202 @@
+00:00		let's continue talking about the hangman
+00:03		script. at the end of the last video we
+00:08		had appended the user's guess to the
+00:10		list of letters called guessed. so we're
+00:15		keeping track of all the letters that
+00:16		have been guessed, and we were about to
+00:20		retrieve a string called word_so_far
+00:22		from the function called get_word_so_far
+00:25		which takes as its parameters the
+00:28		list of guessed letters and the word the
+00:32		target word. so let's take a look at
+00:35		get_word_so_far. get_word_so_far is a much
+00:43		shorter method. it takes the list of
+00:47		guessed letters and the target word as its
+00:53		arguments and it will return a string
+00:57		called guessed_string which is a string
+01:02		representation of the word to be guessed
+01:04		with the letters that have not yet been
+01:07		guessed as blanks so we start this method
+01:13		by initializing the return string a
+01:16		guessed string as the empty string and
+01:21		we're going to loop over the letters in
+01:24		the word. so for every letter in the
+01:29		target word... right... so in this string the
+01:32		target word if the letter is in the list
+01:36		guessed letters then we will append that
+01:41		letter to the guessed string. if that
+01:50		letter has not been guessed then we will
+01:54		append a blank to the guessed string. and
+01:57		so we're now returning this string which
+02:01		is comprised of either letters or blanks.
+02:05		well it's comprised of both letters and
+02:08		blanks, depending on whether or not the
+02:11		letter has been guessed.
+02:13		and that's it. that's all this function
+02:16		does. but this is a function - this is a
+02:20		chunk of code that we are performing so
+02:23		often that it makes sense for
+02:26		readability to separate it out as its
+02:29		own function. so once we know what it
+02:33		does, we can simply read over this line
+02:36		word_so_far is the string returned from
+02:40		get_word_so_far. all right and then we
+02:46		enter the last part of the play_hangman
+02:49		method where we were before. so we return
+02:52		to this call we have word_so_far. here's
+02:57		a case where the word has been
+02:59		completely guessed that is if word_so_far
+03:02		is completely equal to word then
+03:06		here's the string printed indicating the
+03:09		user has won: "fine you won't be so lucky
+03:12		next time", indicating somebody who's
+03:16		disappointed that the user will not be
+03:18		hanged, followed by a call to exit. so we
+03:23		are not breaking out of the loop we are
+03:25		exiting the program entirely and we are
+03:29		doing so with an exit code of zero to
+03:32		indicate that there is no error, that
+03:35		everything went fine, the user just won
+03:38		the game that's all. or the word may not
+03:44		be completely guessed yet but the letter
+03:47		is in the word. so in hangman if the
+03:53		letter is in the word, if the user
+03:56		guesses a letter or the player guesses a
+03:58		letter that is in the word, then we do
+04:04		not lose a guess. so down here in this
+04:09		case where the letter is not in the word
+04:11		we are going to decrement the number of
+04:14		guesses. but up here if the letter is in
+04:18		the word were not so there is no
+04:20		statement there is no statement to
+04:22		decrement num guesses.
+04:26		we're simply going to print out the word
+04:30		so far and this string "..." so the
+04:35		word so far will be printed right here
+04:37		and we already know that word_so_far is
+04:40		a string of blanks and letters depending
+04:42		on whether those letters have been
+04:44		guessed if the guess is not in the word
+04:52		and so if this condition does not pass
+04:54		we will decrement the number of guesses
+04:57		and we will inform the user right here,
+05:02		here is the string so far which
+05:04		presumably will be the same string
+05:07		returned from their last guess, and in
+05:12		these curly braces we will input the
+05:15		word and we will input the value num
+05:17		guesses to indicate how many guesses are
+05:20		left and again here in the language just
+05:24		trying to be cute, "so many steps remain
+05:28		to the gallows" so it creates tension ten
+05:36		steps remain nine steps remain eight
+05:39		steps remain and so on... that's just a way
+05:42		to indicate to the user that they have
+05:44		so many guesses left to guess the word
+05:46		and that is the end of the while loop so
+05:50		if we exit the while loop because the
+05:54		user runs out of guesses then once again
+05:57		we print this message meant to indicate
+06:00		GAMEOVER meant to indicate someone has
+06:04		died, the hangman has died, and it tells
+06:08		you what the word is
+06:09		that couldn't be guessed. so let's
+06:19		quickly review some of the main
+06:20		takeaways of this script. we saw here the
+06:24		use of a positional parameter and the
+06:28		and passing of that to a function. and this
+06:32		is the first time that we've talked
+06:34		about this in Python so sys.argv
+06:39		is a good thing to know. another thing
+06:43		we're talking about for the first time
+06:45		is this option to pass a parameter to a
+06:49		function or not, and that is again
+06:52		accomplished by the use of this equal
+06:57		sign and a value next to a parameter in
+07:00		a function. we made use of strings and
+07:11		lists in this game, and a few points of
+07:15		syntax worth noting you looked at how
+07:20		this operator in can be used to test
+07:24		very simply whether or not a character
+07:27		is present in a string and we can also
+07:33		use it to check whether a value is in a
+07:38		list.
+07:40		so "in" performs a similar function for
+07:44		both strings and lists. we got to see the
+07:50		results of certain functions that can be
+07:53		called on strings. so for example testing
+07:58		whether a string falls into a certain
+08:00		character class using isalpha() and of
+08:04		course there are others like isdigit()
+08:06		to make sure you have an entirely
+08:08		numerical string. we saw the use of
+08:14		len() which can be used on both strings
+08:17		and lists, any data type that has smaller
+08:24		data types comprising it or a sequence
+08:27		of values comprising it
+08:31		can be an argument to len(). we saw
+08:36		in word so far that we can loop over
+08:43		strings and
+08:50		we didn't loop over any lists here but
+08:55		they could be looped over in the same
+08:57		way.
+09:07		so with the exception of isalpha() which
+09:12		can only be used for strings, a lot of
+09:16		what we have done in here a lot of the
+09:18		operations we have taken on strings and
+09:20		lists can be done for either one. append()
+09:25		is another exception. append() works for
+09:28		lists. for Strings we would want to use
+09:32		string concatenation. so strings and
+09:40		lists can share a lot of functionality
+09:43		because of the fact that they are both
+09:46		iterable you're able to iterate over the
+09:49		values the characters inside of a string
+09:52		and also the values inside of a list. one
+09:57		big way that strings and lists are
+09:59		different is that strings are immutable
+10:03		and lists are mutable. if something is
+10:07		mutable it can be changed. so we could
+10:11		reset the values stored at the first
+10:15		index of a list at any point, no problem.
+10:19		if we try to reset the value of a string
+10:24		at any point at any index we run into a
+10:29		problem so let's just take a look at
+10:32		that. here is a list...
+10:55		heh, and of course you should be in
+10:58		Python before trying that. let's try that
+11:01		again. and here is the string. we could
+11:18		set the first index of a list to another
+11:23		character no problem, but we cannot set
+11:31		the first value of a string to another
+11:34		character. so strings are immutable but
+11:50		lists are mutable. so what does this have
+11:56		to do with our game? you'll notice that
+12:10		we need to get a new string every time
+12:14		the user makes another guess. that is, we
+12:16		need to make another call to
+12:18		get_word_so_far.
+12:20		notice that get_word_so_far does not at
+12:24		all acknowledge the value that was
+12:26		previously returned from get_word_so_far
+12:29		so we are returning a new string
+12:33		every time. so in a way this method
+12:39		exists because of the fact that strings
+12:43		are immutable, that we need to get a new
+12:45		string every time. so as an exercise you
+12:53		might think about how you might
+12:54		reimplement as a list
+13:06		to represent the word as it has been
+13:10		guessed so far, and how could you update
+13:14		that list as you go along you wouldn't
+13:19		need to get a new list every time. and
+13:24		it's possible at any time to change that
+13:30		list into a string using the join method.
+13:55		so we can create a string from the
+13:59		values of a list using the join method.
+14:04		here we're joining on the empty string
+14:07		every value in the list l. so if you were
+14:13		to try to reimplement hangman without
+14:16		using the get_word_so_far method, this
+14:22		might be a part of your code. try it out.
+14:27		good luck

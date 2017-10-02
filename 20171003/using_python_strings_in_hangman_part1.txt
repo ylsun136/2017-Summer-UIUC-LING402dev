@@ -1,0 +1,209 @@
+00:00		Using Python strings in hangman. Here is
+00:13		a script that runs a game of hangman. You
+00:21		can start the script by simply entering
+00:23		hangman.py or you can provide hangman.py
+00:29		a word to be guessed.
+01:02		The operation is the same. The user
+01:05		simply doesn't know the word if no
+01:07		parameter is given to hangman. And there
+01:20		is also a built-in option to give up by
+01:23		inputting nothing at the input line. The
+01:35		latter of these two options, no parameter,
+01:38		is useful when the user wants to play.
+01:41		The former of these two options,
+01:43		providing a word as an argument, is
+01:46		useful when you want to start the game
+01:49		and pass it along to someone else or to
+01:53		debug your code when writing the game.
+01:58		Let's take a look at hangman.py and in
+02:04		particular how it uses strings and lists
+02:07		in its implementation. you'll see that it
+02:17		uses two functions, get_word_so_far, which
+02:26		takes guessed_letters and word as its
+02:30		parameters, guess_letters being a list
+02:33		and word being a string, and the method
+02:42		play_hangman which has a parameter userword
+02:48		which defaults to None. We'll
+02:54		see how that works when we get to that
+02:57		point in the code. let's go down to the
+03:02		main entry point in the code. at the
+03:05		bottom of the script, if __name__ equals 
+03:10		__main__ with two underscores on either side.
+03:13		remember
+03:14		that this is the line of code that says,
+03:18		if we are running this module or if we
+03:21		are running this Python script on its
+03:24		own as a standalone program this is the
+03:27		code that will be executed first.
+03:33		so under if __name__ equals __main__ we have an
+03:37		if-else statement. if the length of sys.argv
+03:44		is greater than one. okay what does
+03:49		this mean? sys is a module that we
+03:54		imported at the top that contains
+03:58		various useful methods and values that
+04:03		are related to the operating system. argv
+04:09		is the argument vector. so every
+04:16		everything that has passed in as a
+04:19		positional parameter to the script is
+04:22		stored in the argument vector. so it's a
+04:26		list of arguments. so what we're asking
+04:29		here is is the length of the argument
+04:35		vector greater than 1. in other words is
+04:39		there more than one value stored in this
+04:45		list called argv. why more than one? well,
+04:51		the first value stored in argv at
+04:53		position 0 is the name of the script
+04:57		itself, and this is useful to access if
+05:00		you're printing a usage message. sys.argv[1]
+05:08		and every index beyond that stores a
+05:11		positional parameter. so we're asking
+05:14		here if the length of the argument
+05:18		vector is greater than 1. that means we
+05:21		have a positional parameter stored at
+05:25		index 1.
+05:27		and so when we play hangman we will pass
+05:31		that positional parameter to the
+05:34		play_hangman function, else we'll simply
+05:41		call play_hangman without any argument.
+05:46		okay so let's look at play_hangman. so
+05:58		when in... when an argument to a function...
+06:02		when the parameter is specified as a
+06:07		default we have an option of passing
+06:13		that parameter to the function or not. so
+06:21		userword if we have passed a word to
+06:25		the function will be equal to that word,
+06:27		as we saw earlier when I ran hangman.py
+06:32		hello.
+06:34		userword evaluates to hello but when
+06:38		running the script without any parameter
+06:42		userword will evaluate to None. so when
+06:48		we come down here - os.system("clear")
+06:52		that just clears the screen -- if not userword
+06:56		...so this is saying if userword is
+07:00		None, if nothing is stored at userword.
+07:04		so if not userword, we're going to
+07:08		choose a random word from the Swadesh
+07:13		list, which is a good source for just
+07:16		single words and all we're doing here. I
+07:22		won't go through it in great detail but
+07:24		all we're doing here is making a random
+07:26		choice of lines in the swadesh file
+07:29		which is one word per line and making
+07:32		sure that we have a long enough word and
+07:34		that there is not an unwanted character
+07:38		like a parenthesis in that word,
+07:40		and then breaking when we have a word
+07:42		that works, else we set userword as
+07:47		the word... or rather we set the word as
+07:52		the userword. okay and then we print
+07:57		hangman, we set our number of guesses
+08:00		as 10 and we start this list called
+08:04		guessed, and then we're ready to go into
+08:08		the main loop of the game. now notice
+08:12		everything that we want to do just one
+08:15		time has been done outside of the while
+08:18		loop. so the target word has been set
+08:21		just once, and these variables which will
+08:27		be changing inside of the while loop we
+08:29		only want to initialize them once. and so
+08:33		we set num_guesses to ten here and we
+08:37		reference this list which is now an
+08:40		empty list outside of the while loop.
+08:44		okay let's look in the while loop. while
+08:49		number of guesses is greater than zero - 
+08:51		and of course right now it is - there are
+08:54		ten guesses left - 
+08:57		we take a new guess from the user as
+09:01		input, and then we can do several things.
+09:06		if the guess is nothing we're going to
+09:10		break out of the loop. this is a way to
+09:12		give up. if we check down at the bottom
+09:15		of the loop it's going to say here lies
+09:18		the outlaw who couldn't guess... and then
+09:21		by using the format method we put the
+09:24		word into this string that essentially
+09:28		says the game is over. and again the
+09:32		syntax for format is simply dot format -
+09:36		this is right after the end of a string
+09:38		so our string here in double quotes dot
+09:42		format and then as an argument anything
+09:47		that you want to appear... any variable
+09:49		that you want to appear inside of
+09:53		the curly braces. so the curly braces are
+09:57		kind of acting as special characters
+09:59		inside the string here when used with
+10:02		the format method. okay let's go back up.
+10:09		so if we input the empty string then the
+10:14		game is over. we break out of the loop
+10:16		and we get the game over message. all
+10:21		right having confirmed it's not the
+10:24		empty string we can check that the guess
+10:27		is good. what we want is a single
+10:30		character since we play hangman by
+10:34		guessing the word one character at a
+10:37		time, so here we're using a method that
+10:42		can be used on strings, isalpha, and you
+10:47		may recall this method says return true
+10:51		if the string -  in this case the string
+10:55		stored in guess - if the string is all
+11:00		letters that is does not contain digits
+11:04		or punctuation etc has to be A through Z.
+11:11		okay so that's one condition we want to
+11:14		meet, that the guess is a letter or not.
+11:19		length of the guess is equal to one. so
+11:24		not only are we checking that the guess
+11:27		is only letters; we are checking that the
+11:30		guess is only one letter. so it must be a
+11:34		string of length one. and then we get a
+11:38		cute little message if these conditions
+11:42		are not met and we continue so we go
+11:45		back up. we don't do anything to num_guesses
+11:47		and we don't do anything to
+11:49		guessed because we're choosing to be nice
+11:54		if the guess is in guessed. okay now we
+11:59		don't know what guessed is, well we do
+12:01		but we haven't seen anything happen to
+12:03		it yet.
+12:04		guessed we know is an empty list.
+12:08		remember we initialized it up here. by
+12:13		the time we reach this point in the code
+12:15		it's possible that guessed could be
+12:18		populated with letters, that is - it
+12:21		could be storing values that are single
+12:24		letter strings and you can see right
+12:28		here that this part of the code guessed.append(guess)
+12:31		is going to be executed
+12:37		for every letter that is guessed by this
+12:42		point. in the code
+12:43		we're catching certain cases. if the
+12:47		guess is not a good one, it's not going
+12:50		to reach this point. we're not going to
+12:52		store it a guessed if the guess is already
+12:56		in the list we're not going to reach
+12:59		this point. we're not going to store it
+13:01		in the list again. but let's say we do
+13:05		reach this point with several letters
+13:08		appended. this method append places the
+13:13		letter as a new value and specifically
+13:16		as the value at the highest used index
+13:20		in the list guessed. so we can use this
+13:27		syntax guess in guessed to check whether
+13:33		or not that letter has already been
+13:35		guessed, and then we have another cute
+13:41		message, I don't know who came up with
+13:43		those, followed by continue which says
+13:46		the code will not be executed below this
+13:48		point. we go back up and restart the
+13:51		while loop. if we do reach this point,
+13:58		that is if all these tests pass, then
+14:02		this is the next code that is run. we're
+14:05		going to append guess to the list called
+14:09		guessed as we just talked about, and the
+14:13		next thing we're going to do is get a
+14:15		string called word_so_far
+14:18		from our other function in this code
+14:22		get_word_so_far which takes as its
+14:25		parameters both the list guessed and the
+14:29		word which is once again the target word
+14:34		so we'll take a look at this method in
+14:37		the next video
